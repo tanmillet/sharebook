@@ -23,6 +23,7 @@ Route::namespace('Admin')->prefix('admin')->group(
         // 在 "App\Http\Controllers\Admin" 命名空间下的控制器
         $router->get('/', 'IndexController@index');
         $router->get('/table', 'IndexController@table');
+        $router->get('/from', 'IndexController@from');
         $router->match(['get', 'post'], '/login', 'IndexController@login');
     }
 );

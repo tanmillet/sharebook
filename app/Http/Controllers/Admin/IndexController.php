@@ -30,16 +30,35 @@ class IndexController extends Controller
         return view('admin-app.index');
     }
 
+    /**
+     * @author Terry Lucas
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function table()
     {
         return view('admin-app.table');
     }
 
+    /**
+     * @author Terry Lucas
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
     public function login(Request $request)
     {
-        if($request->isMethod('POST')){
+        if ($request->isMethod('POST')) {
             return redirect('/admin/');
         }
+
         return view('admin-app.login');
+    }
+
+    /**
+     * @author Terry Lucas
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function from()
+    {
+        return view('admin-app.from');
     }
 }
