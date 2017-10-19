@@ -14,6 +14,9 @@
 Route::get(
     '/',
     function () {
+
+        dump(app('lucasRbac'));
+        die();
         return view('welcome');
     }
 );
