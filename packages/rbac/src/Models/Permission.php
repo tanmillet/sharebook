@@ -2,19 +2,20 @@
 
 namespace LucasRBAC\Permission\Models;
 
-use Illuminate\Support\Collection;
+// use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Permission\PermissionRegistrar;
-use Spatie\Permission\Traits\RefreshesPermissionCache;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Spatie\Permission\Exceptions\PermissionDoesNotExist;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Spatie\Permission\Exceptions\PermissionAlreadyExists;
-use Spatie\Permission\Contracts\Permission as PermissionContract;
+// use Spatie\Permission\PermissionRegistrar;
+// use LucasRBAC\Permission\Traits\RefreshesPermissionCache;
+// use Illuminate\Database\Eloquent\Relations\MorphToMany;
+// use Spatie\Permission\Exceptions\PermissionDoesNotExist;
+// use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+// use Spatie\Permission\Exceptions\PermissionAlreadyExists;
+// use Spatie\Permission\Contracts\Permission as PermissionContract;
 
-class Permission extends Model implements PermissionContract
+// class Permission extends Model implements PermissionContract
+class Permission extends Model
 {
-    use RefreshesPermissionCache;
+    // use RefreshesPermissionCache;
 
     public $guarded = ['id'];
 
@@ -31,7 +32,11 @@ class Permission extends Model implements PermissionContract
     {
         $attributes['guard_name'] = $attributes['guard_name'] ?? config('auth.defaults.guard');
 
-        if (static::getPermissions()->where('name', $attributes['name'])->where('guard_name', $attributes['guard_name'])->first()) {
+        if (static::getPermissions()->where('name', $attributes['name'])->where(
+            'guard_name',
+            $attributes['guard_name']
+        )->first()
+        ) {
             throw PermissionAlreadyExists::create($attributes['name'], $attributes['guard_name']);
         }
 
@@ -77,13 +82,13 @@ class Permission extends Model implements PermissionContract
      *
      * @return \Spatie\Permission\Contracts\Permission
      */
-    public static function findByName(string $name, $guardName = null): PermissionContract
+    public static function findByName(string $name, $guardName = NULL): PermissionContract
     {
         $guardName = $guardName ?? config('auth.defaults.guard');
 
         $permission = static::getPermissions()->where('name', $name)->where('guard_name', $guardName)->first();
 
-        if (! $permission) {
+        if (!$permission) {
             throw PermissionDoesNotExist::create($name, $guardName);
         }
 

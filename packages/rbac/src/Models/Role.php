@@ -3,6 +3,7 @@
 namespace LucasRBAC\Permission\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use LucasRBAC\Permission\Exceptions\RoleCreateArgsDoesNotExists;
 use LucasRBAC\Permission\Traits\HasPermissions;
 use LucasRBAC\Permission\Exceptions\RoleDoesNotExist;
 use LucasRBAC\Permission\Exceptions\GuardDoesNotMatch;
@@ -49,7 +50,9 @@ class Role extends Model implements RoleContract
      */
     public static function create(array $attributes = [])
     {
-        $attributes['guard_name'] = $attributes['guard_name'] ?? config('auth.defaults.guard');
+        if (!isset($attributes['guard_name']) || !isset($attributes['name'])) {
+            throw RoleCreateArgsDoesNotExists::create($attributes['name'], $attributes['guard_name']);
+        }
 
         if (static::where('name', $attributes['name'])->where('guard_name', $attributes['guard_name'])->first()) {
             throw RoleAlreadyExists::create($attributes['name'], $attributes['guard_name']);
@@ -97,13 +100,13 @@ class Role extends Model implements RoleContract
      *
      * @throws \Spatie\Permission\Exceptions\RoleDoesNotExist
      */
-    public static function findByName(string $name, $guardName = null): RoleContract
+    public static function findByName(string $name, $guardName = NULL): RoleContract
     {
         $guardName = $guardName ?? config('auth.defaults.guard');
 
         $role = static::where('name', $name)->where('guard_name', $guardName)->first();
 
-        if (! $role) {
+        if (!$role) {
             throw RoleDoesNotExist::create($name);
         }
 
@@ -125,7 +128,7 @@ class Role extends Model implements RoleContract
             $permission = app(Permission::class)->findByName($permission, $this->getDefaultGuardName());
         }
 
-        if (! $this->getGuardNames()->contains($permission->guard_name)) {
+        if (!$this->getGuardNames()->contains($permission->guard_name)) {
             throw GuardDoesNotMatch::create($permission->guard_name, $this->getGuardNames());
         }
 

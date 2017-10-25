@@ -57,8 +57,8 @@ class IndexController extends Controller
      * @author Terry Lucas
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function from()
+    public function form()
     {
-        return view('admin-app.from');
+        return view('admin-app.form');
     }
 }
