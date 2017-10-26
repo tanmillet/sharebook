@@ -14,17 +14,24 @@
 Route::get(
     '/',
     function () {
-        \Auth::loginUsingId(1);
-        $user = \Illuminate\Support\Facades\Auth::user();
 
-        $res = \LucasRBAC\Permission\Models\Role::create([
+        $user = \Auth::loginUsingId(1);
+        $user = \Illuminate\Support\Facades\Auth::user();
+        /*$res = \LucasRBAC\Permission\Models\Role::create([
             'name' => '测试管理员',
             'guard_name' => 'TestAdmin',
-        ]);
+        ]);*/
+        $userRole = $user->roles->toArray();
+        $role = \LucasRBAC\Permission\Models\Role::findByName($userRole[0]['name'],$userRole[0]['display_name']);
+        dump($role->permissions->contains('name' , '/g/admin'));
 
-        dump($res);
-        dump($user->name);
-        dump(app('lucasRbac'));
+        foreach ($role->permissions as $permission){
+            dump($permission->name);
+        }
+
+        // dump($role->users);
+        // dump($user->name);
+        // dump(app('lucasRbac'));
         die();
 
         return view('welcome');

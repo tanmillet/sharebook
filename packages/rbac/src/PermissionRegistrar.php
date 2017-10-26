@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\Permission;
+namespace LucasRBAC\Permission;
 
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Contracts\Cache\Repository;
-use Spatie\Permission\Contracts\Permission;
+use LucasRBAC\Permission\Contracts\Permission;
 use Illuminate\Contracts\Auth\Authenticatable;
-use Spatie\Permission\Exceptions\PermissionDoesNotExist;
+use LucasRBAC\Permission\Exceptions\PermissionDoesNotExist;
 
 class PermissionRegistrar
 {

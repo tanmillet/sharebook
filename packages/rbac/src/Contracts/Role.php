@@ -32,5 +32,5 @@ interface Role
      *
      * @return bool
      */
-    public function hasPermissionTo($permission): bool;
+    // public function hasPermissionTo($permission): bool;
 }

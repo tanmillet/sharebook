@@ -53,22 +53,8 @@ class Permission extends Model
     public function roles(): BelongsToMany
     {
         return $this->belongsToMany(
-            config('permission.models.role'),
-            config('permission.table_names.role_has_permissions')
-        );
-    }
-
-    /**
-     * A permission belongs to some users of the model associated with its guard.
-     */
-    public function users(): MorphToMany
-    {
-        return $this->morphedByMany(
-            getModelForGuard($this->attributes['guard_name']),
-            'model',
-            config('permission.table_names.model_has_permissions'),
-            'permission_id',
-            'model_id'
+            Role::class,
+            'permission_role'
         );
     }
 
