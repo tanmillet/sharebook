@@ -61,4 +61,19 @@ class IndexController extends Controller
     {
         return view('admin-app.form');
     }
+
+    public function admin2App()
+    {
+        return view('admin2-app.index');
+    }
+
+    public function admin2Roles()
+    {
+        return view('admin2-app.roles');
+    }
+
+    public function admin2AddRole()
+    {
+        return view('admin2-app.addrole');
+    }
 }
