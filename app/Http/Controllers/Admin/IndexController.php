@@ -62,16 +62,28 @@ class IndexController extends Controller
         return view('admin-app.form');
     }
 
+    /**
+     * @author Terry Lucas
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function admin2App()
     {
         return view('admin2-app.index');
     }
 
+    /**
+     * @author Terry Lucas
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function admin2Roles()
     {
         return view('admin2-app.roles');
     }
 
+    /**
+     * @author Terry Lucas
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function admin2AddRole()
     {
         return view('admin2-app.addrole');

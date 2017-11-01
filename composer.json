@@ -23,7 +23,8 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "LucasRBAC\\Permission\\": "packages/rbac/src/"
+            "LucasRBAC\\Permission\\": "packages/rbac/src/",
+            "LucasRBAC\\Validator\\": "packages/validator/src/"
         }
     },
     "autoload-dev": {

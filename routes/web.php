@@ -52,7 +52,8 @@ Route::namespace('Admin')->prefix('admin2')->group(
     function ($router) {
         // 在 "App\Http\Controllers\Admin" 命名空间下的控制器
         $router->get('/', 'IndexController@admin2App');
-        $router->get('/roles', 'IndexController@admin2Roles');
-        $router->get('/add/role', 'IndexController@admin2AddRole');
+        $router->get('/roles', 'RoleController@index');
+        $router->get('/up/role/{opid?}', 'RoleController@show');
+        $router->post('/store/role', 'RoleController@store');
     }
 );

@@ -177,7 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        LucasRBAC\Permission\RbacServiceProvider::class,
+        // LucasRBAC\Permission\RbacServiceProvider::class,
 
     ],
 
