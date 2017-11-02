@@ -28,7 +28,16 @@ class Role extends Model implements RoleContract
      * @author Terry Lucas
      * @var array
      */
-    public $guarded = ['id'];
+    protected $guarded = [
+        'id',
+        'updated_at',
+        'created_at',
+    ];
+
+    public $fillable = [
+        'display_name',
+        'name',
+    ];
 
     /**
      * @author Terry Lucas
@@ -37,6 +46,8 @@ class Role extends Model implements RoleContract
      */
     public function __construct(array $attributes = [])
     {
+        parent::__construct($attributes);
+
         $this->setTable('roles');
     }
 
@@ -47,17 +58,18 @@ class Role extends Model implements RoleContract
      */
     public static function create(array $attributes = [])
     {
-        if (!isset($attributes['guard_name']) || !isset($attributes['name'])) {
-            throw RoleCreateArgsDoesNotExists::create($attributes['name'], $attributes['guard_name']);
+        if (!isset($attributes['display_name']) || !isset($attributes['name'])) {
+            throw RoleCreateArgsDoesNotExists::create($attributes['name'], $attributes['display_name']);
         }
 
-        if (static::where('name', $attributes['name'])->where('guard_name', $attributes['guard_name'])->first()) {
-            throw RoleAlreadyExists::create($attributes['name'], $attributes['guard_name']);
+        if (static::where('name', $attributes['name'])->where('display_name', $attributes['display_name'])->first()) {
+            throw RoleAlreadyExists::create($attributes['name'], $attributes['display_name']);
         }
 
         if (app()::VERSION < '5.4') {
             return parent::create($attributes);
         }
+
 
         return static::query()->create($attributes);
     }

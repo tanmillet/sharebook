@@ -6,8 +6,9 @@ use Illuminate\Support\Facades\Validator;
 
 /**
  * Class FormRequest
- * User: Terry Lucas
- * @package App\Http\Controllers\wx\V3\Requests
+ * Author Terry Lucas
+ * @package LucasRBAC\Validator
+ *
  */
 abstract class FormRequest
 {

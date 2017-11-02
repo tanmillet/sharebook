@@ -5,7 +5,16 @@
         <div class="row">
             <!-- left column -->
             <div class="col-md-12">
-                <!-- general form elements -->
+                @if(count($errors)>0)
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4><i class="icon fa fa-ban"></i> 错误!</h4>
+                        @foreach($errors->all() as $value)
+                            {{$value}}
+                        @endforeach
+                    </div>
+            @endif
+            <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">新加角色</h3>
@@ -17,17 +26,21 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="role-display-name">角色名称</label>
-                                <input type="text" class="form-control" name="role_display_name" placeholder="输入角色名称" value="{{$role->display_name}}">
+                                <input type="text" class="form-control" name="display_name" placeholder="输入角色名称"
+                                       value="{{$role->display_name}}">
                             </div>
                             <div class="form-group">
                                 <label for="role-name">角色标识</label>
-                                <input type="text" class="form-control" name="role_name" placeholder="输入角色标识" value="{{$role->name}}">
+                                <input type="text" class="form-control" name="name" placeholder="输入角色标识"
+                                       value="{{$role->name}}">
                             </div>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <button type="submit" class="btn bg-blue btn-flat margin">确定</button>
-                            <a href="/admin2/roles"><button type="button" class="btn btn-default btn-flat margin">返回</button></a>
+                            <a href="/admin2/roles">
+                                <button type="button" class="btn btn-default btn-flat margin">返回</button>
+                            </a>
                         </div>
                         <input type="hidden" name="role_id" value="{{base64_encode($role->id)}}">
                     </form>
@@ -38,4 +51,6 @@
         </div>
         <!-- /.row -->
     </section>
+
+
 @endsection
