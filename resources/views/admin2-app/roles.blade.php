@@ -15,7 +15,7 @@
                             <button type="button" class="btn btn-sm bg-blue btn-flat margin"><i class="fa fa-plus"></i>
                                 新加
                             </button>
-                    </a>
+                        </a>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -31,20 +31,25 @@
                             <tbody>
                             @forelse($roles as $role)
                                 <tr>
-                                <td><a href="/admin2/up/role/{{base64_encode($role->id)}}">{{$role->display_name}}</a></td>
-                                <td>{{$role->name}}</td>
-                                <td>{{$role->updated_at}}</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a href="/admin2/up/role/{{base64_encode($role->id)}}">
-                                            <button type="button" class="btn btn-sm bg-blue btn-flat margin">编辑
+                                    <td>
+                                        <a href="/admin2/up/role/{{base64_encode($role->id)}}">{{$role->display_name}}</a>
+                                    </td>
+                                    <td>{{$role->name}}</td>
+                                    <td>{{$role->updated_at}}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="/admin2/up/role/{{base64_encode($role->id)}}">
+                                                <button type="button" class="btn btn-sm bg-blue btn-flat margin">编辑
+                                                </button>
+                                            </a>
+                                            <button type="button"
+                                                    class="btn btn-sm bg-maroon btn-flat margin oper-del-role"
+                                                    data-toggle="modal" data-target="#modal-danger"
+                                                    data-id="{{base64_encode($role->id)}}"
+                                                    data-name="{{$role->display_name}}">删除
                                             </button>
-                                        </a>
-                                        <button type="button" class="btn btn-sm bg-maroon btn-flat margin"
-                                                data-toggle="modal" data-target="#modal-danger">删除
-                                        </button>
-                                    </div>
-                                </td>
+                                        </div>
+                                    </td>
                                 </tr>
                             @empty
                             @endforelse
@@ -66,14 +71,19 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Danger Modal</h4>
+                    <h4 class="modal-title">温馨提示！- 警告急</h4>
                 </div>
                 <div class="modal-body">
-                    <p>One fine body&hellip;</p>
+                    <p>你确定删除以下角色类型信息吗？</p>
+                    <p>
+                        角色类型名称：<span id="delInfo"></span>
+                    </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-outline">Save changes</button>
+                    <button type="button" class="btn btn-outline op-modal-danger" data-url="/admin2/destroy/role">Save
+                        changes
+                    </button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -101,5 +111,20 @@
                 'autoWidth': false
             })
         })
+
+        $(".oper-del-role").click(function () {
+            var me = this;
+            $("#delInfo").html($(me).attr('data-name'));
+        });
+        //        $("#modal-danger").on("show.bs.modal",function() {
+        //            var me = this;
+        //            console.log(me);
+        //            alert($(me).attr('data-id'));
+        //        })
     </script>
+
+    　　
+    <script src="/admin2-app/assets/vendor/require.js"
+            data-main="/admin2-app/assets/app/controller/op-role-ctrl"></script>
+
 @endsection

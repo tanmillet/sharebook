@@ -108,5 +108,8 @@ class RoleController extends Controller
     public function destroy($id)
     {
         //
+        return [
+            'ok' => '500',
+        ];
     }
 }

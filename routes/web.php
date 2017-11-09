@@ -14,7 +14,11 @@
 Route::get(
     '/',
     function () {
-
+        $x=87;
+        $y=($x%7)*16;
+        $z=$x>$y?1:0;
+        echo $z;
+die();
         $user = \Auth::loginUsingId(1);
         $user = \Illuminate\Support\Facades\Auth::user();
         /*$res = \LucasRBAC\Permission\Models\Role::create([
@@ -55,5 +59,6 @@ Route::namespace('Admin')->prefix('admin2')->group(
         $router->get('/roles', 'RoleController@index');
         $router->get('/up/role/{opid?}', 'RoleController@show');
         $router->post('/store/role', 'RoleController@store');
+        $router->post('/destroy/role/{opid}', 'RoleController@destroy');
     }
 );
