@@ -10,6 +10,13 @@ define(['jquery'], function ($) {
                     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
                 }
             });
+
+            // $.ajaxSetup({
+            //     headers: {
+            //         'X-XSRF-TOKEN': $.cookie('XSRF-TOKEN')
+            //     }
+            // });
+
             $.ajax({
                 url: url, type: method, data: params, dataType: dataType, success: callback,
                 error: function () {
