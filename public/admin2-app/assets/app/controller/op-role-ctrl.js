@@ -7,13 +7,12 @@ require.config({
 });
 
 require(['jquery', "AjaxModel"], function ($, req) {
-
     $(".op-modal-danger").click(function () {
-        var me = this,
-            formData = {'operId': $(me).attr('data-id')},
-            formUrl = $(me).attr('data-url') + '/' + $(me).attr('data-id');
-
         $(me).attr('disabled', "true");
+
+        var me = this,
+            formData = {'operId': $("#operId").val()},
+            formUrl = $(me).attr('data-url') + '/' + $("#operId").val();
 
         var request = new req.AjaxModel();
         request.loseAjax(formUrl, 'post', formData, 'json', function (res) {
@@ -27,7 +26,7 @@ require(['jquery', "AjaxModel"], function ($, req) {
         var me = this,
             formId = me.id
         formData = $("#" + formId + "-form").serialize(),
-            formUrl = $(me).attr('data-url') + '/1';
+            formUrl = $(me).attr('data-url') + '/1'
         $(me).attr('disabled', "true");
 
         var request = new req.AjaxModel();

@@ -77,6 +77,7 @@
                     <p>你确定删除以下角色类型信息吗？</p>
                     <p>
                         角色类型名称：<span id="delInfo"></span>
+                        <input type="hidden" value="" id="operId">
                     </p>
                 </div>
                 <div class="modal-footer">
@@ -115,6 +116,7 @@
         $(".oper-del-role").click(function () {
             var me = this;
             $("#delInfo").html($(me).attr('data-name'));
+            $("#operId").attr('value' , $(me).attr('data-id'))
         });
         //        $("#modal-danger").on("show.bs.modal",function() {
         //            var me = this;
