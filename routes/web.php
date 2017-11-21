@@ -14,29 +14,29 @@
 Route::get(
     '/',
     function () {
-        $x=87;
-        $y=($x%7)*16;
-        $z=$x>$y?1:0;
-        echo $z;
-die();
-        $user = \Auth::loginUsingId(1);
-        $user = \Illuminate\Support\Facades\Auth::user();
+//         $x=87;
+//         $y=($x%7)*16;
+//         $z=$x>$y?1:0;
+//         echo $z;
+// die();
+//         $user = \Auth::loginUsingId(1);
+//         $user = \Illuminate\Support\Facades\Auth::user();
         /*$res = \LucasRBAC\Permission\Models\Role::create([
             'name' => '测试管理员',
             'guard_name' => 'TestAdmin',
         ]);*/
-        $userRole = $user->roles->toArray();
-        $role = \LucasRBAC\Permission\Models\Role::findByName($userRole[0]['name'],$userRole[0]['display_name']);
-        dump($role->permissions->contains('name' , '/g/admin'));
-
-        foreach ($role->permissions as $permission){
-            dump($permission->name);
-        }
+        // $userRole = $user->roles->toArray();
+        // $role = \LucasRBAC\Permission\Models\Role::findByName($userRole[0]['name'],$userRole[0]['display_name']);
+        // dump($role->permissions->contains('name' , '/g/admin'));
+        //
+        // foreach ($role->permissions as $permission){
+        //     dump($permission->name);
+        // }
 
         // dump($role->users);
         // dump($user->name);
         // dump(app('lucasRbac'));
-        die();
+        // die();
 
         return view('welcome');
     }
