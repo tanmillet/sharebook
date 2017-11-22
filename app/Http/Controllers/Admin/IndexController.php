@@ -88,4 +88,13 @@ class IndexController extends Controller
     {
         return view('admin2-app.addrole');
     }
+
+    /**
+     * @author Terry Lucas
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function admin2Timeline()
+    {
+        return view('admin2-app.timeline');
+    }
 }

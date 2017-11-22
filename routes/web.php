@@ -14,6 +14,7 @@
 Route::get(
     '/',
     function () {
+
 //         $x=87;
 //         $y=($x%7)*16;
 //         $z=$x>$y?1:0;
@@ -47,6 +48,7 @@ Route::namespace('Admin')->prefix('admin')->group(
         // 在 "App\Http\Controllers\Admin" 命名空间下的控制器
         $router->get('/', 'IndexController@index');
         $router->get('/table', 'IndexController@table');
+        $router->get('/timeline', 'IndexController@admin2Timeline');
         $router->get('/form', 'IndexController@form');
         $router->match(['get', 'post'], '/login', 'IndexController@login');
     }
@@ -57,8 +59,11 @@ Route::namespace('Admin')->prefix('admin2')->group(
         // 在 "App\Http\Controllers\Admin" 命名空间下的控制器
         $router->get('/', 'IndexController@admin2App');
         $router->get('/roles', 'RoleController@index');
-        $router->get('/up/role/{opid?}', 'RoleController@show');
+        $router->get('/tltypes', 'TlTypeController@index');
+        $router->get('/show/role/{opid?}', 'RoleController@show');
+        $router->get('/show/tltype/{opid?}', 'TlTypeController@show');
         $router->post('/store/role', 'RoleController@store');
+        $router->post('/store/tltype', 'TlTypeController@store');
         $router->post('/destroy/role/{opid}', 'RoleController@destroy');
     }
 );

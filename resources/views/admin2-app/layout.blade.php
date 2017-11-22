@@ -248,6 +248,19 @@
                         <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> 权限列表</a></li>
                     </ul>
                 </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-laptop"></i>
+                        <span>时间轴管理</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/admin2/tltypes"><i class="fa fa-circle-o"></i> 类型列表</a></li>
+                        <li><a href="/admin2/roles"><i class="fa fa-circle-o"></i> 内容列表</a></li>
+                    </ul>
+                </li>
                 <li class="treeview active">
                     <a href="#">
                         <i class="fa fa-files-o"></i>
