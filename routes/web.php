@@ -60,8 +60,10 @@ Route::namespace('Admin')->prefix('admin2')->group(
         $router->get('/', 'IndexController@admin2App');
         $router->get('/roles', 'RoleController@index');
         $router->get('/tltypes', 'TlTypeController@index');
+        $router->get('/tlcontents', 'TimeLineController@index');
         $router->get('/show/role/{opid?}', 'RoleController@show');
         $router->get('/show/tltype/{opid?}', 'TlTypeController@show');
+        $router->get('/show/tlcontent/{opid?}', 'TimeLineController@show');
         $router->post('/store/role', 'RoleController@store');
         $router->post('/store/tltype', 'TlTypeController@store');
         $router->post('/destroy/role/{opid}', 'RoleController@destroy');

@@ -258,7 +258,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="/admin2/tltypes"><i class="fa fa-circle-o"></i> 类型列表</a></li>
-                        <li><a href="/admin2/roles"><i class="fa fa-circle-o"></i> 内容列表</a></li>
+                        <li><a href="/admin2/tlcontents"><i class="fa fa-circle-o"></i> 内容列表</a></li>
                     </ul>
                 </li>
                 <li class="treeview active">

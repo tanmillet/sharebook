@@ -25,7 +25,8 @@
         "psr-4": {
             "App\\": "app/",
             "LucasRBAC\\Permission\\": "packages/rbac/src/",
-            "LucasRBAC\\Validator\\": "packages/validator/src/"
+            "LucasRBAC\\Validator\\": "packages/validator/src/",
+            "LucasUpload\\FilePusher\\": "packages/uploadfile/src/"
         }
     },
     "autoload-dev": {
