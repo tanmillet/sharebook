@@ -15,6 +15,7 @@
                             <button type="button" class="btn btn-sm bg-blue btn-flat margin"><i class="fa fa-plus"></i>
                                 新加
                             </button>
+                            <a href="http://sbook.io/admin/timeline" target="_blank">时间轴</a>
                         </a>
                     </div>
                     <!-- /.box-header -->
@@ -35,9 +36,9 @@
                                     <td>
                                         <a href="/admin2/show/tlcontent/{{base64_encode($content->id)}}">{{$content->title}}</a>
                                     </td>
-                                    <td>{{$tltype->type_tag}}</td>
-                                    <td>{{$tltype->digest}}</td>
-                                    <td>{{$tltype->updated_at}}</td>
+                                    <td>{{$content->type_tag}}</td>
+                                    <td>{{$content->digest}}</td>
+                                    <td>{{$content->updated_at}}</td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="/admin2/show/tlcontent/{{base64_encode($content->id)}}">

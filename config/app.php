@@ -178,7 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         // LucasRBAC\Permission\RbacServiceProvider::class,
-
+        AetherUpload\AetherUploadServiceProvider::class,
     ],
 
     /*

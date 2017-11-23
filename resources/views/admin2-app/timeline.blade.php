@@ -124,7 +124,7 @@
                             <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
 
                             <div class="timeline-body">
-                                <img src="http://placehold.it/150x100" alt="..." class="margin">
+                                <img src="http://sbook.io/aetherupload/display/file/201711/af6f4dcd157fdddcb85395c6b5f500dc.jpg" alt="..." class="margin" width="150" height="100">
                                 <img src="http://placehold.it/150x100" alt="..." class="margin">
                                 <img src="http://placehold.it/150x100" alt="..." class="margin">
                                 <img src="http://placehold.it/150x100" alt="..." class="margin">
@@ -143,8 +143,8 @@
 
                             <div class="timeline-body">
                                 <div class="embed-responsive embed-responsive-16by9">
-                                    {{--<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tMWkeBIohBs"--}}
-                                    {{--frameborder="0" allowfullscreen></iframe>--}}
+                                    <iframe class="embed-responsive-item" src="http://sbook.io/aetherupload\display\file\201711\136159265561556a02f953b8221ef0d3.mp4"
+                                    frameborder="0" allowfullscreen></iframe>
                                 </div>
                             </div>
                             <div class="timeline-footer">

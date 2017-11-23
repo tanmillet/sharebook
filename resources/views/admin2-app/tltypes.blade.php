@@ -15,7 +15,7 @@
                             <button type="button" class="btn btn-sm bg-blue btn-flat margin"><i class="fa fa-plus"></i>
                                 新加
                             </button>
-                            <a href="http://sbook.io/admin/timeline" target="_blank">时间轴</a>
+
                         </a>
                     </div>
                     <!-- /.box-header -->

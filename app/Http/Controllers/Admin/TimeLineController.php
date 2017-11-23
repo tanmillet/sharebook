@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\Requests\UpTlContentValidator;
 use App\TimeLine;
+use App\TimeLineType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -46,14 +47,15 @@ class TimeLineController extends Controller
         if (!empty($inputs->getValidatorResMsg())) {
             return back()->withErrors($inputs->getValidatorResMsg());
         }
+
         //insert db init
         $tlcontent = [
             'text'     => $validator->validateParams['text'],
             'type_tag' => $validator->validateParams['type_tag'],
             'digest'   => $validator->validateParams['digest'],
             'title'    => $validator->validateParams['title'],
-            'year'     => 1, //默认可以使用
-            'month'    => 1, //默认可以使用
+            'year'     => 2017, //默认可以使用
+            'month'    => 11, //默认可以使用
         ];
 
         //add new role operate
@@ -77,7 +79,9 @@ class TimeLineController extends Controller
         //
         $tlcontent = (is_null($id)) ? new TimeLine() : TimeLine::where('id', base64_decode($id))->first();
 
-        return view('admin2-app.showtlcontent', compact('tlcontent'));
+        $tltypes = TimeLineType::all();
+
+        return view('admin2-app.showtlcontent', compact('tlcontent','tltypes'));
     }
 
     /**

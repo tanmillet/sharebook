@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "266a772d0df63dde79ed005d9facaa47",
-    "content-hash": "5776f4440451638e5bffa16f122d4638",
+    "hash": "3ca644392ddb4b1787bbbbf75040ce84",
+    "content-hash": "117dc4e819589f1d215b4065d8db6e0b",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -955,6 +955,52 @@
                 "random"
             ],
             "time": "2017-09-27 21:40:39"
+        },
+        {
+            "name": "peinhu/aetherupload-laravel",
+            "version": "v1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/peinhu/AetherUpload-Laravel.git",
+                "reference": "5f3d2a736593e163d69c04e1144e5b03bbdf28ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/peinhu/AetherUpload-Laravel/5f3d2a736593e163d69c04e1144e5b03bbdf28ba.zip",
+                "reference": "5f3d2a736593e163d69c04e1144e5b03bbdf28ba",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "suggest": {
+                "predis/predis": "Needed to support instant completion"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AetherUpload\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Payne Hu",
+                    "email": "huyang110yahoo@gmail.com",
+                    "homepage": "http://www.2ndrenais.com",
+                    "role": "Manager"
+                }
+            ],
+            "description": "Upload large files for Laravel 上传 大文件 laravel包",
+            "keywords": [
+                "big",
+                "large",
+                "大文件"
+            ],
+            "time": "2017-09-11 05:42:49"
         },
         {
             "name": "psr/container",
