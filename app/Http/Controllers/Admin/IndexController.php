@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\TimeLine;
+use Illuminate\Support\Facades\Request;
 
 /**
  * Class IndexController
@@ -95,6 +96,21 @@ class IndexController extends Controller
      */
     public function admin2Timeline()
     {
-        return view('admin2-app.timeline');
+        $timelines = TimeLine::all();
+        $timelines->each(
+            function ($timeline, $index) {
+                if ($timeline->type_tag === 'IMG' || $timeline->type_tag === 'VIDEO') {
+                    $texts = [];
+                    $srcs = explode("|", $timeline->text);
+                    if (!is_null($srcs) && is_array($srcs)) {
+                        foreach ($srcs as $key => $src) {
+                            $texts[$key] = $_SERVER['APP_URL'].$src;
+                        }
+                        $timeline->text = $texts;
+                    }
+                }
+            }
+        );
+        return view('admin2-app.timeline' , compact('timelines'));
     }
 }

@@ -30,7 +30,8 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-blue layout-boxed sidebar-mini" style="background: lightyellow !important;padding: 50px 0px 50px 0px;">
+<body class="hold-transition skin-blue layout-boxed sidebar-mini"
+      style="background: lightyellow !important;padding: 50px 0px 50px 0px;">
 {{--<body class="hold-transition skin-blue fixed sidebar-mini">--}}
 <!-- Site wrapper -->
 <div class="wrapper" style="background: pink">
@@ -46,7 +47,36 @@
             <div class="col-md-12">
                 <!-- The time line -->
                 <ul class="timeline">
-                    <!-- timeline time label -->
+
+                        <li class="time-label">
+                  <span class="bg-red">
+                    17.11. 2017
+                  </span>
+                        </li>
+                @foreach($timelines as $timeline)
+                        <li>
+                            <i class="fa fa-camera bg-purple"></i>
+
+                            <div class="timeline-item">
+                                <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
+
+                                <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
+
+                                <div class="timeline-body">
+                                    @foreach($timeline->text as $img)
+                                        <img src="{{$img}}"
+                                             alt="..." class="margin" width="150" height="100">
+                                     @endforeach
+                                    {{--<img src="http://sbook.io/aetherupload/display/file/201711/af6f4dcd157fdddcb85395c6b5f500dc.jpg"--}}
+                                         {{--alt="..." class="margin" width="150" height="100">--}}
+                                    {{--<img src="http://placehold.it/150x100" alt="..." class="margin">--}}
+                                    {{--<img src="http://placehold.it/150x100" alt="..." class="margin">--}}
+                                    {{--<img src="http://placehold.it/150x100" alt="..." class="margin">--}}
+                                </div>
+                            </div>
+                        </li>
+                @endforeach
+                <!-- timeline time label -->
                     <li class="time-label">
                   <span class="bg-red">
                     17.11. 2017
@@ -124,7 +154,8 @@
                             <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
 
                             <div class="timeline-body">
-                                <img src="http://sbook.io/aetherupload/display/file/201711/af6f4dcd157fdddcb85395c6b5f500dc.jpg" alt="..." class="margin" width="150" height="100">
+                                <img src="http://sbook.io/aetherupload/display/file/201711/af6f4dcd157fdddcb85395c6b5f500dc.jpg"
+                                     alt="..." class="margin" width="150" height="100">
                                 <img src="http://placehold.it/150x100" alt="..." class="margin">
                                 <img src="http://placehold.it/150x100" alt="..." class="margin">
                                 <img src="http://placehold.it/150x100" alt="..." class="margin">
@@ -143,8 +174,9 @@
 
                             <div class="timeline-body">
                                 <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="http://sbook.io/aetherupload\display\file\201711\136159265561556a02f953b8221ef0d3.mp4"
-                                    frameborder="0" allowfullscreen></iframe>
+                                    <iframe class="embed-responsive-item"
+                                            src="http://sbook.io/aetherupload\display\file\201711\136159265561556a02f953b8221ef0d3.mp4"
+                                            frameborder="0" allowfullscreen></iframe>
                                 </div>
                             </div>
                             <div class="timeline-footer">

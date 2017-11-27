@@ -14,7 +14,7 @@
 Route::get(
     '/',
     function () {
-
+            // phpinfo();die();
 //         $x=87;
 //         $y=($x%7)*16;
 //         $z=$x>$y?1:0;
