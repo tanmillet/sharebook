@@ -39,7 +39,7 @@ Route::get(
         // dump(app('lucasRbac'));
         // die();
 
-        return view('welcome');
+        return view('geo');
     }
 );
 
@@ -47,6 +47,8 @@ Route::namespace('Admin')->prefix('admin')->group(
     function ($router) {
         // 在 "App\Http\Controllers\Admin" 命名空间下的控制器
         $router->get('/', 'IndexController@index');
+        $router->get('/geo', 'GeoController@index');
+        $router->get('/geoanalyze', 'GeoController@analyze');
         $router->get('/table', 'IndexController@table');
         $router->get('/timeline', 'IndexController@admin2Timeline');
         $router->get('/form', 'IndexController@form');

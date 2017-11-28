@@ -96,7 +96,7 @@ class IndexController extends Controller
      */
     public function admin2Timeline()
     {
-        $timelines = TimeLine::all();
+        $timelines = TimeLine::orderBy('ymd','desc')->get();
         $timelines->each(
             function ($timeline, $index) {
                 if ($timeline->type_tag === 'IMG' || $timeline->type_tag === 'VIDEO') {
@@ -104,13 +104,15 @@ class IndexController extends Controller
                     $srcs = explode("|", $timeline->text);
                     if (!is_null($srcs) && is_array($srcs)) {
                         foreach ($srcs as $key => $src) {
-                            $texts[$key] = $_SERVER['APP_URL'].$src;
+                            $texts[$key] ="http://sbook.io".$src;
                         }
                         $timeline->text = $texts;
                     }
                 }
             }
         );
-        return view('admin2-app.timeline' , compact('timelines'));
+        $timelines = collect($timelines->toArray())->groupBy('ymd');
+
+        return view('admin2-app.timeline', compact('timelines'));
     }
 }

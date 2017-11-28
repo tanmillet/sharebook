@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\Requests\UpRoleValidator;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use LucasRBAC\Permission\Models\Role;
 
-class RoleController extends Controller
+class RoleController extends ApiContr
 {
     /**
      * Display a listing of the resource.
@@ -56,7 +55,7 @@ class RoleController extends Controller
         try {
             $res = Role::create($role);
         } catch (\Exception $e) {
-           return back()->withErrors($e->getMessage());
+            return back()->withErrors($e->getMessage());
         }
 
         return redirect('admin2/roles');
@@ -107,9 +106,18 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
-        return [
-            'ok' => '500',
-        ];
+        if (!isset($id)) {
+            return $this->setStatusCode(400)->responseError("参数不能为空！");
+        }
+
+        $role = Role::find($id);
+        if (is_null($role)) {
+            return $this->setStatusCode(400)->responseError("操作角色类型不存在！");
+        }
+
+        $res = Role::destroy($id);
+
+        return ($res) ? $this->setStatusCode(400)->responseError("操作角色类型不存在！") :
+            $this->setStatusCode(400)->responseError("操作角色类型不存在！");
     }
 }
