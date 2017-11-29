@@ -11,7 +11,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <a href="/admin2/up/role">
+                        <a href="/admin2/show/role">
                             <button type="button" class="btn btn-sm bg-blue btn-flat margin"><i class="fa fa-plus"></i>
                                 新加
                             </button>
@@ -32,21 +32,19 @@
                             @forelse($roles as $role)
                                 <tr>
                                     <td>
-                                        <a href="/admin2/up/role/{{base64_encode($role->id)}}">{{$role->display_name}}</a>
+                                        <a href="/admin2/show/role/{{base64_encode($role->id)}}">{{$role->display_name}}</a>
                                     </td>
                                     <td>{{$role->name}}</td>
                                     <td>{{$role->updated_at}}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="/admin2/up/role/{{base64_encode($role->id)}}">
+                                            <a href="/admin2/show/role/{{base64_encode($role->id)}}">
                                                 <button type="button" class="btn btn-sm bg-blue btn-flat margin">编辑
                                                 </button>
                                             </a>
                                             <button type="button"
-                                                    class="btn btn-sm bg-maroon btn-flat margin oper-del-role"
-                                                    data-toggle="modal" data-target="#modal-danger"
-                                                    data-id="{{base64_encode($role->id)}}"
-                                                    data-name="{{$role->display_name}}">删除
+                                                    class="btn btn-sm bg-maroon btn-flat margin oper-del" data-id="{{base64_encode($role->id)}}"
+                                                    data-name="{{$role->display_name}}" data-url="/admin2/destroy/role">删除
                                             </button>
                                         </div>
                                     </td>
@@ -81,10 +79,8 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-outline op-modal-danger" data-url="/admin2/destroy/role">Save
-                        changes
-                    </button>
+                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-outline op-modal-danger" data-dismiss="modal"  data-url="/admin2/destroy/role">确定</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -113,11 +109,11 @@
             })
         })
 
-        $(".oper-del-role").click(function () {
-            var me = this;
-            $("#delInfo").html($(me).attr('data-name'));
-            $("#operId").attr('value' , $(me).attr('data-id'))
-        });
+//        $(".oper-del-role").click(function () {
+//            var me = this;
+//            $("#delInfo").html($(me).attr('data-name'));
+//            $("#operId").attr('value' , $(me).attr('data-id'))
+//        });
         //        $("#modal-danger").on("show.bs.modal",function() {
         //            var me = this;
         //            console.log(me);

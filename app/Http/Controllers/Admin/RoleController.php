@@ -110,14 +110,14 @@ class RoleController extends ApiContr
             return $this->setStatusCode(400)->responseError("参数不能为空！");
         }
 
-        $role = Role::find($id);
+        $role = Role::find(base64_decode($id));
         if (is_null($role)) {
             return $this->setStatusCode(400)->responseError("操作角色类型不存在！");
         }
 
-        $res = Role::destroy($id);
+        $res = Role::destroy(base64_decode($id));
 
-        return ($res) ? $this->setStatusCode(400)->responseError("操作角色类型不存在！") :
-            $this->setStatusCode(400)->responseError("操作角色类型不存在！");
+        return ($res) ? $this->setStatusCode(400)->responseError("操作角色类型删除成功！") :
+            $this->setStatusCode(400)->responseError("操作角色类型删除失败！");
     }
 }

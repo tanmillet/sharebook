@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\Requests\UpTlTypeValidator;
 use App\TimeLineType;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class TlTypeController extends Controller
+class TlTypeController extends ApiContr
 {
     /**
      * Display a listing of the resource.
@@ -108,6 +107,18 @@ class TlTypeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (!isset($id)) {
+            return $this->setStatusCode(400)->responseError("参数不能为空！");
+        }
+
+        $role = TimeLineType::find(base64_decode($id));
+        if (is_null($role)) {
+            return $this->setStatusCode(400)->responseError("操作文本类型不存在！");
+        }
+
+        $res = TimeLineType::destroy(base64_decode($id));
+
+        return ($res) ? $this->setStatusCode(400)->responseError("操作文本类型删除成功！") :
+            $this->setStatusCode(400)->responseError("操作文本类型删除失败！");
     }
 }

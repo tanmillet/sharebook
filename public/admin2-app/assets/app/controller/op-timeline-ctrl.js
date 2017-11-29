@@ -9,17 +9,14 @@ require.config({
 require(['jquery', 'CURDModel'], function ($, curder) {
     $(".oper-del").click(function () {
         var me = this,
-            operId = $(me).attr('data-id'),
-            operName = $(me).attr('data-name'),
-            operUrl = $(me).attr('data-url') + '/' + operId,
-            operData = {
-                'operId': operId,
-                'operName': operName
-            };
+            formData = {
+                'operId': $(me).attr('data-id'),
+                'operName': $(me).attr('data-name')
+            },
+            formUrl = $(me).attr('data-url') + '/' + $(me).attr('data-id');
         $(me).attr('disabled', "true");
 
         var curd = new curder.CURDModel();
-        curd.operD(operData, operUrl);
+        curd.operD(formData, formUrl);
     });
-
 });
