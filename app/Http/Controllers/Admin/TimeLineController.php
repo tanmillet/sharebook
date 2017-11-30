@@ -54,8 +54,7 @@ class TimeLineController extends Controller
             'type_tag' => $validator->validateParams['type_tag'],
             'digest'   => $validator->validateParams['digest'],
             'title'    => $validator->validateParams['title'],
-            'year'     => 2017, //默认可以使用
-            'month'    => 11, //默认可以使用
+            'ymd'      => date('Ymd', time()), //默认可以使用
         ];
 
         //add new role operate
@@ -81,7 +80,7 @@ class TimeLineController extends Controller
 
         $tltypes = TimeLineType::all();
 
-        return view('admin2-app.showtlcontent', compact('tlcontent','tltypes'));
+        return view('admin2-app.showtlcontent', compact('tlcontent', 'tltypes'));
     }
 
     /**
@@ -115,6 +114,18 @@ class TimeLineController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (!isset($id)) {
+            return $this->setStatusCode(400)->responseError("参数不能为空！");
+        }
+
+        $role = TimeLine::find(base64_decode($id));
+        if (is_null($role)) {
+            return $this->setStatusCode(400)->responseError("操作内容不存在！");
+        }
+
+        $res = TimeLine::destroy(base64_decode($id));
+
+        return ($res) ? $this->setStatusCode(400)->responseError("操作内容删除成功！") :
+            $this->setStatusCode(400)->responseError("操作内容删除失败！");
     }
 }

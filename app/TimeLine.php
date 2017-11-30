@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class TimeLine extends Model
@@ -26,8 +27,7 @@ class TimeLine extends Model
         'type_tag',
         'title',
         'digest',
-        'year',
-        'month',
+        'ymd',
     ];
 
     /**
@@ -40,5 +40,18 @@ class TimeLine extends Model
         parent::__construct($attributes);
 
         $this->setTable('timelines');
+    }
+
+    /**
+     * @author Terry Lucas
+     * @param $date
+     * @return string|static
+     */
+    public function getCreatedAtAttribute($date)
+    {
+        if (Carbon::now() < Carbon::parse($date)->addDays(10)) {
+            return Carbon::parse($date);
+        }
+        return Carbon::parse($date)->diffForHumans();
     }
 }

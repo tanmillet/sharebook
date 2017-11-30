@@ -46,10 +46,8 @@
                                                 </button>
                                             </a>
                                             <button type="button"
-                                                    class="btn btn-sm bg-maroon btn-flat margin oper-del-role"
-                                                    data-toggle="modal" data-target="#modal-danger"
-                                                    data-id="{{base64_encode($content->id)}}"
-                                                    data-name="{{$content->title}}">删除
+                                                    class="btn btn-sm bg-maroon btn-flat margin oper-del" data-id="{{base64_encode($content->id)}}"
+                                                    data-name="{{$content->title}}" data-url="/admin2/destroy/tlcontent">删除
                                             </button>
                                         </div>
                                     </td>
@@ -67,36 +65,7 @@
         </div>
         <!-- /.row -->
     </section>
-
-    <div class="modal modal-danger fade" id="modal-danger">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">温馨提示！- 警告急</h4>
-                </div>
-                <div class="modal-body">
-                    <p>你确定删除以下内容信息吗？</p>
-                    <p>
-                        内容标题名称：<span id="delInfo"></span>
-                        <input type="hidden" value="" id="operId">
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-outline op-modal-danger" data-url="/admin2/destroy/tlcontent">Save
-                        changes
-                    </button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-
 @endsection
-
 
 @section('lucas-js')
     <!-- DataTables -->
@@ -115,16 +84,10 @@
                 'autoWidth': false
             })
         })
-
-        $(".oper-del-role").click(function () {
-            var me = this;
-            $("#delInfo").html($(me).attr('data-name'));
-            $("#operId").attr('value' , $(me).attr('data-id'))
-        });
     </script>
 
     　　
     <script src="/admin2-app/assets/vendor/require.js"
-            data-main="/admin2-app/assets/app/controller/op-role-ctrl"></script>
+            data-main="/admin2-app/assets/app/controller/op-timeline-ctrl"></script>
 
 @endsection

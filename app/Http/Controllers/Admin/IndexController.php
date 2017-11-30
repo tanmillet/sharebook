@@ -96,7 +96,7 @@ class IndexController extends Controller
      */
     public function admin2Timeline()
     {
-        $timelines = TimeLine::orderBy('ymd','desc')->get();
+        $timelines = TimeLine::orderBy('ymd', 'desc')->get();
         $timelines->each(
             function ($timeline, $index) {
                 if ($timeline->type_tag === 'IMG' || $timeline->type_tag === 'VIDEO') {
@@ -104,11 +104,12 @@ class IndexController extends Controller
                     $srcs = explode("|", $timeline->text);
                     if (!is_null($srcs) && is_array($srcs)) {
                         foreach ($srcs as $key => $src) {
-                            $texts[$key] ="http://sbook.io".$src;
+                            $texts[$key] = "http://sbook.io".$src;
                         }
                         $timeline->text = $texts;
                     }
                 }
+                // $timeline->created_at = $this->formatDate(strtotime(date('Y-m-d', strtotime($timeline->created_at))));
             }
         );
         $timelines = collect($timelines->toArray())->groupBy('ymd');

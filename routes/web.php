@@ -71,5 +71,6 @@ Route::namespace('Admin')->prefix('admin2')->group(
         $router->post('/store/tlcontent', 'TimeLineController@store');
         $router->post('/destroy/role/{opid}', 'RoleController@destroy');
         $router->post('/destroy/tltype/{opid}', 'TlTypeController@destroy');
+        $router->post('/destroy/tlcontent/{opid}', 'TimeLineController@destroy');
     }
 );
