@@ -17,6 +17,9 @@ class TimeLineController extends Controller
      */
     public function index()
     {
+
+        // dump();
+
         //
         $contents = TimeLine::all();
 
