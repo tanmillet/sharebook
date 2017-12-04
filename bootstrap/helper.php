@@ -29,6 +29,8 @@ if (!function_exists("render_menu")) {
                 'request_urls'   => [
                     '/admin2/roles',
                     '/admin2/show/role',
+                    '/admin2/permissions',
+                    '/admin2/show/permission',
                 ],
                 'icon_css_class' => 'fa fa-laptop',
                 'children_nodes' => [
@@ -45,7 +47,7 @@ if (!function_exists("render_menu")) {
                         'name'           => '权限列表',
                         'status'         => TRUE,
                         'level'          => 0,
-                        'run_url'        => '#',
+                        'run_url'        => '/admin2/permissions',
                         'icon_css_class' => 'fa fa-circle-o',
                         'request_urls'   => [],
                         'children_nodes' => [],

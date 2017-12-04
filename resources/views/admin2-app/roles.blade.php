@@ -42,6 +42,12 @@
                                                 <button type="button" class="btn btn-sm bg-blue btn-flat margin">编辑
                                                 </button>
                                             </a>
+
+                                            <a href="/admin2/dispatch/permission/{{base64_encode($role->id)}}">
+                                                <button type="button" class="btn btn-sm bg-blue btn-flat margin">权限分配
+                                                </button>
+                                            </a>
+
                                             <button type="button"
                                                     class="btn btn-sm bg-maroon btn-flat margin oper-del" data-id="{{base64_encode($role->id)}}"
                                                     data-name="{{$role->display_name}}" data-url="/admin2/destroy/role">删除

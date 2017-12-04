@@ -61,16 +61,21 @@ Route::namespace('Admin')->prefix('admin2')->group(
         // 在 "App\Http\Controllers\Admin" 命名空间下的控制器
         $router->get('/', 'IndexController@admin2App');
         $router->get('/roles', 'RoleController@index');
+        $router->get('/permissions', 'PermissionController@index');
         $router->get('/tltypes', 'TlTypeController@index');
         $router->get('/tlcontents', 'TimeLineController@index');
         $router->get('/show/role/{opid?}', 'RoleController@show');
         $router->get('/show/tltype/{opid?}', 'TlTypeController@show');
         $router->get('/show/tlcontent/{opid?}', 'TimeLineController@show');
+        $router->get('/show/permission/{opid?}', 'PermissionController@show');
         $router->post('/store/role', 'RoleController@store');
         $router->post('/store/tltype', 'TlTypeController@store');
         $router->post('/store/tlcontent', 'TimeLineController@store');
+        $router->post('/store/permission', 'PermissionController@store');
         $router->post('/destroy/role/{opid}', 'RoleController@destroy');
         $router->post('/destroy/tltype/{opid}', 'TlTypeController@destroy');
         $router->post('/destroy/tlcontent/{opid}', 'TimeLineController@destroy');
+        $router->post('/destroy/permission/{opid}', 'PermissionController@destroy');
+        $router->get('/dispatch/permission/{opid}', 'PermissionController@dispatchPermission');
     }
 );
