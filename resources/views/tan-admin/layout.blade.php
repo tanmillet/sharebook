@@ -2,7 +2,7 @@
 <html lang="en" class="app">
 <head>
     <meta charset="utf-8"/>
-    <title>Tan-zt | Web Application</title>
+    <title>Tan Millet | Web Application</title>
     <meta name="description"
           content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -32,9 +32,9 @@
                 <i class="icon-list"></i>
             </a>
             <a href="index.html" class="navbar-brand text-lt">
-                <i class="icon-earphones"></i>
+                <i class="icon-drop"></i>
                 <img src="/tan-admin/images/logo.png" alt="." class="hide">
-                <span class="hidden-nav-xs m-l-sm">Musik</span>
+                <span class="hidden-nav-xs m-l-sm">Millet</span>
             </a>
             <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
                 <i class="icon-settings"></i>
