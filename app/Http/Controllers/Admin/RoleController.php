@@ -18,7 +18,7 @@ class RoleController extends ApiContr
         //
         $roles = Role::all();
 
-        return view('admin2-app.roles', compact('roles'));
+        return view('tan-admin.roles', compact('roles'));
     }
 
     /**

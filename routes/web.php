@@ -47,9 +47,13 @@ Route::namespace('Admin')->prefix('admin')->group(
     function ($router) {
         // 在 "App\Http\Controllers\Admin" 命名空间下的控制器
         $router->get('/', 'IndexController@index');
+        $router->get('/template', 'TemplateController@index');
+        $router->get('/video', 'TemplateController@video');
+        $router->get('/video/detail', 'TemplateController@videoDetail');
+        $router->get('/table', 'TemplateController@table');
         $router->get('/geo', 'GeoController@index');
         $router->get('/geoanalyze', 'GeoController@analyze');
-        $router->get('/table', 'IndexController@table');
+        // $router->get('/table', 'IndexController@table');
         $router->get('/timeline', 'IndexController@admin2Timeline');
         $router->get('/form', 'IndexController@form');
         $router->match(['get', 'post'], '/login', 'IndexController@login');
