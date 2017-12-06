@@ -60,6 +60,14 @@ Route::namespace('Admin')->prefix('admin')->group(
     }
 );
 
+//项目管理系统
+Route::namespace('Progress')->prefix('pro')->group(
+    function ($router) {
+        $router->get('/', 'ProjectController@index');
+        $router->get('/project/detail', 'ProjectController@projectDetail');
+    }
+);
+
 Route::namespace('Admin')->prefix('admin2')->group(
     function ($router) {
         // 在 "App\Http\Controllers\Admin" 命名空间下的控制器
