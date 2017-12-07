@@ -8,18 +8,32 @@
                 @forelse($projects as $project)
 
                     <div class="col-xs-6 col-sm-4 col-md-3">
-                        <a href="/pro/project/detail">
-                            <div class="item">
+
+                        <div class="item">
+                            <a href="/pro/project/detail">
                                 <div class="pos-rlt">
                                     <img src="/tan-admin/images/m40.jpg" alt=""
                                          class="r r-2x img-full">
                                 </div>
-                                <div class="padder-v">
-                                    <span class="text-ellipsis">{{$project->project_name}}</span>
-                                    <span class="text-ellipsis text-xs text-muted">{{$project->project_tag}}</span>
-                                </div>
+                            </a>
+                            <div class="padder-v">
+                                <p>
+                                    <a class="btn btn-sm btn-default" id="btn-1" href="#btn-1"
+                                       data-toggle="class:btn-success">
+                                        <i class="icon-screen-desktop"></i>
+                                        <span class="text" data-toggle="tooltip" data-placement="right" title=""
+                                              data-original-title="{{$project->project_tag}}">{{$project->project_name}}</span>
+                                        <i class="fa fa-check text-active"></i>
+                                        <span class="text-active">Success</span>
+                                    </a>
+                                    <a class="btn btn-sm btn-default" data-toggle="button">
+                                        <i class="fa fa-heart-o text"></i>
+                                        <i class="fa fa-heart text-active text-danger"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-bitbucket-square"></i> 删除</a>
+                                </p>
                             </div>
-                        </a>
+                        </div>
                     </div>
 
                 @empty
