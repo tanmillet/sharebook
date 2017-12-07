@@ -5,6 +5,9 @@
     <title>Tan Millet | Web Application</title>
     <meta name="description"
           content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"/>
+
+    <meta name="_token" content="{{ csrf_token() }}"/>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <link rel="stylesheet" href="/tan-admin/js/jPlayer/jplayer.flat.css" type="text/css"/>
     <link rel="stylesheet" href="/tan-admin/css/bootstrap.css" type="text/css"/>
@@ -27,7 +30,7 @@
 <section class="vbox">
 
     <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
-        <div class="navbar-header aside bg-info dk">
+        <div class="navbar-header aside bg-info dk nav-xs">
             <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
                 <i class="icon-list"></i>
             </a>
@@ -42,7 +45,7 @@
         </div>
         <ul class="nav navbar-nav hidden-xs">
             <li>
-                <a href="#nav,.navbar-header" data-toggle="class:nav-xs,nav-xs" class="text-muted">
+                <a href="#nav,.navbar-header" data-toggle="class:nav-xs,nav-xs" class="ttext-muted active">
                     <i class="fa fa-indent text"></i>
                     <i class="fa fa-dedent text-active"></i>
                 </a>
@@ -55,7 +58,7 @@
               <button type="submit" class="btn btn-sm bg-white btn-icon rounded"><i class="fa fa-search"></i></button>
             </span>
                     <input type="text" class="form-control input-sm no-border rounded"
-                           placeholder="Search songs, albums...">
+                           placeholder="查询..">
                 </div>
             </div>
         </form>
@@ -132,7 +135,7 @@
     <section>
         <section class="hbox stretch">
             <!-- .aside -->
-            <aside class="bg-black dk aside hidden-print" id="nav">
+            <aside class="bg-black dk aside hidden-print nav-xs" id="nav">
                 <section class="vbox">
                     <section class="w-f-md scrollable">
                         <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0"
@@ -426,7 +429,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="active">
+                                    <li class="">
                                         <a href="#" class="auto"><span class="pull-right text-muted"><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span>
                                             <i class="icon-users icon"></i>
                                             <span>Users</span>
@@ -448,6 +451,26 @@
                                                 <a href="blog.html" class="auto">
                                                     <i class="fa fa-angle-right text-xs"></i>
                                                     <span>Menu Lists</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="active">
+                                        <a href="#" class="auto"><span class="pull-right text-muted"><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span>
+                                            <i class="fa fa-inbox"></i>
+                                            <span>Projects</span>
+                                        </a>
+                                        <ul class="nav dk text-sm">
+                                            <li class="">
+                                                <a href="/pro" class="auto">
+                                                    <i class="fa fa-angle-right text-xs"></i>
+                                                    <span>Project Lists</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/pro/show/project" class="auto">
+                                                    <i class="fa fa-angle-right text-xs"></i>
+                                                    <span>Add Project</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -537,9 +560,9 @@
 <script src="/tan-admin/js/slimscroll/jquery.slimscroll.min.js"></script>
 <script src="/tan-admin/js/charts/easypiechart/jquery.easy-pie-chart.js"></script>
 <script src="/tan-admin/js/app.plugin.js"></script>
-<script type="text/javascript" src="/tan-admin/js/jPlayer/jquery.jplayer.min.js"></script>
-<script type="text/javascript" src="/tan-admin/js/jPlayer/add-on/jplayer.playlist.min.js"></script>
-<script type="text/javascript" src="/tan-admin/js/jPlayer/demo.js"></script>
+{{--<script type="text/javascript" src="/tan-admin/js/jPlayer/jquery.jplayer.min.js"></script>--}}
+{{--<script type="text/javascript" src="/tan-admin/js/jPlayer/add-on/jplayer.playlist.min.js"></script>--}}
+{{--<script type="text/javascript" src="/tan-admin/js/jPlayer/demo.js"></script>--}}
 
 
 @yield('tan-js')

@@ -16,8 +16,23 @@ define(['jquery', 'AjaxModel', 'sweetalert'], function ($, req, sweetalert) {
     }
 
     CURDModel.prototype = {
-        operC: function () {
+        operC: function (post_data, post_url) {
+            var request = new req.AjaxModel();
+            request.loseAjax(post_url, 'post', post_data, 'json', function (res) {
+                swal("结果信息！", res.info.message,"success")
+                // swal({
+                //         title: "结果信息！",
+                //         text: res.info.message,
+                //         type: "success",
+                //         confirmButtonText: "确定",
+                //     },
+                //     function () {
+                //         window.location.reload();
+                //     });
+                return 'success';
+            });
 
+            return 'error';
         },
         operU: function () {
 
@@ -36,14 +51,14 @@ define(['jquery', 'AjaxModel', 'sweetalert'], function ($, req, sweetalert) {
                     confirmButtonText: "确定",
                     cancelButtonText: "取消",
                     closeOnConfirm: false,
-                    closeOnCancel: false,
+                    closeOnCancel: true,
                     showLoaderOnConfirm: true
                 },
                 function (isConfirm) {
                     if (isConfirm) {
                         request.loseAjax(operUrl, 'post', operData, 'json', function (res) {
                             swal({
-                                    title: "",
+                                    title: "结果信息！",
                                     text: res.info.message,
                                     type: "success",
                                     confirmButtonText: "确定",
@@ -51,9 +66,9 @@ define(['jquery', 'AjaxModel', 'sweetalert'], function ($, req, sweetalert) {
                                 function () {
                                     window.location.reload();
                                 });
-                        }, 'oper-del');
+                        });
                     } else {
-                        window.location.reload();
+                        // window.location.reload();
                     }
                 });
         }

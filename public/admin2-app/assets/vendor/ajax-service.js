@@ -15,7 +15,7 @@ define(['jquery', 'sweetalert'], function ($, sweetalert) {
     }
 
     AjaxModel.prototype = {
-        loseAjax: function (url, method, params, dataType, callback, btName) {
+        loseAjax: function (url, method, params, dataType, callback) {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -32,16 +32,13 @@ define(['jquery', 'sweetalert'], function ($, sweetalert) {
                 url: url, type: method, data: params, dataType: dataType, success: callback,
                 error: function () {
                     swal({
-                            title: "网络异常!",
-                            text: "请你稍后再操作,谢谢!",
-                            type: "warning",
-                            showCancelButton: false,
-                            confirmButtonText: "确认",
-                            closeOnConfirm: false
-                        },
-                        function () {
-                            window.location.reload();
-                        });
+                        title: "网络异常!",
+                        text: "请你稍后再操作,谢谢!",
+                        type: "warning",
+                        showCancelButton: false,
+                        confirmButtonText: "确认",
+                        closeOnConfirm: true
+                    });
                 }
             })
         },

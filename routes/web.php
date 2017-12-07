@@ -64,7 +64,10 @@ Route::namespace('Admin')->prefix('admin')->group(
 Route::namespace('Progress')->prefix('pro')->group(
     function ($router) {
         $router->get('/', 'ProjectController@index');
+        $router->get('/projects', 'ProjectController@index');
         $router->get('/project/detail', 'ProjectController@projectDetail');
+        $router->get('/show/project/{opid?}', 'ProjectController@show');
+        $router->post('/store/project', 'ProjectController@store');
     }
 );
 

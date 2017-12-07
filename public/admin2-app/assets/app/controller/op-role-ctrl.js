@@ -20,6 +20,7 @@ require(['jquery', 'CURDModel'], function ($, curder) {
 
         var curd = new curder.CURDModel();
         curd.operD(operData, operUrl);
+        $(me).removeAttr("disabled");
     });
 
 });

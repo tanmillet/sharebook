@@ -1,4 +1,4 @@
-@extends('tan-admin.layout')
+@extends('progress-app.layout')
 
 @section('tan-main')
     <section class="vbox">
@@ -415,7 +415,6 @@
 
                                         </li>
                                     </ul>
-
                                 </div>
                                 <div class="tab-pane" id="events">
                                     <div class="text-center wrapper">
