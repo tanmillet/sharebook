@@ -40,7 +40,6 @@
                                        data-url="/pro/destroy/project">
                                         <i class="fa fa-bitbucket-square "> 删除 </i>
                                     </a>
-
                                 </p>
                             </div>
                         </div>
