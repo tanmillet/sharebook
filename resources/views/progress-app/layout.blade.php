@@ -458,19 +458,25 @@
                                     <li class="active">
                                         <a href="#" class="auto"><span class="pull-right text-muted"><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span>
                                             <i class="fa fa-inbox"></i>
-                                            <span>Projects</span>
+                                            <span>项目管理</span>
                                         </a>
                                         <ul class="nav dk text-sm">
                                             <li class="">
                                                 <a href="/pro" class="auto">
                                                     <i class="fa fa-angle-right text-xs"></i>
-                                                    <span>Project Lists</span>
+                                                    <span>项目列表</span>
                                                 </a>
                                             </li>
                                             <li class="">
                                                 <a href="/pro/show/project" class="auto">
                                                     <i class="fa fa-angle-right text-xs"></i>
-                                                    <span>Add Project</span>
+                                                    <span>添加项目</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/pro/show/project" class="auto">
+                                                    <i class="fa fa-angle-right text-xs"></i>
+                                                    <span>添加任务</span>
                                                 </a>
                                             </li>
                                         </ul>

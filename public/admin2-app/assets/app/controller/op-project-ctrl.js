@@ -8,24 +8,6 @@ require.config({
 });
 
 require(['jquery', 'sweetalert', 'CURDModel'], function ($, sweetalert, curder) {
-    $(".oper-up-task-progress").click(function () {
-        swal({
-            title: "",
-            text: '<div class="btn-group" data-toggle="buttons">' +
-            '<label class="btn btn-sm btn-info active">' +
-            '<input type="radio" name="options"><i class="fa fa-check text-active"></i> Male' +
-            '</label>' +
-            '<label class="btn btn-sm btn-success">' +
-            '<input type="radio" name="options"><i class="fa fa-check text-active"></i> Female' +
-            '</label>' +
-            '<label class="btn btn-sm btn-primary">' +
-            '<input type="radio" name="options"><i class="fa fa-check text-active"></i> N/A' +
-            '</label>' +
-            '</div>',
-            html: true
-        });
-    });
-
     $(".oper-upshow").click(function () {
         var me = this;
         $(me).attr('disabled', "true");
@@ -41,4 +23,19 @@ require(['jquery', 'sweetalert', 'CURDModel'], function ($, sweetalert, curder) 
         console.log(res);
     });
 
+    $(".oper-del").click(function () {
+        var me = this,
+            operId = $(me).attr('data-id'),
+            operName = $(me).attr('data-name'),
+            operUrl = $(me).attr('data-url') + '/' + operId,
+            operData = {
+                'operId': operId,
+                'operName': operName
+            };
+        $(me).attr('disabled', "true");
+
+        var curd = new curder.CURDModel();
+        curd.operD(operData, operUrl);
+        $(me).removeAttr("disabled");
+    });
 });

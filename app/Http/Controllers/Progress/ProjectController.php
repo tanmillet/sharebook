@@ -23,7 +23,12 @@ class ProjectController extends ApiContr
         return view('progress-app.projects', compact('projects'));
     }
 
-    public function projectDetail()
+    /**
+     * @author Terry Lucas
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function projectDetail($id)
     {
         return view('progress-app.project-detail');
     }
@@ -127,5 +132,18 @@ class ProjectController extends ApiContr
     public function destroy($id)
     {
         //
+        if (!isset($id)) {
+            return $this->setStatusCode(400)->responseError("参数不能为空！");
+        }
+
+        $role = Project::find(base64_decode($id));
+        if (is_null($role)) {
+            return $this->setStatusCode(400)->responseError("操作项目不存在！");
+        }
+
+        $res = Project::destroy(base64_decode($id));
+
+        return ($res) ? $this->setStatusCode(400)->responseError("操作项目删除成功！") :
+            $this->setStatusCode(400)->responseError("操作项目删除失败！");
     }
 }

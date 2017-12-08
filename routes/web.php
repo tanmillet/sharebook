@@ -65,9 +65,13 @@ Route::namespace('Progress')->prefix('pro')->group(
     function ($router) {
         $router->get('/', 'ProjectController@index');
         $router->get('/projects', 'ProjectController@index');
-        $router->get('/project/detail', 'ProjectController@projectDetail');
+        $router->get('/tasks', 'TaskController@index');
+        $router->get('/project/detail/{opid}', 'ProjectController@projectDetail');
+        $router->get('/tasks/detail/{opid}', 'TaskController@tasksDetail');
         $router->get('/show/project/{opid?}', 'ProjectController@show');
+        $router->get('/show/task/{opid?}', 'TaskController@show');
         $router->post('/store/project', 'ProjectController@store');
+        $router->post('/destroy/project/{opid}', 'ProjectController@destroy');
     }
 );
 
