@@ -57,4 +57,14 @@ trait ProjectTrait
     {
         return Project::all();
     }
+
+    /**
+     * @author Terry Lucas
+     * @param $project_id
+     * @return Collection
+     */
+    public function getProjectTasks($project_id): Collection
+    {
+        return Project::find($project_id)->tasks;
+    }
 }

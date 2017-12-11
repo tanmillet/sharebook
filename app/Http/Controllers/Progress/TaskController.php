@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Progress;
 use App\Http\Controllers\Progress\Requests\UpTaskValidator;
 use App\Http\Controllers\Progress\Traits\ProjectTrait;
 use App\Http\Controllers\Progress\Traits\TaskTrait;
+use App\Http\Controllers\Progress\Traits\UserTrait;
 use App\Project;
 use Illuminate\Http\Request;
 
 class TaskController extends ApiContr
 {
-    use TaskTrait, ProjectTrait;
+    use TaskTrait, ProjectTrait, UserTrait;
 
     protected $validator;
 
@@ -57,13 +58,13 @@ class TaskController extends ApiContr
 
         //insert db init
         $task = $this->validator->transform();
-        $project_tasks = Project::find($task['project_id'])->tasks;
-        $task['task_creater'] = 'task_creater';
-        $task['task_tag'] = 'P'.$task['project_id'].'T'. (count($project_tasks) + 1);
+        $project_tasks = $this->getProjectTasks($task['project_id']);
+        $task['task_creater'] = $this->getUserName();
+        $task['task_tag'] = 'P'.$task['project_id'].'T'.(count($project_tasks) + 1);
 
         //唯一标识
         $attributes = [
-            'task_title' =>  $task['task_title'],
+            'task_title' => $task['task_title'],
         ];
         //add new role operate
         try {
