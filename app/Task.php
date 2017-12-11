@@ -3,9 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Project extends Model
+class Task extends Model
 {
     //
     /**
@@ -23,13 +22,15 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-        'project_name',
-        'project_tag',
-        'project_type',
-        'project_status',
-        'project_digest',
-        'project_context',
-        'project_milestone',
+        'task_title',
+        'task_tag',
+        'project_id',
+        'task_priority',
+        'task_start_date',
+        'task_end_date',
+        'task_progress',
+        'task_creater',
+        'task_context',
     ];
 
     /**
@@ -41,16 +42,6 @@ class Project extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable('projects');
-    }
-
-    /**
-     * 获得此项目的任务列表
-     * @author Terry Lucas
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function tasks(): HasMany
-    {
-        return $this->hasMany('App\Task');
+        $this->setTable('tasks');
     }
 }

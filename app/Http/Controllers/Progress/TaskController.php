@@ -2,11 +2,23 @@
 
 namespace App\Http\Controllers\Progress;
 
+use App\Http\Controllers\Progress\Requests\UpTaskValidator;
+use App\Http\Controllers\Progress\Traits\ProjectTrait;
+use App\Http\Controllers\Progress\Traits\TaskTrait;
+use App\Project;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class TaskController extends Controller
+class TaskController extends ApiContr
 {
+    use TaskTrait, ProjectTrait;
+
+    protected $validator;
+
+    public function __construct()
+    {
+        $this->validator = app()->make(config('progressbase.class_name_map.task_valid_class'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,32 +42,61 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        //init validator class
+        $inputs = $this->validator->setValidateParams($request->all())->valid();
+        if (!empty($inputs->getValidatorResMsg())) {
+            return ($request->ajax())
+                ? $this->setStatusCode(400)->responseError($inputs->getValidatorResMsg())
+                : back()->withErrors($inputs->getValidatorResMsg());
+        }
+
+        //insert db init
+        $task = $this->validator->transform();
+        $project_tasks = Project::find($task['project_id'])->tasks;
+        $task['task_creater'] = 'task_creater';
+        $task['task_tag'] = 'P'.$task['project_id'].'T'. (count($project_tasks) + 1);
+
+        //唯一标识
+        $attributes = [
+            'task_title' =>  $task['task_title'],
+        ];
+        //add new role operate
+        try {
+            $this->uporcreateTask($attributes, $task);
+        } catch (\Exception $e) {
+            return ($request->ajax()) ? $this->setStatusCode(500)->responseError($e->getMessage()) : back()->withErrors(
+                $e->getMessage()
+            );
+        }
+
+        return ($request->ajax()) ? $this->setStatusCode(200)->responseSuccess('操作成功！') : redirect('pro/projects');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id = NULL)
     {
-        //
-        $task = "";
+        $task = $this->getTask($id);
 
-        return view('progress-app.uptask', compact('task'));
+        //获取项目列表
+        $projects = $this->getProjects();
+
+        return view('progress-app.uptask', compact('task', 'projects'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -66,8 +107,8 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -78,7 +119,7 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

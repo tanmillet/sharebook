@@ -474,7 +474,7 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/pro/show/project" class="auto">
+                                                <a href="/pro/show/task" class="auto">
                                                     <i class="fa fa-angle-right text-xs"></i>
                                                     <span>添加任务</span>
                                                 </a>

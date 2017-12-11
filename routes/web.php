@@ -71,6 +71,7 @@ Route::namespace('Progress')->prefix('pro')->group(
         $router->get('/show/project/{opid?}', 'ProjectController@show');
         $router->get('/show/task/{opid?}', 'TaskController@show');
         $router->post('/store/project', 'ProjectController@store');
+        $router->post('/store/task', 'TaskController@store');
         $router->post('/destroy/project/{opid}', 'ProjectController@destroy');
     }
 );
