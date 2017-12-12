@@ -92,40 +92,39 @@
                                                     <small style="font-size: 12px;">{{$task->task_title}}</small>
                                                     <small>
                                                         <div class="comment-action m-t-sm">
-                                                            <a href="#" class="btn btn-xs btn-default m-t-xs"><span
+                                                            <a href="#" class="btn btn-xs btn-default m-t-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="任务优先度"><span
                                                                         style="color: red;font-weight: bold;">{{$task->task_priority}}</span></a>
                                                             <div class="btn-group">
                                                                 <button data-toggle="dropdown"
                                                                         class="btn btn-xs btn-default dropdown-toggle m-t-xs">
                                                                     <i class="fa fa-edit"></i>
-                                                                    <span class="dropdown-label">{{$task->task_progress}}</span>
+                                                                    <span class="dropdown-label">{{parser_task_progress($task->task_progress)}}</span>
                                                                     <span class="caret"></span>
                                                                 </button>
                                                                 <ul class="dropdown-menu dropdown-select">
-                                                                    <li class=""><input type="radio" name="d-s-r"><a
-                                                                                href="#">待处理</a></li>
-                                                                    <li class=""><input type="radio" name="d-s-r"><a
-                                                                                href="#">处理中</a></li>
-                                                                    <li class=""><input type="radio" name="d-s-r"><a
-                                                                                href="#">已完成</a></li>
-                                                                    <li class=""><input type="radio" name="d-s-r"><a
-                                                                                href="#">已取消</a></li>
+                                                                    @foreach(config('progressbase.task_progress') as $key=>$task_progress)
+                                                                        <li class=""><input type="radio" name="d-s-r"
+                                                                                            value="{{$key}}"><a
+                                                                                    href="#">{{$task_progress}}</a></li>
+                                                                    @endforeach
                                                                 </ul>
                                                             </div>
-                                                            <a href="#" class="btn btn-xs btn-default m-t-xs"><i
+                                                            <a href="#" class="btn btn-xs btn-default m-t-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="任务开始时间"><i
                                                                         class="fa fa-calendar"></i> {{$task->task_start_date}}
                                                             </a>
-                                                            <a href="#" class="btn btn-xs btn-default m-t-xs"><i
+                                                            <a href="#" class="btn btn-xs btn-default m-t-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="任务结束时间"><i
                                                                         class="fa fa-calendar"></i> {{$task->task_end_date}}
                                                             </a>
-                                                            <a href="#" class="btn btn-xs btn-info m-t-xs">50%</a>
+                                                            <a href="#" class="btn btn-xs btn-info m-t-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="任务完成进度">0%</a>
                                                             <div class="btn-group">
                                                                 <button type="button"
-                                                                        class="btn btn-xs btn-default  m-t-xs">7 days
+                                                                        class="btn btn-xs btn-default  m-t-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="任务需要天数">{{diff_between_two_days($task->task_start_date, $task->task_end_date)}}
+                                                                    days
                                                                 </button>
                                                                 <button type="button"
-                                                                        class="btn btn-xs btn-danger  m-t-xs">
-                                                                    3 days
+                                                                        class="btn btn-xs btn-danger  m-t-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="任务剩余天数">
+                                                                    {{diff_between_two_days($task->task_end_date , date('Y-m-d' , time()))}}
+                                                                    days
                                                                 </button>
                                                             </div>
                                                         </div>

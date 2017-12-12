@@ -140,3 +140,23 @@ if (!function_exists("current_url")) {
         return \Illuminate\Support\Facades\Request::getRequestUri();
     }
 }
+
+/**
+ *求两个日期之间相差的天数
+ */
+if (!function_exists("diff_between_two_days")) {
+    function diff_between_two_days($start_date, $end_date)
+    {
+        $falg = FALSE;
+        $start_date_second = strtotime($start_date);
+        $end_date_second = strtotime($end_date);
+        if ($start_date_second < $end_date_second) {
+            $tmp = $end_date_second;
+            $end_date_second = $start_date_second;
+            $start_date_second = $tmp;
+            $falg = TRUE;
+        }
+
+        return ($falg) ? 0 - (($start_date_second - $end_date_second) / 86400) : ($start_date_second - $end_date_second) / 86400;
+    }
+}
