@@ -13,8 +13,9 @@
                                         <img src="/tan-admin/images/a0.png" class="img-circle">
                                     </a>
                                     <div>
-                                        <div class="h3 m-t-xs m-b-xs">John.Smith</div>
-                                        <small class="text-muted"><i class="fa fa-map-marker"></i> London, UK</small>
+                                        <div class="h3 m-t-xs m-b-xs">{{$project->project_name}}</div>
+                                        <small class="text-muted"><i
+                                                    class="fa fa-map-marker"></i> {{$project->project_creater}}</small>
                                     </div>
                                 </div>
                                 <div class="panel wrapper">
@@ -34,24 +35,18 @@
                                     </div>
                                 </div>
                                 <div class="btn-group btn-group-justified m-b">
-                                    <a class="btn btn-success btn-rounded" data-toggle="button">
-                            <span class="text">
-                              <i class="fa fa-eye"></i> Follow
-                            </span>
-                                        <span class="text-active">
-                              <i class="fa fa-eye"></i> Following
-                            </span>
+                                    <a class="btn btn-info btn-rounded" href="/pro">
+                                        <i class="fa fa-list-ul"></i> 项目
                                     </a>
-                                    <a class="btn btn-dark btn-rounded">
-                                        <i class="fa fa-comment-o"></i> 讨论
+                                    <a class="btn btn-dark btn-rounded" href="/pro/show/task">
+                                        <i class="fa fa-plus"></i> 任务
                                     </a>
                                 </div>
                                 <div>
-                                    <small class="text-uc text-xs text-muted">about me</small>
-                                    <p>Artist</p>
-                                    <small class="text-uc text-xs text-muted">info</small>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam.
-                                        Aliquam sollicitudin venenatis ipsum ac feugiat.</p>
+                                    <small class="text-uc text-xs text-muted">关于项目</small>
+                                    <p>{{$project->project_name}}</p>
+                                    <small class="text-uc text-xs text-muted">信息</small>
+                                    <p>{{$project->project_digest}}</p>
                                     <div class="line"></div>
                                 </div>
                             </div>
@@ -72,348 +67,73 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="activity">
                                     <ul class="list-group no-radius m-b-none m-t-n-xxs list-group-lg no-border">
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="/tan-admin/images/a0.png">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                </small>
-                                                <strong class="block">
-                                                    <a href=""><span style="color: #4cb6cb;"> #N01-0001</span> 实现用户查询功能</a>
-                                                </strong>
-                                                <small style="font-size: 12px;">用户页面设计已经数据库设计和代码实现，代码测试等功能</small>
-                                                <small>
-                                                    <div class="comment-action m-t-sm">
-                                                        <a href="#" class="btn btn-xs btn-default m-t-xs"><span style="color: red;font-weight: bold;">lv5</span></a>
-                                                        <div class="btn-group">
-                                                            <button data-toggle="dropdown"
-                                                                    class="btn btn-xs btn-default dropdown-toggle m-t-xs">
-                                                                <i class="fa fa-edit"></i>
-                                                                <span class="dropdown-label">待处理</span>
-                                                                <span class="caret"></span>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-select">
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">待处理</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">处理中</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">已完成</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">已取消</a></li>
-                                                            </ul>
+                                        @foreach($tasks as $task)
+                                            <li class="list-group-item">
+                                                <a href="#" class="thumb-sm pull-left m-r-sm">
+                                                    <img src="/tan-admin/images/a0.png">
+                                                </a>
+                                                <a href="#" class="clear">
+                                                    <small class="pull-right">
+                                                        <a class="pull-right thumb-sm avatar"><img
+                                                                    src="/tan-admin/images/a6.png" style="width: 30px;"
+                                                                    alt="..."></a>
+                                                        <a class="pull-right thumb-sm avatar"><img
+                                                                    src="/tan-admin/images/a6.png" style="width: 30px;"
+                                                                    alt="..."></a>
+                                                        <a class="pull-right thumb-sm avatar"><img
+                                                                    src="/tan-admin/images/a6.png" style="width: 30px;"
+                                                                    alt="..."></a>
+                                                    </small>
+                                                    <strong class="block">
+                                                        <a href=""><span
+                                                                    style="color: #4cb6cb;"> {{$task->task_tag}}</span> {{$task->task_title}}
+                                                        </a>
+                                                    </strong>
+                                                    <small style="font-size: 12px;">{{$task->task_title}}</small>
+                                                    <small>
+                                                        <div class="comment-action m-t-sm">
+                                                            <a href="#" class="btn btn-xs btn-default m-t-xs"><span
+                                                                        style="color: red;font-weight: bold;">{{$task->task_priority}}</span></a>
+                                                            <div class="btn-group">
+                                                                <button data-toggle="dropdown"
+                                                                        class="btn btn-xs btn-default dropdown-toggle m-t-xs">
+                                                                    <i class="fa fa-edit"></i>
+                                                                    <span class="dropdown-label">{{$task->task_progress}}</span>
+                                                                    <span class="caret"></span>
+                                                                </button>
+                                                                <ul class="dropdown-menu dropdown-select">
+                                                                    <li class=""><input type="radio" name="d-s-r"><a
+                                                                                href="#">待处理</a></li>
+                                                                    <li class=""><input type="radio" name="d-s-r"><a
+                                                                                href="#">处理中</a></li>
+                                                                    <li class=""><input type="radio" name="d-s-r"><a
+                                                                                href="#">已完成</a></li>
+                                                                    <li class=""><input type="radio" name="d-s-r"><a
+                                                                                href="#">已取消</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <a href="#" class="btn btn-xs btn-default m-t-xs"><i
+                                                                        class="fa fa-calendar"></i> {{$task->task_start_date}}
+                                                            </a>
+                                                            <a href="#" class="btn btn-xs btn-default m-t-xs"><i
+                                                                        class="fa fa-calendar"></i> {{$task->task_end_date}}
+                                                            </a>
+                                                            <a href="#" class="btn btn-xs btn-info m-t-xs">50%</a>
+                                                            <div class="btn-group">
+                                                                <button type="button"
+                                                                        class="btn btn-xs btn-default  m-t-xs">7 days
+                                                                </button>
+                                                                <button type="button"
+                                                                        class="btn btn-xs btn-danger  m-t-xs">
+                                                                    3 days
+                                                                </button>
+                                                            </div>
                                                         </div>
-                                                        <a href="#" class="btn btn-xs btn-default m-t-xs"><i
-                                                                    class="fa fa-calendar"></i> 2017-10-10</a>
-                                                        <a href="#" class="btn btn-xs btn-info m-t-xs">50%</a>
-                                                        <div class="btn-group">
-                                                            <button type="button"
-                                                                    class="btn btn-xs btn-default  m-t-xs">7 days
-                                                            </button>
-                                                            <button type="button" class="btn btn-xs btn-danger  m-t-xs">
-                                                                3 days
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </small>
-                                            </a>
+                                                    </small>
+                                                </a>
 
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="/tan-admin/images/a0.png">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                </small>
-                                                <strong class="block">
-                                                    <a href=""><span style="color: #4cb6cb;"> #N01-0001</span> 实现用户查询功能</a>
-                                                </strong>
-                                                <small style="font-size: 12px;">用户页面设计已经数据库设计和代码实现，代码测试等功能</small>
-                                                <small>
-                                                    <div class="comment-action m-t-sm">
-                                                        <a href="#" class="btn btn-xs btn-danger m-t-xs">L5</a>
-                                                        <div class="btn-group">
-                                                            <button data-toggle="dropdown"
-                                                                    class="btn btn-xs btn-default dropdown-toggle m-t-xs">
-                                                                <i class="fa fa-edit"></i>
-                                                                <span class="dropdown-label">待处理</span>
-                                                                <span class="caret"></span>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-select">
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">待处理</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">处理中</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">已完成</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">已取消</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <a href="#" class="btn btn-xs btn-default m-t-xs"><i
-                                                                    class="fa fa-calendar"></i> 2017-10-10</a>
-                                                        <a href="#" class="btn btn-xs btn-info m-t-xs">50%</a>
-                                                        <div class="btn-group">
-                                                            <button type="button"
-                                                                    class="btn btn-xs btn-default  m-t-xs">7 days
-                                                            </button>
-                                                            <button type="button" class="btn btn-xs btn-danger  m-t-xs">
-                                                                3 days
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </small>
-                                            </a>
-
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="/tan-admin/images/a0.png">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                </small>
-                                                <strong class="block">
-                                                    <a href=""><span style="color: #4cb6cb;"> #N01-0001</span> 实现用户查询功能</a>
-                                                </strong>
-                                                <small style="font-size: 12px;">用户页面设计已经数据库设计和代码实现，代码测试等功能</small>
-                                                <small>
-                                                    <div class="comment-action m-t-sm">
-                                                        <a href="#" class="btn btn-xs btn-danger m-t-xs">L5</a>
-                                                        <div class="btn-group">
-                                                            <button data-toggle="dropdown"
-                                                                    class="btn btn-xs btn-default dropdown-toggle m-t-xs">
-                                                                <i class="fa fa-edit"></i>
-                                                                <span class="dropdown-label">待处理</span>
-                                                                <span class="caret"></span>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-select">
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">待处理</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">处理中</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">已完成</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">已取消</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <a href="#" class="btn btn-xs btn-default m-t-xs"><i
-                                                                    class="fa fa-calendar"></i> 2017-10-10</a>
-                                                        <a href="#" class="btn btn-xs btn-info m-t-xs">50%</a>
-                                                        <div class="btn-group">
-                                                            <button type="button"
-                                                                    class="btn btn-xs btn-default  m-t-xs">7 days
-                                                            </button>
-                                                            <button type="button" class="btn btn-xs btn-danger  m-t-xs">
-                                                                3 days
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </small>
-                                            </a>
-
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="/tan-admin/images/a0.png">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                </small>
-                                                <strong class="block">
-                                                    <a href=""><span style="color: #4cb6cb;"> #N01-0001</span> 实现用户查询功能</a>
-                                                </strong>
-                                                <small style="font-size: 12px;">用户页面设计已经数据库设计和代码实现，代码测试等功能</small>
-                                                <small>
-                                                    <div class="comment-action m-t-sm">
-                                                        <a href="#" class="btn btn-xs btn-danger m-t-xs">L5</a>
-                                                        <div class="btn-group">
-                                                            <button data-toggle="dropdown"
-                                                                    class="btn btn-xs btn-default dropdown-toggle m-t-xs">
-                                                                <i class="fa fa-edit"></i>
-                                                                <span class="dropdown-label">待处理</span>
-                                                                <span class="caret"></span>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-select">
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">待处理</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">处理中</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">已完成</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">已取消</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <a href="#" class="btn btn-xs btn-default m-t-xs"><i
-                                                                    class="fa fa-calendar"></i> 2017-10-10</a>
-                                                        <a href="#" class="btn btn-xs btn-info m-t-xs">50%</a>
-                                                        <div class="btn-group">
-                                                            <button type="button"
-                                                                    class="btn btn-xs btn-default  m-t-xs">7 days
-                                                            </button>
-                                                            <button type="button" class="btn btn-xs btn-danger  m-t-xs">
-                                                                3 days
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </small>
-                                            </a>
-
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="/tan-admin/images/a0.png">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                </small>
-                                                <strong class="block">
-                                                    <a href=""><span style="color: #4cb6cb;"> #N01-0001</span> 实现用户查询功能</a>
-                                                </strong>
-                                                <small style="font-size: 12px;">用户页面设计已经数据库设计和代码实现，代码测试等功能</small>
-                                                <small>
-                                                    <div class="comment-action m-t-sm">
-                                                        <a href="#" class="btn btn-xs btn-danger m-t-xs">L5</a>
-                                                        <div class="btn-group">
-                                                            <button data-toggle="dropdown"
-                                                                    class="btn btn-xs btn-default dropdown-toggle m-t-xs">
-                                                                <i class="fa fa-edit"></i>
-                                                                <span class="dropdown-label">待处理</span>
-                                                                <span class="caret"></span>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-select">
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">待处理</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">处理中</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">已完成</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">已取消</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <a href="#" class="btn btn-xs btn-default m-t-xs"><i
-                                                                    class="fa fa-calendar"></i> 2017-10-10</a>
-                                                        <a href="#" class="btn btn-xs btn-info m-t-xs">50%</a>
-                                                        <div class="btn-group">
-                                                            <button type="button"
-                                                                    class="btn btn-xs btn-default  m-t-xs">7 days
-                                                            </button>
-                                                            <button type="button" class="btn btn-xs btn-danger  m-t-xs">
-                                                                3 days
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </small>
-                                            </a>
-
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="/tan-admin/images/a0.png">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                    <a class="pull-right thumb-sm avatar"><img
-                                                                src="/tan-admin/images/a6.png" style="width: 30px;"
-                                                                alt="..."></a>
-                                                </small>
-                                                <strong class="block">
-                                                    <a href=""><span style="color: #4cb6cb;"> #N01-0001</span> 实现用户查询功能</a>
-                                                </strong>
-                                                <small style="font-size: 12px;">用户页面设计已经数据库设计和代码实现，代码测试等功能</small>
-                                                <small>
-                                                    <div class="comment-action m-t-sm">
-                                                        <a href="#" class="btn btn-xs btn-danger m-t-xs">L5</a>
-                                                        <div class="btn-group">
-                                                            <button data-toggle="dropdown"
-                                                                    class="btn btn-xs btn-default dropdown-toggle m-t-xs">
-                                                                <i class="fa fa-edit"></i>
-                                                                <span class="dropdown-label">待处理</span>
-                                                                <span class="caret"></span>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-select">
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">待处理</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">处理中</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">已完成</a></li>
-                                                                <li class=""><input type="radio" name="d-s-r"><a
-                                                                            href="#">已取消</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <a href="#" class="btn btn-xs btn-default m-t-xs"><i
-                                                                    class="fa fa-calendar"></i> 2017-10-10</a>
-                                                        <a href="#" class="btn btn-xs btn-info m-t-xs">50%</a>
-                                                        <div class="btn-group">
-                                                            <button type="button"
-                                                                    class="btn btn-xs btn-default  m-t-xs">7 days
-                                                            </button>
-                                                            <button type="button" class="btn btn-xs btn-danger  m-t-xs">
-                                                                3 days
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </small>
-                                            </a>
-
-                                        </li>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="tab-pane" id="events">

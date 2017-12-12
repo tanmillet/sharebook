@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Progress;
 
-use App\Http\Controllers\Progress\Requests\UpTaskValidator;
 use App\Http\Controllers\Progress\Traits\ProjectTrait;
 use App\Http\Controllers\Progress\Traits\TaskTrait;
 use App\Http\Controllers\Progress\Traits\UserTrait;
-use App\Project;
 use Illuminate\Http\Request;
 
 class TaskController extends ApiContr
@@ -84,15 +82,21 @@ class TaskController extends ApiContr
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id = NULL)
+    public function show($id = NULL, $project_id = NULL)
     {
         $task = $this->getTask($id);
-
+        //
+        if (isset($project_id)) {
+            $task->project_id = base64_decode($project_id);
+        }
         //获取项目列表
         $projects = $this->getProjects();
 
+        // dump($task);die();
+
         return view('progress-app.uptask', compact('task', 'projects'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

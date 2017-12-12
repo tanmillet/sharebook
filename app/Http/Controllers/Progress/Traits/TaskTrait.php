@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Progress\Traits;
 
 use App\Task;
+use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Created by PhpStorm.
@@ -55,5 +56,18 @@ trait TaskTrait
     public function createTaskTag($project_tag)
     {
 
+    }
+
+    /**
+     * @author Terry Lucas
+     * @param $project_id
+     * @param $task_progress
+     * @return Collection
+     */
+    public function getTasks($project_id, $task_progress): Collection
+    {
+        return Task::where('project_id', base64_decode($project_id))
+            ->where('task_progress', $task_progress)
+            ->get();
     }
 }

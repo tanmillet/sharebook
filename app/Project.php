@@ -30,6 +30,7 @@ class Project extends Model
         'project_digest',
         'project_context',
         'project_milestone',
+        'project_creater',
     ];
 
     /**

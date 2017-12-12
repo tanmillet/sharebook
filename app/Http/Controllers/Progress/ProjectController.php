@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Progress;
 
 use App\Http\Controllers\Progress\Requests\UpProjectValidator;
+use App\Http\Controllers\Progress\Traits\ProjectTrait;
+use App\Http\Controllers\Progress\Traits\TaskTrait;
 use App\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,6 +12,8 @@ use phpDocumentor\Reflection\Types\Null_;
 
 class ProjectController extends ApiContr
 {
+    use ProjectTrait, TaskTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -28,9 +32,16 @@ class ProjectController extends ApiContr
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function projectDetail($id)
+    public function projectDetail($id, $task_progress = 0)
     {
-        return view('progress-app.project-detail');
+        //定义
+        $tasks = $this->getTasks($id, $task_progress);
+
+        $project = $this->getProject($id);
+
+        // dump($project);die();
+
+        return view('progress-app.project-detail', compact('tasks', 'project'));
     }
 
     /**
@@ -68,18 +79,21 @@ class ProjectController extends ApiContr
             'project_digest'    => $validator->validateParams['digest'],
             'project_context'   => $validator->validateParams['context'],
             'project_milestone' => $validator->validateParams['milestone'],
+            'project_creater' => 'lucas',
         ];
 
         //唯一标识
         $attributes = [
-            'project_tag'       => $validator->validateParams['tag'],
+            'project_tag' => $validator->validateParams['tag'],
         ];
 
         //add new role operate
         try {
             $res = Project::updateOrCreate($attributes, $project);
         } catch (\Exception $e) {
-            return ($request->ajax()) ? $this->setStatusCode(500)->responseError($e->getMessage()) : back()->withErrors($e->getMessage());
+            return ($request->ajax()) ? $this->setStatusCode(500)->responseError($e->getMessage()) : back()->withErrors(
+                $e->getMessage()
+            );
         }
 
         return ($request->ajax()) ? $this->setStatusCode(200)->responseSuccess('操作成功！') : redirect('pro/projects');

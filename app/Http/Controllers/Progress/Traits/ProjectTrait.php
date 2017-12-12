@@ -53,9 +53,9 @@ trait ProjectTrait
      * @author Terry Lucas
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function getProjects(): Collection
+    public function getProjects($project_id = NULL)
     {
-        return Project::all();
+        return (isset($project_id)) ? $this->getProject() : Project::all();
     }
 
     /**
