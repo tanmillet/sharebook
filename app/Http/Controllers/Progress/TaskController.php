@@ -97,6 +97,13 @@ class TaskController extends ApiContr
         return view('progress-app.uptask', compact('task', 'projects'));
     }
 
+    public function tasks()
+    {
+        $tasks = $this->getAllTasks();
+
+        return view('progress-app.tasks', compact('tasks'));
+    }
+
 
     /**
      * Show the form for editing the specified resource.

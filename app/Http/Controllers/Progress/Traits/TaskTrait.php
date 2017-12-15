@@ -70,4 +70,13 @@ trait TaskTrait
             ->where('task_progress', $task_progress)
             ->get();
     }
+
+    /**
+     * @author Terry Lucas
+     * @return Collection|static[]
+     */
+    public function getAllTasks()
+    {
+        return Task::all();
+    }
 }

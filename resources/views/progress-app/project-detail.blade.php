@@ -14,22 +14,22 @@
                                     </a>
                                     <div>
                                         <div class="h3 m-t-xs m-b-xs">{{$project->project_name}}</div>
-                                        <small class="text-muted"><i
-                                                    class="fa fa-map-marker"></i> {{$project->project_creater}}</small>
+                                        <small class="text-muted" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="项目创始人"><i
+                                                    class="fa icon-user"></i> {{$project->project_creater}}</small>
                                     </div>
                                 </div>
                                 <div class="panel wrapper">
                                     <div class="row text-center">
                                         <div class="col-xs-6">
                                             <a href="#">
-                                                <span class="m-b-xs h4 block">245</span>
-                                                <small class="text-muted">Followers</small>
+                                                <span class="m-b-xs h4 block">1</span>
+                                                <small class="text-muted">项目成员</small>
                                             </a>
                                         </div>
                                         <div class="col-xs-6">
                                             <a href="#">
                                                 <span class="m-b-xs h4 block">55</span>
-                                                <small class="text-muted">Following</small>
+                                                <small class="text-muted">任务数量</small>
                                             </a>
                                         </div>
                                     </div>
@@ -115,8 +115,6 @@
                                                             <a href="#" class="btn btn-xs btn-default m-t-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="任务结束时间"><i
                                                                         class="fa fa-calendar"></i> {{$task->task_end_date}}
                                                             </a>
-                                                            <a href="#" class="btn btn-xs btn-info m-t-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="任务完成进度">0%</a>
-                                                            <div class="btn-group">
                                                                 <button type="button"
                                                                         class="btn btn-xs btn-default  m-t-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="任务需要天数">{{diff_between_two_days($task->task_start_date, $task->task_end_date)}}
                                                                     days
@@ -127,7 +125,6 @@
                                                                     days
                                                                 </button>
                                                             </div>
-                                                        </div>
                                                     </small>
                                                 </a>
 
