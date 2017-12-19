@@ -104,8 +104,8 @@
             </section>
         </section>
     </section>
+    <!-- DataTables -->
 @endsection
-
 
 @section('tan-js')
     <script src="/admin2-app/assets/vendor/require.js"

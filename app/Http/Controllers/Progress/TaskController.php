@@ -93,18 +93,13 @@ class TaskController extends ApiContr
         $projects = $this->getProjects();
 
         // dump($task);die();
-
         return view('progress-app.uptask', compact('task', 'projects'));
     }
 
-    /**
-     * @author Terry Lucas
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
     public function tasks()
     {
         $tasks = $this->getAllTasks();
-        // dump($tasks);die();
+
         return view('progress-app.tasks', compact('tasks'));
     }
 
