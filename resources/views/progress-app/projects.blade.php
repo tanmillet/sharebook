@@ -32,7 +32,7 @@
                                     <a class=" btn btn-info btn-sm" href="/pro/show/project/{{base64_encode($project->id)}}">
                                         <i class="fa fa-edit"></i> 编辑 </i>
                                     </a>
-                                    <a class=" btn btn-info btn-sm" href="/pro/show/task/{{base64_encode($project->id)}}">
+                                    <a class=" btn btn-info btn-sm" href="/pro/show/task/null/{{base64_encode($project->id)}}">
                                         <i class="fa fa-plus"></i> 任务 </i>
                                     </a>
                                     <a class=" btn btn-danger btn-sm oper-del" data-id="{{base64_encode($project->id)}}"

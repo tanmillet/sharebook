@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Project extends Model
 {
@@ -29,6 +30,7 @@ class Project extends Model
         'project_digest',
         'project_context',
         'project_milestone',
+        'project_creater',
     ];
 
     /**
@@ -41,5 +43,15 @@ class Project extends Model
         parent::__construct($attributes);
 
         $this->setTable('projects');
+    }
+
+    /**
+     * 获得此项目的任务列表
+     * @author Terry Lucas
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tasks(): HasMany
+    {
+        return $this->hasMany('App\Task');
     }
 }

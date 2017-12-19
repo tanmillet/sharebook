@@ -34,7 +34,7 @@
             <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
                 <i class="icon-list"></i>
             </a>
-            <a href="index.html" class="navbar-brand text-lt">
+            <a href="/pro" class="navbar-brand text-lt">
                 <i class="icon-drop"></i>
                 <img src="/tan-admin/images/logo.png" alt="." class="hide">
                 <span class="hidden-nav-xs m-l-sm">Millet</span>
@@ -109,23 +109,20 @@
                     <ul class="dropdown-menu animated fadeInRight">
                         <li>
                             <span class="arrow top"></span>
-                            <a href="#">Settings</a>
+                            <a href="#">修改信息</a>
                         </li>
                         <li>
-                            <a href="profile.html">Profile</a>
+                            <a href="profile.html">个人信息</a>
                         </li>
                         <li>
                             <a href="#">
                                 <span class="badge bg-danger pull-right">3</span>
-                                Notifications
+                                任务提示
                             </a>
-                        </li>
-                        <li>
-                            <a href="docs.html">Help</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="modal.lockme.html" data-toggle="ajaxModal">Logout</a>
+                            <a href="modal.lockme.html" data-toggle="ajaxModal">退出</a>
                         </li>
                     </ul>
                 </li>
@@ -144,317 +141,29 @@
                             <nav class="nav-primary hidden-xs">
                                 <ul class="nav bg clearfix">
                                     <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
-                                        Discover
+                                        快捷方式
                                     </li>
                                     <li>
                                         <a href="index.html">
-                                            <i class="icon-disc icon text-success"></i>
-                                            <span class="font-bold">What's new</span>
+                                            <i class="icon-user icon text-success"></i>
+                                            <span class="font-bold">个人信息</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="genres.html">
-                                            <i class="icon-music-tone-alt icon text-info"></i>
-                                            <span class="font-bold">Genres</span>
+                                        <a href="/pro/show/task">
+                                            <i class="icon-list icon text-info-lter"></i>
+                                            <span class="font-bold">新建任务</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="events.html">
+                                        <a href="/pro/show/project">
                                             <i class="icon-drawer icon text-primary-lter"></i>
-                                            <b class="badge bg-primary pull-right">6</b>
-                                            <span class="font-bold">Events</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="listen.html">
-                                            <i class="icon-list icon  text-info-dker"></i>
-                                            <span class="font-bold">Listen</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/admin/video" data-target="#content" data-el="#bjax-el"
-                                           data-replace="true">
-                                            <i class="icon-social-youtube icon  text-primary"></i>
-                                            <span class="font-bold">Video</span>
+                                            <span class="font-bold">新建项目</span>
                                         </a>
                                     </li>
                                     <li class="m-b hidden-nav-xs"></li>
                                 </ul>
                                 <ul class="nav" data-ride="collapse">
-                                    <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
-                                        Interface
-                                    </li>
-                                    <li>
-                                        <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                          <i class="fa fa-angle-left text"></i>
-                          <i class="fa fa-angle-down text-active"></i>
-                        </span>
-                                            <i class="icon-screen-desktop icon">
-                                            </i>
-                                            <span>Layouts</span>
-                                        </a>
-                                        <ul class="nav dk text-sm">
-                                            <li>
-                                                <a href="layout-color.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Color option</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="layout-boxed.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Boxed layout</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="layout-fluid.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Fluid layout</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                          <i class="fa fa-angle-left text"></i>
-                          <i class="fa fa-angle-down text-active"></i>
-                        </span>
-                                            <i class="icon-chemistry icon">
-                                            </i>
-                                            <span>UI Kit</span>
-                                        </a>
-                                        <ul class="nav dk text-sm">
-                                            <li>
-                                                <a href="buttons.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Buttons</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="icons.html" class="auto">
-                                                    <b class="badge bg-info pull-right">369</b>
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Icons</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.weidea.net" class="auto">
-                                                    <b class="badge bg-info pull-right">369</b>
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>More</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="grid.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Grid</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="widgets.html" class="auto">
-                                                    <b class="badge bg-dark pull-right">8</b>
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Widgets</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="components.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Components</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="list.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>List group</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#table" class="auto">
-                            <span class="pull-right text-muted">
-                              <i class="fa fa-angle-left text"></i>
-                              <i class="fa fa-angle-down text-active"></i>
-                            </span>
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Table</span>
-                                                </a>
-                                                <ul class="nav dker">
-                                                    <li>
-                                                        <a href="table-static.html">
-                                                            <i class="fa fa-angle-right"></i>
-                                                            <span>Table static</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="table-datatable.html">
-                                                            <i class="fa fa-angle-right"></i>
-                                                            <span>Datatable</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#form" class="auto">
-                            <span class="pull-right text-muted">
-                              <i class="fa fa-angle-left text"></i>
-                              <i class="fa fa-angle-down text-active"></i>
-                            </span>
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Form</span>
-                                                </a>
-                                                <ul class="nav dker">
-                                                    <li>
-                                                        <a href="form-elements.html">
-                                                            <i class="fa fa-angle-right"></i>
-                                                            <span>Form elements</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="form-validation.html">
-                                                            <i class="fa fa-angle-right"></i>
-                                                            <span>Form validation</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="form-wizard.html">
-                                                            <i class="fa fa-angle-right"></i>
-                                                            <span>Form wizard</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="chart.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Chart</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="portlet.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Portlet</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="timeline.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Timeline</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="">
-                                        <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                          <i class="fa fa-angle-left text"></i>
-                          <i class="fa fa-angle-down text-active"></i>
-                        </span>
-                                            <i class="icon-grid icon">
-                                            </i>
-                                            <span>Pages</span>
-                                        </a>
-                                        <ul class="nav dk text-sm">
-                                            <li class="">
-                                                <a href="profile.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Profile</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="blog.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Blog</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="invoice.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Invoice</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="gmap.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Google Map</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="jvectormap.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Vector Map</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="signin.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Signin</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="signup.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Signup</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="404.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>404</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="">
-                                        <a href="#" class="auto"><span class="pull-right text-muted"><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span>
-                                            <i class="icon-users icon"></i>
-                                            <span>Users</span>
-                                        </a>
-                                        <ul class="nav dk text-sm">
-                                            <li class="">
-                                                <a href="profile.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-                                                    <span>User Lists</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="/admin2/roles" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-                                                    <span>Role Lists</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="blog.html" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-                                                    <span>Menu Lists</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
                                     <li class="active">
                                         <a href="#" class="auto"><span class="pull-right text-muted"><i class="fa fa-angle-left text"></i><i class="fa fa-angle-down text-active"></i></span>
                                             <i class="fa fa-inbox"></i>
@@ -474,7 +183,13 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/pro/show/project" class="auto">
+                                                <a href="/pro/tasks" class="auto">
+                                                    <i class="fa fa-angle-right text-xs"></i>
+                                                    <span>任务列表</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/pro/show/task" class="auto">
                                                     <i class="fa fa-angle-right text-xs"></i>
                                                     <span>添加任务</span>
                                                 </a>
@@ -483,21 +198,11 @@
                                     </li>
                                 </ul>
                                 <ul class="nav text-sm">
-                                    <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
-                                        <span class="pull-right"><a href="#"><i class="icon-plus i-lg"></i></a></span>
-                                        Playlist
-                                    </li>
                                     <li>
                                         <a href="#">
-                                            <i class="icon-music-tone icon"></i>
-                                            <span>Hip-Pop</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="icon-playlist icon text-success-lter"></i>
-                                            <b class="badge bg-success dker pull-right">9</b>
-                                            <span>Jazz</span>
+                                            <i class="icon-eye icon text-info-lter"></i>
+                                            <b class="badge bg-info dker pull-right">9</b>
+                                            <span>最新焦点</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -518,29 +223,26 @@
                           <strong class="font-bold text-lt">Millet.Tan</strong>
                           <b class="caret"></b>
                         </span>
-                        <span class="text-muted text-xs block m-l">Art Director</span>
+                        <span class="text-muted text-xs block m-l">自游人</span>
                       </span>
                                 </a>
                                 <ul class="dropdown-menu animated fadeInRight aside text-left">
                                     <li>
                                         <span class="arrow bottom hidden-nav-xs"></span>
-                                        <a href="#">Settings</a>
+                                        <a href="#">修改信息</a>
                                     </li>
                                     <li>
-                                        <a href="profile.html">Profile</a>
+                                        <a href="profile.html">个人信息</a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <span class="badge bg-danger pull-right">3</span>
-                                            Notifications
+                                            任务提示
                                         </a>
-                                    </li>
-                                    <li>
-                                        <a href="docs.html">Help</a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="modal.lockme.html" data-toggle="ajaxModal">Logout</a>
+                                        <a href="modal.lockme.html" data-toggle="ajaxModal">退出</a>
                                     </li>
                                 </ul>
                             </div>
@@ -564,12 +266,10 @@
 <!-- App -->
 <script src="/tan-admin/js/app.js"></script>
 <script src="/tan-admin/js/slimscroll/jquery.slimscroll.min.js"></script>
-<script src="/tan-admin/js/charts/easypiechart/jquery.easy-pie-chart.js"></script>
 <script src="/tan-admin/js/app.plugin.js"></script>
-{{--<script type="text/javascript" src="/tan-admin/js/jPlayer/jquery.jplayer.min.js"></script>--}}
-{{--<script type="text/javascript" src="/tan-admin/js/jPlayer/add-on/jplayer.playlist.min.js"></script>--}}
-{{--<script type="text/javascript" src="/tan-admin/js/jPlayer/demo.js"></script>--}}
-
+<script type="text/javascript" src="/tan-admin/js/jPlayer/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="/tan-admin/js/jPlayer/add-on/jplayer.playlist.min.js"></script>
+<script type="text/javascript" src="/tan-admin/js/jPlayer/demo.js"></script>
 
 @yield('tan-js')
 

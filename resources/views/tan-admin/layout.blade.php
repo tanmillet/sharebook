@@ -5,6 +5,9 @@
     <title>Tan Millet | Web Application</title>
     <meta name="description"
           content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"/>
+
+    <meta name="_token" content="{{ csrf_token() }}"/>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <link rel="stylesheet" href="/tan-admin/js/jPlayer/jplayer.flat.css" type="text/css"/>
     <link rel="stylesheet" href="/tan-admin/css/bootstrap.css" type="text/css"/>
