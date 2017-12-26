@@ -27,6 +27,11 @@ class TemplateController extends Controller
     public function table()
     {
         // return view('tan-admin.index');
-        return view('tan-admin.roles');
+        return view('tan-admin.temp.table');
+    }
+
+    public function profile()
+    {
+        return view('tan-admin.temp.profile');
     }
 }
