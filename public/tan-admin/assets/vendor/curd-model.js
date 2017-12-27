@@ -2,7 +2,7 @@
  * Created by hp on 17.11.29.
  */
 require.config({
-    baseUrl: '/admin2-app/assets/',
+    baseUrl: '/tan-admin/assets/',
     paths: {
         'jquery': 'vendor/jquery.min',
         'AjaxModel': 'vendor/ajax-service',

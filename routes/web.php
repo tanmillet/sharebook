@@ -18,15 +18,20 @@ Route::namespace('Admin')->prefix('template')->group(
         $router->get('/video/detail', 'TemplateController@videoDetail');
         $router->get('/table', 'TemplateController@table');
         $router->get('/profile', 'TemplateController@profile');
+        $router->get('/blog', 'TemplateController@blog');
+        $router->get('/form', 'TemplateController@form');
     }
 );
 
-Route::namespace('Admin')->prefix('admin')->group(
+Route::namespace('Admin')->prefix('ad')->group(
     function ($router) {
         $router->get('/geo', 'GeoController@index');
         $router->get('/geoanalyze', 'GeoController@analyze');
         $router->get('/timeline', 'IndexController@admin2Timeline');
         $router->get('/form', 'IndexController@form');
         $router->match(['get', 'post'], '/login', 'IndexController@login');
+
+        $router->get('/users', 'UserController@index');
+        $router->get('/perms', 'PermissionController@index');
     }
 );

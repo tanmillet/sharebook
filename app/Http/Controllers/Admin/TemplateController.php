@@ -34,4 +34,13 @@ class TemplateController extends Controller
     {
         return view('tan-admin.temp.profile');
     }
+
+    public function blog()
+    {
+        return view('tan-admin.temp.blog');
+    }
+    public function form()
+    {
+        return view('tan-admin.temp.form');
+    }
 }

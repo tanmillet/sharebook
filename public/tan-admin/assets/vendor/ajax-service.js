@@ -2,7 +2,7 @@
  *
  */
 require.config({
-    baseUrl: '/admin2-app/assets/',
+    baseUrl: '/tan-admin/assets/',
     paths: {
         'jquery': 'vendor/jquery.min',
         'sweetalert': 'vendor/sweetalert'

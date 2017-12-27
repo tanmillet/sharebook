@@ -16,9 +16,11 @@ class PermissionController extends ApiContr
     public function index()
     {
         //
-        $permissions = Permission::orderBy('created_at', "DSEC")->get();
+        // $permissions = Permission::orderBy('created_at', "DSEC")->get();
 
-        return view('admin2-app.permissions', compact('permissions'));
+        // return view('admin2-app.permissions', compact('permissions'));
+
+        return view('tan-admin.permission.index');
     }
 
     /**
