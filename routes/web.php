@@ -39,3 +39,10 @@ Route::namespace('Admin')->prefix('ad')->group(
         $router->get('/media', 'WidgetController@mediaManager');
     }
 );
+
+//前端页面
+Route::namespace('Front')->prefix('fr')->group(
+    function ($router) {
+        $router->get('/kbk', 'KoobooKController@index');
+    }
+);
