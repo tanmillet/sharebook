@@ -1,7 +1,7 @@
 @extends('tan-admin.layout')
 
 @section('tan-main')
-    <section class="wrapper">
+    <section class="wrapper-lg">
         <section class="scrollable">
             {{--<header class="header bg-light dk">--}}
             {{--<p>用户列表</p>--}}

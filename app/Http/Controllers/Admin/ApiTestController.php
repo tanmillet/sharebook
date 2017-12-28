@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ApiTestController extends Controller
 {
@@ -15,6 +16,40 @@ class ApiTestController extends Controller
     public function index()
     {
         //
+        $filesPaths = storage_path('app//city');
+        foreach (glob($filesPaths.'/*json') as $file) {
+            dump("文件名称:".$file);
+            $contents = file_get_contents($file);
+            dump("准备入库 内容 :".$contents);
+            $parentCode = basename($file, '.json');
+            $datas = json_decode($contents);
+            if (empty($datas) || count($datas) < 1) {
+                continue;
+            }
+            $temp = [];
+            foreach ($datas as $key => $data) {
+                $temp[] = [
+                    'node_code'        => $key,
+                    'node_name'        => $data,
+                    'parent_node_code' => $parentCode,
+                    'node_isuse'       => 1,
+                    'updated_at'       => date('Y-m-d H:i:s', time()),
+                    'created_at'       => date('Y-m-d H:i:s', time()),
+                ];
+            }
+            dump("开始入库");
+            //开启事务
+            DB::beginTransaction();
+            try {
+                DB::table('sync_new_code_library')->insert($temp);
+                DB::commit();
+            } catch (\Exception $exception) {
+                dump("文件名称 -- ".$parentCode.$exception->getMessage());
+                DB::rollBack();
+                break;
+            }
+            dump("结束入库");
+        }
     }
 
     /**
@@ -30,7 +65,7 @@ class ApiTestController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +76,7 @@ class ApiTestController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -52,7 +87,7 @@ class ApiTestController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -63,8 +98,8 @@ class ApiTestController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -75,7 +110,7 @@ class ApiTestController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -1,7 +1,7 @@
 @extends('tan-admin.layout')
 
 @section('tan-main')
-    <section class="scrollable wrapper">
+    <section class="scrollable wrapper-lg">
         <div class="row">
             <div class="col-lg-4">
                 <section class="panel panel-default">

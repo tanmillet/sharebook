@@ -98,7 +98,7 @@
 
                     <span class="pull-left thumb-sm">
 
-                      <img src="images/a0.png" alt="..." class="img-circle">
+                      <img src="/tan-admin/images/a0.png" alt="..." class="img-circle">
 
                     </span>
 
@@ -347,13 +347,13 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="genres.html">
+                                        <a href="/ad/logger">
                                             <i class="fa  fa-file-text-o text-info-dker"></i>
                                             <span class="font-bold">日志消息</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="genres.html">
+                                        <a href="/ad/media">
                                             <i class="fa  fa-video-camera text-primary-lter"></i>
                                             <span class="font-bold">影响管理</span>
                                         </a>
