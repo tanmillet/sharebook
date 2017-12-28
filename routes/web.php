@@ -33,5 +33,7 @@ Route::namespace('Admin')->prefix('ad')->group(
 
         $router->get('/users', 'UserController@index');
         $router->get('/perms', 'PermissionController@index');
+        $router->get('/profile', 'ProfileController@index');
+        $router->get('/apitest', 'ApiTestController@index');
     }
 );

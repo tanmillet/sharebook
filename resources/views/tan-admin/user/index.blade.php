@@ -3,9 +3,9 @@
 @section('tan-main')
     <section class="wrapper">
         <section class="scrollable">
-            <header class="header bg-light dk">
-                <p>用户列表</p>
-            </header>
+            {{--<header class="header bg-light dk">--}}
+            {{--<p>用户列表</p>--}}
+            {{--</header>--}}
             <section class="panel panel-default">
                 <div class="row wrapper">
                     <div class="col-sm-12 m-b-xs">
@@ -52,7 +52,7 @@
                                     <i class="fa fa-edit text-primary-lter"></i>
                                 </a>
                                 <a href="javascript:void(0);" data-id="2" class="oper-del">
-                                    <i class="fa fa-minus-square text-primary-lter"></i>
+                                    <i class="fa  fa-trash-o text-primary-lter"></i>
                                 </a>
                             </td>
                         </tr>
@@ -65,7 +65,7 @@
                             <td>
                                 <a href="#" class="active" data-toggle="class"><i
                                             class="fa fa-check text-success text-active"></i><i
-                                            class="fa fa-times text-danger text"></i></a>
+                                            class="fa  fa-trash-o text-danger text"></i></a>
                             </td>
                         </tr>
                         <tr>

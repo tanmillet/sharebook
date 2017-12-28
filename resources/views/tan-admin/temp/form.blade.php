@@ -2,7 +2,7 @@
 
 @section('tan-main')
     <section class="vbox">
-        <section class="scrollable">
+        <section class="scrollable padder">
             <div class="m-b-md">
                 <h3 class="m-b-none">Validation</h3>
             </div>
