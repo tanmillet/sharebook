@@ -8,7 +8,8 @@
                     <div class="panel-body">
                         <div class="clearfix text-center m-t">
                             <div class="inline">
-                                <div style="width: 134px; height: 134px; line-height: 134px;">
+                                <div class="easypiechart easyPieChart" data-percent="100" data-line-width="5" data-bar-color="#545ca6" data-track-color="#f5f5f5" data-scale-color="false" data-size="134" data-line-cap="butt" data-animate="1000" style="width: 134px; height: 134px; line-height: 134px;">
+
                                     <div class="thumb-lg">
                                         <img src="/tan-admin/images/a5.png" class="img-circle" alt="...">
                                     </div>
