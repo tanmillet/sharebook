@@ -2,7 +2,7 @@
 
 @section('tan-main')
     {{--<section class="wrapper-lg">--}}
-        <section class="wrapper">
+        <section class="scrollable wrapper-lg">
             <div class="row">
                 <div class="col-sm-3">
                     <div class="panel panel-default">
@@ -51,13 +51,6 @@
                                     dolor sit amet, consectetur</p>
                                 <small class="block text-muted"><i class="fa fa-clock-o"></i> 1 hour ago</small>
                             </li>
-
-                            <li class="list-group-item">
-                                <p><a href="#" class="text-info">@Josh Long</a> Vestibulum ullamcorper sodales nisi nec
-                                    adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p>
-                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 hours ago</small>
-                            </li>
-
                             <li class="list-group-item">
                                 <p><a href="#" class="text-info">@Josh Long</a> Vestibulum ullamcorper sodales nisi nec
                                     adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p>
@@ -78,42 +71,6 @@
                                     adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p>
                                 <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 hours ago</small>
                             </li>
-                            <li class="list-group-item">
-                                <p><a href="#" class="text-info">@Josh Long</a> Vestibulum ullamcorper sodales nisi nec
-                                    adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p>
-                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 hours ago</small>
-                            </li>
-                            <li class="list-group-item">
-                                <p><a href="#" class="text-info">@Josh Long</a> Vestibulum ullamcorper sodales nisi nec
-                                    adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p>
-                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 hours ago</small>
-                            </li>
-                            <li class="list-group-item">
-                                <p><a href="#" class="text-info">@Josh Long</a> Vestibulum ullamcorper sodales nisi nec
-                                    adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p>
-                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 hours ago</small>
-                            </li>
-                            <li class="list-group-item">
-                                <p><a href="#" class="text-info">@Josh Long</a> Vestibulum ullamcorper sodales nisi nec
-                                    adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p>
-                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 hours ago</small>
-                            </li>
-                            <li class="list-group-item">
-                                <p><a href="#" class="text-info">@Josh Long</a> Vestibulum ullamcorper sodales nisi nec
-                                    adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p>
-                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 hours ago</small>
-                            </li>
-                            <li class="list-group-item">
-                                <p><a href="#" class="text-info">@Josh Long</a> Vestibulum ullamcorper sodales nisi nec
-                                    adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p>
-                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 hours ago</small>
-                            </li>
-                            <li class="list-group-item">
-                                <p><a href="#" class="text-info">@Josh Long</a> Vestibulum ullamcorper sodales nisi nec
-                                    adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p>
-                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 hours ago</small>
-                            </li>
-
                             <li class="list-group-item">
                                 <div class="text-center">
                                     <ul class="pagination pagination">

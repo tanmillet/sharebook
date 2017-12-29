@@ -18,6 +18,11 @@ class TemplateController extends Controller
         return view('tan-admin.video');
     }
 
+    public function layout()
+    {
+        return view('tan-admin.temp.layout');
+    }
+
     public function videoDetail()
     {
         // return view('tan-admin.index');

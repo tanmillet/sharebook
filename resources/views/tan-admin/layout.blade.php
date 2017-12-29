@@ -231,7 +231,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="genres.html">
+                                        <a href="/ad/msg">
                                             <i class="icon-envelope icon text-primary-lter"></i>
                                             <b class="badge bg-primary pull-right">6</b>
                                             <span class="font-bold">我的消息</span>
@@ -414,9 +414,9 @@
             </aside>
             <!-- /.aside -->
             <section id="content">
-                {{--<section class="vbox">--}}
+                <section class="vbox">
                     @yield('tan-main')
-                {{--</section>--}}
+                </section>
                 <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open"
                    data-target="#nav,html"></a>
             </section>
@@ -432,9 +432,9 @@
 <script src="/tan-admin/js/slimscroll/jquery.slimscroll.min.js"></script>
 <script src="/tan-admin/js/charts/easypiechart/jquery.easy-pie-chart.js"></script>
 <script src="/tan-admin/js/app.plugin.js"></script>
-<script type="text/javascript" src="/tan-admin/js/jPlayer/jquery.jplayer.min.js"></script>
-<script type="text/javascript" src="/tan-admin/js/jPlayer/add-on/jplayer.playlist.min.js"></script>
-<script type="text/javascript" src="/tan-admin/js/jPlayer/demo.js"></script>
+{{--<script type="text/javascript" src="/tan-admin/js/jPlayer/jquery.jplayer.min.js"></script>--}}
+{{--<script type="text/javascript" src="/tan-admin/js/jPlayer/add-on/jplayer.playlist.min.js"></script>--}}
+{{--<script type="text/javascript" src="/tan-admin/js/jPlayer/demo.js"></script>--}}
 
 @yield('tan-js')
 

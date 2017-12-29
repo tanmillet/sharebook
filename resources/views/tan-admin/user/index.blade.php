@@ -1,8 +1,8 @@
 @extends('tan-admin.layout')
 
 @section('tan-main')
-    <section class="wrapper-lg">
-        <section class="scrollable">
+    {{--<section class="wrapper-lg">--}}
+        <section class="scrollable wrapper">
             {{--<header class="header bg-light dk">--}}
             {{--<p>用户列表</p>--}}
             {{--</header>--}}
@@ -191,7 +191,7 @@
             <!-- Modal -->
             @include('tan-admin.user.filter')
         </section>
-    </section>
+    {{--</section>--}}
 @endsection
 
 @section('tan-js')

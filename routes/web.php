@@ -21,6 +21,7 @@ Route::namespace('Admin')->prefix('template')->group(
         $router->get('/profile', 'TemplateController@profile');
         $router->get('/blog', 'TemplateController@blog');
         $router->get('/form', 'TemplateController@form');
+        $router->get('/layout', 'TemplateController@layout');
     }
 );
 
