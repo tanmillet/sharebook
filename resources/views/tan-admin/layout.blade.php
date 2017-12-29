@@ -435,7 +435,6 @@
 {{--<script type="text/javascript" src="/tan-admin/js/jPlayer/jquery.jplayer.min.js"></script>--}}
 {{--<script type="text/javascript" src="/tan-admin/js/jPlayer/add-on/jplayer.playlist.min.js"></script>--}}
 {{--<script type="text/javascript" src="/tan-admin/js/jPlayer/demo.js"></script>--}}
-
 @yield('tan-js')
 
 </body>
