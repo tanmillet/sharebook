@@ -1,4 +1,4 @@
-@extends('tan-admin.layout')
+@extends('tan-front.layout')
 
 @section('tan-main')
     <section class="hbox stretch">

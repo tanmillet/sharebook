@@ -37,6 +37,7 @@ Route::namespace('Admin')->prefix('ad')->group(
         $router->get('/profile', 'ProfileController@index');
         $router->get('/apitest', 'ApiTestController@index');
         $router->get('/media', 'WidgetController@mediaManager');
+        $router->get('/msg', 'WidgetController@messageOwer');
     }
 );
 
