@@ -36,6 +36,7 @@ Route::namespace('Admin')->prefix('ad')->group(
         $router->get('/users', 'UserController@index');
         $router->get('/perms', 'PermissionController@index');
         $router->get('/profile', 'ProfileController@index');
+        $router->get('/userpass', 'ProfileController@upUserPass');
         $router->get('/apitest', 'ApiTestController@index');
         $router->get('/media', 'WidgetController@mediaManager');
         $router->get('/msg', 'WidgetController@messageOwer');

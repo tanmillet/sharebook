@@ -238,7 +238,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="events.html">
+                                        <a href="/ad/userpass">
                                             <i class="fa  fa-warning text-primary-lter"></i>
                                             <span class="font-bold">修改密码</span>
                                         </a>
