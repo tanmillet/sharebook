@@ -62,3 +62,7 @@ Route::namespace('Front')->prefix('fr')->group(
         $router->get('/kbk', 'KoobooKController@index');
     }
 );
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

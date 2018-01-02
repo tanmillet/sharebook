@@ -190,10 +190,17 @@
 
                         <li class="divider"></li>
 
+
                         <li>
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
 
-                            <a href="modal.lockme.html" data-toggle="ajaxModal">Logout</a>
-
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
                         </li>
 
                     </ul>
@@ -368,7 +375,15 @@
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="modal.lockme.html" data-toggle="ajaxModal">退出</a>
+                                        <a href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            退出
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
                                     </li>
                                 </ul>
                             </div>
