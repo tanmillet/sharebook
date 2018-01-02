@@ -17,6 +17,11 @@ use LucasRBAC\Permission\PermissionRegistrar;
 use LucasRBAC\Permission\Contracts\Permission as PermissionContract;
 
 // class Permission extends Model implements PermissionContract
+/**
+ * Class Permission
+ * Author Terry Lucas
+ * @package LucasRBAC\Permission\Models
+ */
 class Permission extends Model
 {
     // use RefreshesPermissionCache;
@@ -41,6 +46,11 @@ class Permission extends Model
         'is_parent',
     ];
 
+    /**
+     * @author Terry Lucas
+     * Permission constructor.
+     * @param array $attributes
+     */
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
@@ -48,6 +58,11 @@ class Permission extends Model
         $this->setTable(config('permissions'));
     }
 
+    /**
+     * @author Terry Lucas
+     * @param array $attributes
+     * @return $this|Model
+     */
     public static function create(array $attributes = [])
     {
         if (Permission::where('name', $attributes['name'])->where(
@@ -57,8 +72,6 @@ class Permission extends Model
         ) {
             throw PermissionAlreadyExists::create($attributes['name'], $attributes['guard_name']);
         }
-
-
 
         if (app()::VERSION < '5.4') {
             return parent::create($attributes);
