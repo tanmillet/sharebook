@@ -20,9 +20,10 @@ class UpPermissionValidator extends FormRequest
     {
         return
             [
-                'name' => 'required',
-                'guard_name'         => 'required',
-                'is_type'         => 'required',
+                'auth_name' => 'required',
+                'auth_url'         => 'required',
+                'auth_method'         => 'required',
+                'is_menu'         => 'required',
                 'is_parent'         => 'required',
             ];
     }
@@ -36,9 +37,10 @@ class UpPermissionValidator extends FormRequest
     {
         return
             [
-                'name' => '菜单标识',
-                'guard_name'         => '菜单名称',
-                'is_type'         => '菜单类型',
+                'auth_name' => '菜单名称',
+                'auth_url'         => '菜单标识',
+                'auth_method'         => '访问方式',
+                'is_menu'         => '是否是菜单',
                 'is_parent'         => '菜单归属',
             ];
     }

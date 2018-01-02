@@ -13,14 +13,22 @@ class PermissionController extends ApiContr
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id = NULL)
     {
         //
-        // $permissions = Permission::orderBy('created_at', "DSEC")->get();
+        $permissions = Permission::orderBy('created_at', "DSEC")->get();
 
-        // return view('admin2-app.permissions', compact('permissions'));
+        $perms = [];
+        foreach (parserMenuTypes() as $menuType => $parserMenuType) {
+            $perms[$menuType] = [];
+            foreach ($permissions as $permission) {
+                    if($permission->is_parent == $menuType) $perms[$menuType][] = $permission;
+            }
+        }
+        $menu = Permission::where('id', base64_decode($id))->first();
+        $menu = (is_null($menu)) ? new Permission() : $menu;
 
-        return view('tan-admin.permission.index');
+        return view('tan-admin.permission.index', compact('perms', 'menu'));
     }
 
     /**
@@ -49,26 +57,25 @@ class PermissionController extends ApiContr
         }
         //insert db init
         $permission = [
-            'guard_name' => $validator->validateParams['guard_name'],
-            'name'       => $validator->validateParams['name'],
-            'is_type'    => $validator->validateParams['is_type'],
+            'guard_name' => $validator->validateParams['auth_name'],
+            'name'       => $validator->validateParams['auth_url'],
+            'is_type'    => $validator->validateParams['auth_method'],
+            'is_menu'    => $validator->validateParams['is_menu'],
             'is_parent'  => $validator->validateParams['is_parent'],
         ];
 
-        $attributes = [
-            'id' => base64_decode($validator->validateParams['permission_id']),
-        ];
-
-        // dump($attributes);die();
-
-        //add new role operate
         try {
-            $res = Permission::updateOrCreate($attributes, $permission);
+            $res = (isset($validator->validateParams['opid'])) ? Permission::updateOrCreate(
+                [
+                    'id' => base64_decode($validator->validateParams['opid']),
+                ],
+                $permission
+            ) : Permission::create($permission);
         } catch (\Exception $e) {
             return back()->withErrors($e->getMessage());
         }
 
-        return redirect('admin2/permissions');
+        return redirect('/ad/perms');
     }
 
     /**
@@ -80,9 +87,9 @@ class PermissionController extends ApiContr
     public function show($id = NULL)
     {
         //
-        $permission = (is_null($id)) ? new Permission() : Permission::where('id', base64_decode($id))->first();
+        // $permission = (is_null($id)) ? new Permission() : Permission::where('id', base64_decode($id))->first();
 
-        return view('admin2-app.upermission', compact('permission'));
+        return $this->index($id);
     }
 
     /**

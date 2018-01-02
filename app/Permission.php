@@ -38,21 +38,4 @@ class Permission extends Model
 
         $this->setTable('permissions');
     }
-
-    /**
-     * @author Terry Lucas
-     * @param $date
-     * @return string|static
-     */
-    public function getIsParentAttribute($is_parent)
-    {
-        if($is_parent == 'AUTH'){
-            return '权限管理';
-        }elseif ($is_parent == 'TIMELINE'){
-            return '时间轴管理';
-        }else{
-            return '未设置';
-        }
-    }
-
 }

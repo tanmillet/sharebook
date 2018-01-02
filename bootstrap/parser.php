@@ -16,6 +16,19 @@ if (!function_exists("parser_taskprogress")) {
         if (isset($task_progresses[$task_progress_id])) {
             return $task_progresses[$task_progress_id];
         }
+
         return '未知';
+    }
+}
+
+if (!function_exists("parserMenuTypes")) {
+
+    function parserMenuTypes(): array
+    {
+        return [
+            'AdminCenter'   => '后台管理',
+            'ProfileCenter' => '个人中心',
+            'OperateCenter' => '操作中心',
+        ];
     }
 }

@@ -315,7 +315,7 @@
                                     <li>
                                         <a href="/ad/media">
                                             <i class="fa  fa-video-camera text-primary-lter"></i>
-                                            <span class="font-bold">影响管理</span>
+                                            <span class="font-bold">影像管理</span>
                                         </a>
                                     </li>
                                     <li>
