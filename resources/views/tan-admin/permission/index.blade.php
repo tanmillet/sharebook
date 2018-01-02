@@ -19,7 +19,7 @@
                         @foreach($perms as $key=>$perm)
                             <li class="dd-item dd3-item">
                                 <div class="dd-handle dd3-handle text-primary-lter">Drag</div>
-                                <div class="dd3-content">{{$key}}</div>
+                                <div class="dd3-content">{{parserMenuTypes()[$key]}}</div>
                                 <ol class="dd-list">
                                     @foreach($perm as $k=>$p)
                                         <li class="dd-item dd3-item" data-id="{{$p->id}}">
@@ -27,7 +27,7 @@
                                             <div class="dd3-content">
                                                 <i class="fa fa-link text-primary-lter"></i>
                                                 <strong>{{$p->guard_name}}</strong>
-                                                <a href="/demo/auth/users" class="dd-nodrag">{{$p->name}}</a>
+                                                <a href="/{{$p->name}}" class="dd-nodrag">{{$p->name}}</a>
                                                 @if($p->is_type == "POST")
                                                     <span class="badge bg-primary">POST</span>
                                                 @elseif($p->is_type == "GET")
@@ -37,12 +37,12 @@
                                                 @else
                                                 @endif
                                                 <span class="pull-right dd-nodrag">
-                                                        <a href="/demo/auth/menu/3/edit"><i
-                                                                    class="fa fa-edit text-primary-lter"></i></a>
+                                                        <a href="/ad/show/auth/{{base64_encode($p->id)}}"><i
+                                                                    class="fa fa-edit text-primary-lter"> 更新</i></a>
                                                        <a href="javascript:void(0);" data-id="{{base64_encode($p->id)}}"
                                                           data-name="{{$p->guard_name}}" data-url="/ad/destroy/auth"
-                                                          class="tree_branch_delete oper-del"><i
-                                                                   class="fa fa-minus-square text-primary-lter"></i></a>
+                                                          class="tree_branch_delete oper-del"> <i
+                                                                   class="fa fa-minus-square text-primary-lter"> 删除</i></a>
                                                 </span>
                                             </div>
                                         </li>
@@ -113,14 +113,10 @@
                                 </div>
                             </div>
                         </div>
-
                         <footer class="panel-footer text-right bg-light lter">
                             <button type="submit" class="btn btn-sm btn-primary btn-s-xs">确定</button>
-                            <button type="reset" class="btn btn-sm btn-danger btn-s-xs pull-left">取消</button>
                         </footer>
-
                     </section>
-
                 </form>
             </div>
         </div>

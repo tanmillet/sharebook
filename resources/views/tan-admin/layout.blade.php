@@ -220,6 +220,12 @@
                                     </li>
                                     <li>
                                         <a href="/ad/profile">
+                                            <i class="icon-home icon text-primary"></i>
+                                            <span class="font-bold">首页门户</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/ad/profile">
                                             <i class="icon-user icon text-success"></i>
                                             <span class="font-bold">个人信息</span>
                                         </a>
@@ -280,12 +286,6 @@
                                             </li>
                                             <li>
                                                 <a href="/template/table" class="auto">
-                                                    <i class="fa fa-list text-xs text-primary-lter"></i>
-                                                    <span>菜单列表</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/template/table" class="auto">
                                                     <i class="fa fa-book text-xs text-primary-lter"></i>
                                                     <span>操作日志</span>
                                                 </a>
@@ -294,6 +294,9 @@
                                     </li>
                                 </ul>
                                 <ul class="nav bg clearfix">
+                                    <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
+                                        操作中心
+                                    </li>
                                     <li>
                                         <a href="/ad/profile">
                                             <i class="fa fa-exchange text-danger"></i>
