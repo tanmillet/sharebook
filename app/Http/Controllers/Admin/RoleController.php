@@ -119,7 +119,7 @@ class RoleController extends ApiContr
 
         $res = Role::destroy(base64_decode($id));
 
-        return ($res) ? $this->setStatusCode(400)->responseError("操作角色类型删除成功！") :
-            $this->setStatusCode(400)->responseError("操作角色类型删除失败！");
+        return ($res) ? $this->setStatusCode(200)->responseError("操作角色类型删除成功！") :
+            $this->setStatusCode(500)->responseError("操作角色类型删除失败！");
     }
 }

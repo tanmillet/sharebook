@@ -4,41 +4,61 @@ namespace LucasRBAC\Permission\Models;
 
 // use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
+use LucasRBAC\Permission\Exceptions\PermissionAlreadyExists;
+use LucasRBAC\Permission\Exceptions\PermissionDoesNotExist;
+use LucasRBAC\Permission\PermissionRegistrar;
+
 // use Spatie\Permission\PermissionRegistrar;
 // use LucasRBAC\Permission\Traits\RefreshesPermissionCache;
 // use Illuminate\Database\Eloquent\Relations\MorphToMany;
 // use Spatie\Permission\Exceptions\PermissionDoesNotExist;
 // use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 // use Spatie\Permission\Exceptions\PermissionAlreadyExists;
-// use Spatie\Permission\Contracts\Permission as PermissionContract;
+use LucasRBAC\Permission\Contracts\Permission as PermissionContract;
 
 // class Permission extends Model implements PermissionContract
 class Permission extends Model
 {
     // use RefreshesPermissionCache;
+    /**
+     * @author Terry Lucas
+     * @var array
+     */
+    protected $guarded = [
+        'id',
+        'updated_at',
+        'created_at',
+    ];
 
-    public $guarded = ['id'];
+    /**
+     * @author Terry Lucas
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'guard_name',
+        'is_type',
+        'is_parent',
+    ];
 
     public function __construct(array $attributes = [])
     {
-        $attributes['guard_name'] = $attributes['guard_name'] ?? config('auth.defaults.guard');
-
         parent::__construct($attributes);
 
-        $this->setTable(config('permission.table_names.permissions'));
+        $this->setTable(config('permissions'));
     }
 
     public static function create(array $attributes = [])
     {
-        $attributes['guard_name'] = $attributes['guard_name'] ?? config('auth.defaults.guard');
-
-        if (static::getPermissions()->where('name', $attributes['name'])->where(
-            'guard_name',
-            $attributes['guard_name']
+        if (Permission::where('name', $attributes['name'])->where(
+            'is_type',
+            $attributes['is_type']
         )->first()
         ) {
             throw PermissionAlreadyExists::create($attributes['name'], $attributes['guard_name']);
         }
+
+
 
         if (app()::VERSION < '5.4') {
             return parent::create($attributes);
@@ -59,20 +79,14 @@ class Permission extends Model
     }
 
     /**
-     * Find a permission by its name (and optionally guardName).
-     *
+     * @author Terry Lucas
      * @param string $name
-     * @param string|null $guardName
-     *
-     * @throws \Spatie\Permission\Exceptions\PermissionDoesNotExist
-     *
-     * @return \Spatie\Permission\Contracts\Permission
+     * @param null $guardName
+     * @return PermissionContract
      */
     public static function findByName(string $name, $guardName = NULL): PermissionContract
     {
-        $guardName = $guardName ?? config('auth.defaults.guard');
-
-        $permission = static::getPermissions()->where('name', $name)->where('guard_name', $guardName)->first();
+        $permission = static::getPermissions()->where('name', $name)->first();
 
         if (!$permission) {
             throw PermissionDoesNotExist::create($name, $guardName);
@@ -86,6 +100,8 @@ class Permission extends Model
      */
     protected static function getPermissions(): Collection
     {
+        dump(app(PermissionRegistrar::class));
+        dump('OK');die();
         return app(PermissionRegistrar::class)->getPermissions();
     }
 }

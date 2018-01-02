@@ -55,8 +55,8 @@
                                     <a href="#" class="oper-del" data-id="{{base64_encode($role->id)}}"
                                        data-name="{{$role->display_name}}" data-url="/ad/destroy/role"><i
                                                 class="fa fa-trash-o text-primary-lter"> 删除</i></a>
-                                    <a href="/ad/dispatch/permission/{{base64_encode($role->id)}}">
-                                        <i class="fa fa fa-link text-primary-lter"> 权限指派</i>
+                                    <a href="/ad/dispatch/auth/{{base64_encode($role->id)}}">
+                                        <i class="fa fa fa-link text-primary-lter"> 权限</i>
                                     </a>
                                 </div>
                             </td>

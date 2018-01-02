@@ -46,6 +46,7 @@ Route::namespace('Admin')->prefix('ad')->group(
         $router->get('/show/auth/{opid?}', 'PermissionController@show');
         $router->post('/store/auth', 'PermissionController@store');
         $router->post('/destroy/auth/{opid}', 'PermissionController@destroy');
+        $router->any('/dispatch/auth/{opid}', 'PermissionController@dispatchPermission');
 
         $router->get('/profile', 'ProfileController@index');
         $router->get('/userpass', 'ProfileController@upUserPass');

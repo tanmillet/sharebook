@@ -19,31 +19,21 @@ define(['jquery', 'AjaxModel', 'sweetalert'], function ($, req, sweetalert) {
         operC: function (post_data, post_url) {
             var request = new req.AjaxModel();
             request.loseAjax(post_url, 'post', post_data, 'json', function (res) {
-                swal("结果信息！", res.info.message,"success")
-                // swal({
-                //         title: "结果信息！",
-                //         text: res.info.message,
-                //         type: "success",
-                //         confirmButtonText: "确定",
-                //     },
-                //     function () {
-                //         window.location.reload();
-                //     });
+                swal("结果信息！", res.info.message, "success")
                 return 'success';
             });
 
             return 'error';
         },
         operU: function () {
-
         },
         operR: function () {
 
         },
-        operD: function (operData, operUrl) {
+        operD: function (operData, operUrl, tipMsg) {
             var request = new req.AjaxModel();
             swal({
-                    title: "确定要删除?",
+                    title: tipMsg,
                     text: operData.operName,
                     type: "warning",
                     showCancelButton: true,

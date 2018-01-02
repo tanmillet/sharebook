@@ -160,3 +160,25 @@ if (!function_exists("diff_between_two_days")) {
         return ($falg) ? 0 - (($start_date_second - $end_date_second) / 86400) : ($start_date_second - $end_date_second) / 86400;
     }
 }
+
+/**
+ *判断http请求是否是post
+ */
+if (!function_exists("isPost")) {
+    function isPost()
+    {
+        return \Illuminate\Support\Facades\Request::isMethod("POST");
+    }
+}
+
+
+/**
+ *判断http请求是否是get
+ */
+if (!function_exists("isPGet")) {
+    function isGet()
+    {
+        return \Illuminate\Support\Facades\Request::isMethod("GET");
+    }
+
+}

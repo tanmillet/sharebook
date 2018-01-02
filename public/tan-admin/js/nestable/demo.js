@@ -13,4 +13,5 @@ $(document).ready(function()
     });
 
     $('#nestable3').nestable();
+    $('#nestable4').nestable();
 });

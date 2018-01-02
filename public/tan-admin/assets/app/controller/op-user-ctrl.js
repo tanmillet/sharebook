@@ -19,7 +19,7 @@ require(['jquery', 'CURDModel'], function ($, curder) {
         $(me).attr('disabled', "true");
 
         var curd = new curder.CURDModel();
-        curd.operD(operData, operUrl);
+        curd.operD(operData, operUrl,"确定要删除?");
         $(me).removeAttr("disabled");
     });
 

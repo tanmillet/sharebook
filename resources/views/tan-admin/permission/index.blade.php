@@ -41,7 +41,7 @@
                                                                     class="fa fa-edit text-primary-lter"> 更新</i></a>
                                                        <a href="javascript:void(0);" data-id="{{base64_encode($p->id)}}"
                                                           data-name="{{$p->guard_name}}" data-url="/ad/destroy/auth"
-                                                          class="tree_branch_delete oper-del"> <i
+                                                          class="oper-del"> <i
                                                                    class="fa fa-minus-square text-primary-lter"> 删除</i></a>
                                                 </span>
                                             </div>

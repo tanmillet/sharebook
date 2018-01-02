@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\Requests\UpPermissionValidator;
-use App\Permission;
 use Illuminate\Http\Request;
+use LucasRBAC\Permission\Models\Permission;
 
 class PermissionController extends ApiContr
 {
@@ -22,7 +22,9 @@ class PermissionController extends ApiContr
         foreach (parserMenuTypes() as $menuType => $parserMenuType) {
             $perms[$menuType] = [];
             foreach ($permissions as $permission) {
-                    if($permission->is_parent == $menuType) $perms[$menuType][] = $permission;
+                if ($permission->is_parent == $menuType) {
+                    $perms[$menuType][] = $permission;
+                }
             }
         }
         $menu = Permission::where('id', base64_decode($id))->first();
@@ -141,10 +143,41 @@ class PermissionController extends ApiContr
     /**
      * @author Terry Lucas
      * @param $role_id
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
-    public function dispatchPermission($role_id)
+    public function dispatchPermission($roleId)
     {
-        return view('admin2-app.dispatchpermission');
+        if (isPost()) {
+            $roleId = base64_decode($roleId);
+            $permissionId = base64_decode(\Illuminate\Support\Facades\Request::get("operId" , 0));
+            if (!isset($roleId) || !isset($permissionId)) {
+                return $this->setStatusCode(400)->responseError("参数不能为空！");
+            }
+
+            $perm = Permission::find($permissionId);
+            if(is_null($perm)){
+                return $this->setStatusCode(400)->responseError("权限访问不存在！");
+            }
+
+            die();
+            $res = TRUE;
+
+            return ($res) ? $this->setStatusCode(200)->responseError("权限指派成功！") :
+                $this->setStatusCode(500)->responseError("权限指派失败！");
+        }
+
+        $permissions = Permission::orderBy('created_at', "DSEC")->get();
+
+        $perms = [];
+        foreach (parserMenuTypes() as $menuType => $parserMenuType) {
+            $perms[$menuType] = [];
+            foreach ($permissions as $permission) {
+                if ($permission->is_parent == $menuType) {
+                    $perms[$menuType][] = $permission;
+                }
+            }
+        }
+
+        return view('tan-admin.permission.dispermission', compact('perms'));
     }
 }

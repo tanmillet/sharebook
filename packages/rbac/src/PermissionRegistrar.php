@@ -9,6 +9,11 @@ use LucasRBAC\Permission\Contracts\Permission;
 use Illuminate\Contracts\Auth\Authenticatable;
 use LucasRBAC\Permission\Exceptions\PermissionDoesNotExist;
 
+/**
+ * Class PermissionRegistrar
+ * Author Terry Lucas
+ * @package LucasRBAC\Permission
+ */
 class PermissionRegistrar
 {
     /** @var \Illuminate\Contracts\Auth\Access\Gate */
@@ -18,37 +23,61 @@ class PermissionRegistrar
     protected $cache;
 
     /** @var string */
-    protected $cacheKey = 'spatie.permission.cache';
+    protected $cacheKey = 'lucas.permission.cache';
 
+    /**
+     * @author Terry Lucas
+     * PermissionRegistrar constructor.
+     * @param Gate $gate
+     * @param Repository $cache
+     */
     public function __construct(Gate $gate, Repository $cache)
     {
         $this->gate = $gate;
         $this->cache = $cache;
     }
 
+    /**
+     * @author Terry Lucas
+     * @return bool
+     */
     public function registerPermissions(): bool
     {
-        $this->gate->before(function (Authenticatable $user, string $ability) {
-            try {
-                if (method_exists($user, 'hasPermissionTo')) {
-                    return $user->hasPermissionTo($ability);
+        $this->gate->before(
+            function (Authenticatable $user, string $ability) {
+                try {
+                    if (method_exists($user, 'hasPermissionTo')) {
+                        return $user->hasPermissionTo($ability);
+                    }
+                } catch (PermissionDoesNotExist $e) {
                 }
-            } catch (PermissionDoesNotExist $e) {
             }
-        });
+        );
 
-        return true;
+        return TRUE;
     }
 
+    /**
+     * @author Terry Lucas
+     */
     public function forgetCachedPermissions()
     {
         $this->cache->forget($this->cacheKey);
     }
 
+    /**
+     * @author Terry Lucas
+     * @return Collection
+     */
     public function getPermissions(): Collection
     {
-        return $this->cache->remember($this->cacheKey, config('permission.cache_expiration_time'), function () {
-            return app(Permission::class)->with('roles')->get();
-        });
+        //TODO 修改为 1 分钟
+        return $this->cache->remember(
+            $this->cacheKey,
+            1,
+            function () {
+                return app(Permission::class)->with('roles')->get();
+            }
+        );
     }
 }
