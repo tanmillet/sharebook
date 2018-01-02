@@ -20,8 +20,8 @@ class UpRoleValidator extends FormRequest
     {
         return
             [
-                'display_name' => 'required',
-                'name'         => 'required',
+                'role_name' => 'required',
+                'role_tag'         => 'required',
             ];
     }
 
@@ -34,8 +34,8 @@ class UpRoleValidator extends FormRequest
     {
         return
             [
-                'display_name' => '角色名称',
-                'name'         => '角色标识',
+                'role_name' => '角色名称',
+                'role_tag'         => '角色标识',
             ];
     }
 

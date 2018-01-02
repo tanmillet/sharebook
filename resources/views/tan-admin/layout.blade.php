@@ -249,46 +249,7 @@
                                     <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
                                         菜单
                                     </li>
-                                    <li class="">
-                                        <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                          <i class="fa fa-angle-left text"></i>
-                          <i class="fa fa-angle-down text-active"></i>
-                        </span>
-                                            <i class="icon-grid icon">
-                                            </i>
-                                            <span>示例页面</span>
-                                        </a>
-                                        <ul class="nav dk text-sm">
-                                            <li class="">
-                                                <a href="/template/profile" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-                                                    <span>个人信息</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/template/blog" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>Blog</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/template/form" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-
-                                                    <span>示例表单</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/template/table" class="auto">
-                                                    <i class="fa fa-angle-right text-xs"></i>
-                                                    <span>示例表格</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="">
+                                    <li class="active">
                                         <a href="#" class="auto">
                         <span class="pull-right text-muted">
                           <i class="fa fa-angle-left text"></i>
@@ -299,14 +260,14 @@
                                             <span>后台管理</span>
                                         </a>
                                         <ul class="nav dk text-sm">
-                                            <li class="">
+                                            <li class="active">
                                                 <a href="/ad/users" class="auto">
                                                     <i class="fa fa-users text-xs text-primary-lter"></i>
                                                     <span>用户列表</span>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="/template/blog" class="auto">
+                                                <a href="/ad/roles" class="auto">
                                                     <i class="fa fa-user text-xs text-primary-lter"></i>
                                                     <span>角色列表</span>
                                                 </a>
@@ -413,6 +374,7 @@
                 </section>
             </aside>
             <!-- /.aside -->
+
             <section id="content">
                 <section class="vbox">
                     @yield('tan-main')
@@ -420,22 +382,19 @@
                 <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open"
                    data-target="#nav,html"></a>
             </section>
+
         </section>
     </section>
 </section>
 
 <script src="/tan-admin/js/jquery.min.js"></script>
-<!-- Bootstrap -->
 <script src="/tan-admin/js/bootstrap.js"></script>
 <!-- App -->
 <script src="/tan-admin/js/app.js"></script>
 <script src="/tan-admin/js/slimscroll/jquery.slimscroll.min.js"></script>
 <script src="/tan-admin/js/charts/easypiechart/jquery.easy-pie-chart.js"></script>
 <script src="/tan-admin/js/app.plugin.js"></script>
-{{--<script type="text/javascript" src="/tan-admin/js/jPlayer/jquery.jplayer.min.js"></script>--}}
-{{--<script type="text/javascript" src="/tan-admin/js/jPlayer/add-on/jplayer.playlist.min.js"></script>--}}
-{{--<script type="text/javascript" src="/tan-admin/js/jPlayer/demo.js"></script>--}}
-@yield('tan-js')
 
+@yield('tan-js')
 </body>
 </html>

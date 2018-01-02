@@ -16,7 +16,7 @@ class RoleController extends ApiContr
     public function index()
     {
         //
-        $roles = Role::all();
+        $roles = Role::orderBy('updated_at', 'DESC')->paginate(5);
 
         return view('tan-admin.role.index', compact('roles'));
     }
@@ -45,20 +45,22 @@ class RoleController extends ApiContr
         if (!empty($inputs->getValidatorResMsg())) {
             return back()->withErrors($inputs->getValidatorResMsg());
         }
-        //insert db init
         $role = [
-            'display_name' => $validator->validateParams['display_name'],
-            'name'         => $validator->validateParams['name'],
+            'display_name' => $validator->validateParams['role_name'],
+            'name'         => $validator->validateParams['role_tag'],
         ];
-
-        //add new role operate
         try {
-            $res = Role::create($role);
+            $res = (isset($validator->validateParams['opid'])) ? Role::updateOrCreate(
+                [
+                    'id' => base64_decode($validator->validateParams['opid']),
+                ],
+                $role
+            ) : Role::create($role);
         } catch (\Exception $e) {
             return back()->withErrors($e->getMessage());
         }
 
-        return redirect('admin2/roles');
+        return redirect('ad/roles');
     }
 
     /**
@@ -72,7 +74,7 @@ class RoleController extends ApiContr
         //
         $role = (is_null($id)) ? new Role() : Role::where('id', base64_decode($id))->first();
 
-        return view('admin2-app.uprole', compact('role'));
+        return view('tan-admin.role.uprole', compact('role'));
     }
 
     /**

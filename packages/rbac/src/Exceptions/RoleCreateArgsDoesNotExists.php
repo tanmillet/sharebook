@@ -19,8 +19,8 @@ class RoleCreateArgsDoesNotExists extends InvalidArgumentException
      */
     public static function create(string $roleName, string $roleGuardName)
     {
-        $errorMsg = isset($roleName) ? '' : 'A role [name] is not empty';
-        $errorMsg .= isset($roleGuardName) ? '.' : ', A role [display_name] is not empty.';
+        $errorMsg = isset($roleName) ? '' : '角色数据结构 [display_name] 不能为空';
+        $errorMsg .= isset($roleGuardName) ? '.' : ', 角色数据结构 [name] 不能为空.';
         return new static($errorMsg);
     }
 }

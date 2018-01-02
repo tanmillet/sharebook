@@ -19,6 +19,6 @@ class RoleAlreadyExists extends InvalidArgumentException
      */
     public static function create(string $roleName, string $guardName)
     {
-        return new static("A role `{$roleName}` already exists for guard `{$guardName}`.");
+        return new static("角色标识 `{$roleName}` 已经存在角色名称是 `{$guardName}`.");
     }
 }
