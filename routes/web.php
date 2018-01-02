@@ -34,6 +34,13 @@ Route::namespace('Admin')->prefix('ad')->group(
         $router->match(['get', 'post'], '/login', 'IndexController@login');
 
         $router->get('/users', 'UserController@index');
+
+        //权限操作路由
+        $router->get('/roles', 'RoleController@index');
+        $router->get('/show/role/{opid?}', 'RoleController@show');
+        $router->post('/store/role', 'RoleController@store');
+        $router->get('/destroy/role/{opid}', 'RoleController@destroy');
+
         $router->get('/perms', 'PermissionController@index');
         $router->get('/profile', 'ProfileController@index');
         $router->get('/apitest', 'ApiTestController@index');
