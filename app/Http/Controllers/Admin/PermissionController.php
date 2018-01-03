@@ -3,11 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\Requests\UpPermissionValidator;
+use App\Http\Controllers\Admin\Traits\PermissionTrait;
 use Illuminate\Http\Request;
 use LucasRBAC\Permission\Models\Permission;
+use LucasRBAC\Permission\Models\Role;
 
 class PermissionController extends ApiContr
 {
+    use PermissionTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -51,6 +55,8 @@ class PermissionController extends ApiContr
      */
     public function store(Request $request)
     {
+
+        dump(Permission::findByName('ad/tests'));die();
         //init validator class
         $validator = new UpPermissionValidator();
         $inputs = $validator->setValidateParams($request->all())->valid();
@@ -145,25 +151,31 @@ class PermissionController extends ApiContr
      * @param $role_id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
-    public function dispatchPermission($roleId)
+    public function dispatchPermission($roleId, $permissionId = 0)
     {
         if (isPost()) {
-            $roleId = base64_decode($roleId);
-            $permissionId = base64_decode(\Illuminate\Support\Facades\Request::get("operId" , 0));
+            $roleId = ($roleId) ? base64_decode($roleId) : 0;
+            $permissionId = ($permissionId) ? base64_decode($permissionId) : 0;
             if (!isset($roleId) || !isset($permissionId)) {
                 return $this->setStatusCode(400)->responseError("参数不能为空！");
             }
 
             $perm = Permission::find($permissionId);
-            if(is_null($perm)){
+            if (is_null($perm)) {
                 return $this->setStatusCode(400)->responseError("权限访问不存在！");
             }
 
-            die();
-            $res = TRUE;
+            $res = $this->createRolePermisson(
+                [
+                    'permission_id' => $permissionId,
+                    'role_id'       => $roleId,
+                    'updated_at'    => date('Y-m-d H:i:s', time()),
+                    'created_at'    => date('Y-m-d H:i:s', time()),
+                ]
+            );
 
-            return ($res) ? $this->setStatusCode(200)->responseError("权限指派成功！") :
-                $this->setStatusCode(500)->responseError("权限指派失败！");
+            return ($res['status'] == 'succeed') ? $this->setStatusCode(200)->responseSuccess("权限指派成功！") :
+                $this->setStatusCode(500)->responseError($res['info']['message']);
         }
 
         $permissions = Permission::orderBy('created_at', "DSEC")->get();
@@ -178,6 +190,52 @@ class PermissionController extends ApiContr
             }
         }
 
-        return view('tan-admin.permission.dispermission', compact('perms'));
+        $rolePermissions = Role::find(base64_decode($roleId))->permissions;
+
+        $rolePerms = [];
+        foreach (parserMenuTypes() as $menuType => $parserMenuType) {
+            $rolePerms[$menuType] = [];
+            foreach ($rolePermissions as $rolePermission) {
+                if ($rolePermission->is_parent == $menuType) {
+                    $rolePerms[$menuType][] = $rolePermission;
+                }
+            }
+        }
+
+        return view('tan-admin.permission.dispermission', compact('perms', 'roleId', 'rolePerms'));
+    }
+
+    /**
+     * @author Terry Lucas
+     * @param $roleId
+     * @param $menuType
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function dispatchAllPermission($roleId, $menuType)
+    {
+        $roleId = ($roleId) ? base64_decode($roleId) : 0;
+        if (!isset($roleId) || !isset($menuType)) {
+            return $this->setStatusCode(400)->responseError("参数不能为空！");
+        }
+
+        $perm = Permission::where('is_parent' , $menuType)->get();
+
+        dump($perm);die();
+
+        if (is_null($perm)) {
+            return $this->setStatusCode(400)->responseError("权限访问不存在！");
+        }
+
+        $res = $this->createRolePermisson(
+            [
+                'permission_id' => $menuType,
+                'role_id'       => $roleId,
+                'updated_at'    => date('Y-m-d H:i:s', time()),
+                'created_at'    => date('Y-m-d H:i:s', time()),
+            ]
+        );
+
+        return ($res['status'] == 'succeed') ? $this->setStatusCode(200)->responseSuccess("权限指派成功！") :
+            $this->setStatusCode(500)->responseError($res['info']['message']);
     }
 }

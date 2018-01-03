@@ -1,30 +1,22 @@
 <?php
 
 namespace LucasRBAC\Permission\Models;
-
-// use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use LucasRBAC\Permission\Exceptions\PermissionAlreadyExists;
 use LucasRBAC\Permission\Exceptions\PermissionDoesNotExist;
 use LucasRBAC\Permission\PermissionRegistrar;
-
-// use Spatie\Permission\PermissionRegistrar;
-// use LucasRBAC\Permission\Traits\RefreshesPermissionCache;
-// use Illuminate\Database\Eloquent\Relations\MorphToMany;
-// use Spatie\Permission\Exceptions\PermissionDoesNotExist;
-// use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-// use Spatie\Permission\Exceptions\PermissionAlreadyExists;
 use LucasRBAC\Permission\Contracts\Permission as PermissionContract;
+use LucasRBAC\Permission\Traits\RefreshesPermissionCache;
 
-// class Permission extends Model implements PermissionContract
 /**
  * Class Permission
  * Author Terry Lucas
  * @package LucasRBAC\Permission\Models
  */
-class Permission extends Model
+class Permission extends Model implements PermissionContract
 {
-    // use RefreshesPermissionCache;
+    use RefreshesPermissionCache;
     /**
      * @author Terry Lucas
      * @var array
@@ -55,7 +47,7 @@ class Permission extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable(config('permissions'));
+        $this->setTable('permissions');
     }
 
     /**
@@ -113,8 +105,6 @@ class Permission extends Model
      */
     protected static function getPermissions(): Collection
     {
-        dump(app(PermissionRegistrar::class));
-        dump('OK');die();
         return app(PermissionRegistrar::class)->getPermissions();
     }
 }

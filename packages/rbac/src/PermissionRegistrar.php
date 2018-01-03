@@ -5,9 +5,9 @@ namespace LucasRBAC\Permission;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Contracts\Cache\Repository;
-use LucasRBAC\Permission\Contracts\Permission;
 use Illuminate\Contracts\Auth\Authenticatable;
 use LucasRBAC\Permission\Exceptions\PermissionDoesNotExist;
+use LucasRBAC\Permission\Models\Permission;
 
 /**
  * Class PermissionRegistrar
@@ -71,12 +71,11 @@ class PermissionRegistrar
      */
     public function getPermissions(): Collection
     {
-        //TODO 修改为 1 分钟
         return $this->cache->remember(
             $this->cacheKey,
             1,
             function () {
-                return app(Permission::class)->with('roles')->get();
+                return Permission::all();
             }
         );
     }

@@ -32,6 +32,10 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    /**
+     * @author Terry Lucas
+     * @return BelongsToMany
+     */
     public function roles(): BelongsToMany
     {
         return $this->belongsToMany(
