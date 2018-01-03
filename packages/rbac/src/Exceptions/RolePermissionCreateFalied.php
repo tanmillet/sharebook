@@ -17,8 +17,8 @@ class RolePermissionCreateFalied extends InvalidArgumentException
      * @param string $guardName
      * @return static
      */
-    public static function create()
+    public static function create($errorMsg)
     {
-        return new static('权限指派失败');
+        return new static($errorMsg);
     }
 }

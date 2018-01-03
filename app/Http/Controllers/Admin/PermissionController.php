@@ -152,31 +152,27 @@ class PermissionController extends ApiContr
      * @param $role_id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
-    public function dispatchPermission($roleId, $permissionId = 0)
+    public function dispatchPermission($roleId, $permissionId = 0, $menuType = 0)
     {
         if (isPost()) {
             $roleId = ($roleId) ? base64_decode($roleId) : 0;
-            $permissionId = ($permissionId) ? base64_decode($permissionId) : 0;
+            $permissionId = ($permissionId && $menuType == 'single') ? base64_decode($permissionId) : $permissionId;
             try {
 
-                if (!isset($roleId) || !isset($permissionId)) {
-                    throw  CreateArgsDoesNotExists::create('角色和权限');
+                if (!isset($roleId) || !isset($permissionId) || !isset($menuType)) {
+                    throw  CreateArgsDoesNotExists::create('角色,权限,类型');
                 }
-
-                $perm = Permission::find($permissionId);
-                if (is_null($perm)) {
-                    throw PermissionDoesNotExist::create($perm->guard_name);
-                }
-
+                //
                 $this->createRolePermisson(
                     [
                         'permission_id' => $permissionId,
                         'role_id'       => $roleId,
-                    ]
+                    ],
+                    $menuType
                 );
 
             } catch (\Exception $exception) {
-
+            var_dump($exception->getMessage());die();
                 return $this->setStatusCode(500)->responseError($exception->getMessage());
             }
 
@@ -219,29 +215,24 @@ class PermissionController extends ApiContr
     public function dispatchAllPermission($roleId, $menuType)
     {
         $roleId = ($roleId) ? base64_decode($roleId) : 0;
-        if (!isset($roleId) || !isset($menuType)) {
-            return $this->setStatusCode(400)->responseError("参数不能为空！");
+
+        try {
+            if (!isset($roleId) || !isset($menuType)) {
+                return $this->setStatusCode(400)->responseError("参数不能为空！");
+            }
+
+            $perm = Permission::where('is_parent', $menuType)->get();
+            $permIds = collect($perm)->pluck('id')->toArray();
+            $this->createRolePermisson(
+                [
+                    'permission_id' => $permIds,
+                    'role_id'       => $roleId,
+                ],
+                $menuType.'组'
+            );
+        } catch (\Exception $exception) {
+            var_dump($exception->getMessage());
         }
 
-        $perm = Permission::where('is_parent', $menuType)->get();
-
-        dump($perm);
-        die();
-
-        if (is_null($perm)) {
-            return $this->setStatusCode(400)->responseError("权限访问不存在！");
-        }
-
-        $res = $this->createRolePermisson(
-            [
-                'permission_id' => $menuType,
-                'role_id'       => $roleId,
-                'updated_at'    => date('Y-m-d H:i:s', time()),
-                'created_at'    => date('Y-m-d H:i:s', time()),
-            ]
-        );
-
-        return ($res['status'] == 'succeed') ? $this->setStatusCode(200)->responseSuccess("权限指派成功！") :
-            $this->setStatusCode(500)->responseError($res['info']['message']);
     }
 }

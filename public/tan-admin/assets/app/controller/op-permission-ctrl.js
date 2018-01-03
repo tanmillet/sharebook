@@ -28,7 +28,7 @@ require(['jquery', 'CURDModel'], function ($, curder) {
             operId = $(me).attr('data-id'),
             roleId = $(me).attr('data-role-id'),
             operName = $(me).attr('data-name'),
-            operUrl = $(me).attr('data-url') + '/' + roleId + '/' + operId,
+            operUrl = $(me).attr('data-url') + '/' + roleId + '/' + operId+ '/single',
             operData = {
                 'operId': operId,
                 'roleId': roleId,
@@ -46,7 +46,7 @@ require(['jquery', 'CURDModel'], function ($, curder) {
             operId = $(me).attr('data-id'),
             roleId = $(me).attr('data-role-id'),
             operName = $(me).attr('data-name'),
-            operUrl = $(me).attr('data-url') + '/' + roleId + '/' + operId,
+            operUrl = $(me).attr('data-url') + '/' + roleId + '/' + operId + '/all',
             operData = {
                 'operId': operId,
                 'roleId': roleId,

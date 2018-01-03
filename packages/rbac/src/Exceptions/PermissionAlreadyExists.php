@@ -17,8 +17,8 @@ class PermissionAlreadyExists extends InvalidArgumentException
      * @param string $guardName
      * @return static
      */
-    public static function create(string $permissionName, string $guardName)
+    public static function create(string $permissionName, $roleName)
     {
-        return new static(" `{$permissionName}` permission 已经存在！");
+        return new static(" `{$permissionName}` 权限, 角色组 `{$roleName}` 已经存在！");
     }
 }

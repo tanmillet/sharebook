@@ -16,7 +16,7 @@
                                 <div class="dd-handle dd3-handle text-primary-lter">Drag</div>
                                 <div class="dd3-content">{{parserMenuTypes()[$key]}}
                                     <a href="javascript:void(0);" data-id="{{$key}}" data-role-id="{{$roleId}}"
-                                       data-name="{{parserMenuTypes()[$key]}}" data-url="/ad/disall/auth"
+                                       data-name="{{parserMenuTypes()[$key]}}" data-url="/ad/dispatch/auth"
                                        class="oper-dispatch-all"> <i
                                                 class="icon icon-action-redo text-primary-lter pull-right"> 指派</i></a>
                                 </div>
