@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\Requests\UpPermissionValidator;
 use App\Http\Controllers\Admin\Traits\PermissionTrait;
 use Illuminate\Http\Request;
+use LucasRBAC\Permission\Exceptions\CreateArgsDoesNotExists;
+use LucasRBAC\Permission\Exceptions\PermissionDoesNotExist;
 use LucasRBAC\Permission\Models\Permission;
 use LucasRBAC\Permission\Models\Role;
+use LucasRBAC\Permission\Traits\HasRoles;
 
 class PermissionController extends ApiContr
 {
-    use PermissionTrait;
+    use HasRoles;
 
     /**
      * Display a listing of the resource.
@@ -56,7 +59,8 @@ class PermissionController extends ApiContr
     public function store(Request $request)
     {
 
-        dump(Permission::findByName('ad/tests'));die();
+        dump(Permission::findByName('ad/tests'));
+        die();
         //init validator class
         $validator = new UpPermissionValidator();
         $inputs = $validator->setValidateParams($request->all())->valid();
@@ -156,26 +160,29 @@ class PermissionController extends ApiContr
         if (isPost()) {
             $roleId = ($roleId) ? base64_decode($roleId) : 0;
             $permissionId = ($permissionId) ? base64_decode($permissionId) : 0;
-            if (!isset($roleId) || !isset($permissionId)) {
-                return $this->setStatusCode(400)->responseError("参数不能为空！");
+            try {
+
+                if (!isset($roleId) || !isset($permissionId)) {
+                    throw  CreateArgsDoesNotExists::create('角色和权限');
+                }
+
+                $perm = Permission::find($permissionId);
+                if (is_null($perm)) {
+                    throw PermissionDoesNotExist::create($perm->guard_name);
+                }
+
+                $this->createRolePermisson(
+                    [
+                        'permission_id' => $permissionId,
+                        'role_id'       => $roleId,
+                    ]
+                );
+
+            } catch (\Exception $exception) {
+
+                return $this->setStatusCode(500)->responseError($exception->getMessage());
             }
-
-            $perm = Permission::find($permissionId);
-            if (is_null($perm)) {
-                return $this->setStatusCode(400)->responseError("权限访问不存在！");
-            }
-
-            $res = $this->createRolePermisson(
-                [
-                    'permission_id' => $permissionId,
-                    'role_id'       => $roleId,
-                    'updated_at'    => date('Y-m-d H:i:s', time()),
-                    'created_at'    => date('Y-m-d H:i:s', time()),
-                ]
-            );
-
-            return ($res['status'] == 'succeed') ? $this->setStatusCode(200)->responseSuccess("权限指派成功！") :
-                $this->setStatusCode(500)->responseError($res['info']['message']);
+            return $this->setStatusCode(200)->responseSuccess("权限指派成功！");
         }
 
         $permissions = Permission::orderBy('created_at', "DSEC")->get();
@@ -218,9 +225,10 @@ class PermissionController extends ApiContr
             return $this->setStatusCode(400)->responseError("参数不能为空！");
         }
 
-        $perm = Permission::where('is_parent' , $menuType)->get();
+        $perm = Permission::where('is_parent', $menuType)->get();
 
-        dump($perm);die();
+        dump($perm);
+        die();
 
         if (is_null($perm)) {
             return $this->setStatusCode(400)->responseError("权限访问不存在！");

@@ -5,8 +5,20 @@ namespace LucasRBAC\Permission\Middlewares;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class RoleMiddleware
+ * Author Terry Lucas
+ * @package LucasRBAC\Permission\Middlewares
+ */
 class RoleMiddleware
 {
+    /**
+     * @author Terry Lucas
+     * @param $request
+     * @param Closure $next
+     * @param $role
+     * @return mixed
+     */
     public function handle($request, Closure $next, $role)
     {
         if (Auth::guest()) {

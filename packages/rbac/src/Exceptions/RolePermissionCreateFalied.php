@@ -5,19 +5,20 @@ namespace LucasRBAC\Permission\Exceptions;
 use InvalidArgumentException;
 
 /**
- * Class RoleDoesNotExist
+ * Class RoleCreateArgsDoesNotExists
  * Author Terry Lucas
  * @package LucasRBAC\Permission\Exceptions
  */
-class RoleDoesNotExist extends InvalidArgumentException
+class RolePermissionCreateFalied extends InvalidArgumentException
 {
     /**
      * @author Terry Lucas
      * @param string $roleName
+     * @param string $guardName
      * @return static
      */
-    public static function create(string $roleName)
+    public static function create()
     {
-        return new static("角色名称不存在 `{$roleName}`.");
+        return new static('权限指派失败');
     }
 }

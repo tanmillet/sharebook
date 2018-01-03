@@ -5,19 +5,20 @@ namespace LucasRBAC\Permission\Exceptions;
 use InvalidArgumentException;
 
 /**
- * Class RoleDoesNotExist
+ * Class RoleCreateArgsDoesNotExists
  * Author Terry Lucas
  * @package LucasRBAC\Permission\Exceptions
  */
-class RoleDoesNotExist extends InvalidArgumentException
+class CreateArgsDoesNotExists extends InvalidArgumentException
 {
     /**
      * @author Terry Lucas
      * @param string $roleName
+     * @param string $guardName
      * @return static
      */
-    public static function create(string $roleName)
+    public static function create(string $attributeMsg)
     {
-        return new static("角色名称不存在 `{$roleName}`.");
+        return new static($attributeMsg." 参数不能为空");
     }
 }

@@ -2,10 +2,10 @@
 
 namespace LucasRBAC\Permission;
 
-use Illuminate\Support\Collection;
 use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Contracts\Cache\Repository;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Collection;
 use LucasRBAC\Permission\Exceptions\PermissionDoesNotExist;
 use LucasRBAC\Permission\Models\Permission;
 
