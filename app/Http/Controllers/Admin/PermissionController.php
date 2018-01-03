@@ -136,12 +136,12 @@ class PermissionController extends ApiContr
             return $this->setStatusCode(400)->responseError("参数不能为空！");
         }
 
-        $role = Permission::find(base64_decode($id));
-        if (is_null($role)) {
+        $permission = Permission::find(base64_decode($id));
+        if (is_null($permission)) {
             return $this->setStatusCode(400)->responseError("操作权限菜单不存在！");
         }
 
-        $res = Permission::destroy(base64_decode($id));
+        $res = $permission->delete();
 
         return ($res) ? $this->setStatusCode(400)->responseError("操作权限菜单删除成功！") :
             $this->setStatusCode(400)->responseError("操作权限菜单删除失败！");
@@ -179,6 +179,7 @@ class PermissionController extends ApiContr
 
                 return $this->setStatusCode(500)->responseError($exception->getMessage());
             }
+
             return $this->setStatusCode(200)->responseSuccess("权限指派成功！");
         }
 

@@ -1,12 +1,14 @@
 <?php
 
 namespace LucasRBAC\Permission\Models;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use LucasRBAC\Permission\Exceptions\PermissionAlreadyExists;
 use LucasRBAC\Permission\Exceptions\PermissionDoesNotExist;
 use LucasRBAC\Permission\PermissionRegistrar;
 use LucasRBAC\Permission\Contracts\Permission as PermissionContract;
+use LucasRBAC\Permission\Traits\HasPermissions;
 use LucasRBAC\Permission\Traits\RefreshesPermissionCache;
 
 /**
@@ -16,7 +18,7 @@ use LucasRBAC\Permission\Traits\RefreshesPermissionCache;
  */
 class Permission extends Model implements PermissionContract
 {
-    use RefreshesPermissionCache;
+    use RefreshesPermissionCache, HasPermissions;
     /**
      * @author Terry Lucas
      * @var array

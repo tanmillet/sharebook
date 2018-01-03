@@ -16,6 +16,21 @@ trait HasPermissions
 
     /**
      * @author Terry Lucas
+     */
+    public static function bootHasPermissions()
+    {
+        static::deleting(
+            function ($model) {
+                if (method_exists($model, 'isForceDeleting') && !$model->isForceDeleting()) {
+                    return;
+                }
+                $model->roles()->detach();
+            }
+        );
+    }
+
+    /**
+     * @author Terry Lucas
      * @param $permission
      * @return $this
      */
