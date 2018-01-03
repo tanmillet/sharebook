@@ -2,7 +2,6 @@
 
 namespace LucasRBAC\Permission\Traits;
 
-use Illuminate\Support\Collection;
 use Spatie\Permission\PermissionRegistrar;
 use Spatie\Permission\Contracts\Permission;
 use Spatie\Permission\Exceptions\GuardDoesNotMatch;
@@ -14,6 +13,7 @@ use Spatie\Permission\Exceptions\GuardDoesNotMatch;
  */
 trait HasPermissions
 {
+
     /**
      * @author Terry Lucas
      * @param $permission

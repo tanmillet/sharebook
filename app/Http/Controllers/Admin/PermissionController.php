@@ -58,9 +58,6 @@ class PermissionController extends ApiContr
      */
     public function store(Request $request)
     {
-
-        dump(Permission::findByName('ad/tests'));
-        die();
         //init validator class
         $validator = new UpPermissionValidator();
         $inputs = $validator->setValidateParams($request->all())->valid();
