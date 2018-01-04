@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\TestUser;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -116,5 +118,14 @@ class ApiTestController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function testModel()
+    {
+        dump('OKO');
+
+        $res = TestUser::find(1)->testPhone;
+
+        dump($res);
     }
 }

@@ -32,6 +32,9 @@ Route::namespace('Admin')->prefix('ad')->group(
         $router->get('/apitest', 'ApiTestController@index');
         $router->get('/media', 'WidgetController@mediaManager');
         $router->get('/msg', 'WidgetController@messageOwer');
+
+        //测试
+        $router->get('/modeltest', 'ApiTestController@testModel');
     }
 );
 
