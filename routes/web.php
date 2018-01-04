@@ -10,29 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::namespace('Admin')->prefix('template')->group(
-    function ($router) {
-        // 在 "App\Http\Controllers\Admin" 命名空间下的控制器
-        $router->get('/', 'TemplateController@index');
-        $router->get('/video', 'TemplateController@video');
-        $router->get('/video/detail', 'TemplateController@videoDetail');
-        $router->get('/table', 'TemplateController@table');
-        $router->get('/profile', 'TemplateController@profile');
-        $router->get('/blog', 'TemplateController@blog');
-        $router->get('/form', 'TemplateController@form');
-        $router->get('/layout', 'TemplateController@layout');
-    }
-);
-
 Route::namespace('Admin')->prefix('ad')->group(
     function ($router) {
-        $router->get('/geo', 'GeoController@index');
-        $router->get('/geoanalyze', 'GeoController@analyze');
-        $router->get('/timeline', 'IndexController@admin2Timeline');
-        $router->get('/form', 'IndexController@form');
-        $router->match(['get', 'post'], '/login', 'IndexController@login');
-
         $router->get('/users', 'UserController@index');
 
         //角色操作路由
@@ -63,6 +42,5 @@ Route::namespace('Front')->prefix('fr')->group(
     }
 );
 
+//登录路由
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
