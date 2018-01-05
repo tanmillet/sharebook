@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\Comment;
+use App\Model\Post;
 use App\Model\TestUser;
+use App\Model\Video;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -124,8 +127,46 @@ class ApiTestController extends Controller
     {
         dump('OKO');
 
-        $res = TestUser::find(1)->testPhone;
+        // $res = User::find(1);
 
-        dump($res);
+        // dump($res->phone);
+
+        // $roles = $res->roles;
+        // dump($roles);
+        // foreach ($roles as $role) {
+        //     dump($role->pivot->user_id);
+        // }
+
+
+        // $comment = Comment::find(1);
+
+        // $commentable = $comment->commentable;
+
+        // dump($commentable);
+
+        // $post = Post::find(1);
+
+        // foreach ($post->comments as $comment) {
+            //
+            // dump($comment);
+        // }
+
+        // foreach ($post->tags as $tag) {
+            //
+            // dump($tag);
+        // }
+
+
+        $comment = new Comment(['context' => '一条新的评论。']);
+        $post = Post::find(2);
+        $post->comments()->save($comment);
+        $comment = new Comment(['context' => '一条新的评论123123。']);
+        $video = Video::find(1);
+        $video->comments()->save($comment);
+        $post = Post::find(1);
+        $post->comments()->saveMany([
+            new Comment(['context' => '111111111一条新的评论。']),
+            new Comment(['context' => '111111另一条评论。']),
+        ]);
     }
 }

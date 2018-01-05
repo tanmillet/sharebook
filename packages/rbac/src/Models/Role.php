@@ -96,7 +96,14 @@ class Role extends Model implements RoleContract
             User::class,
             'role_user'
         );
+
+        //除了自定义连接表表名，您也可以通过给 belongsToMany 方法再次传递额外参数来自定义连接表里的键的字段名称。
+        //第三个参数是定义此关联的模型在连接表里的键名，
+        //第四个参数是另一个模型在连接表里的键名
+        return $this->belongsToMany('App\Role', 'role_user', 'user_id', 'role_id');
     }
+
+
 
     /**
      * Find a role by its name and guard name.

@@ -4,14 +4,14 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TestPhone extends Model
+class Phone extends Model
 {
     public $timestamps = FALSE;
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
 
-        $this->setTable('test_phones');
+        $this->setTable('phones');
     }
     /**
      * 获得拥有此电话的用户。

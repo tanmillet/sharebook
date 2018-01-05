@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TestPost extends Model
+class Video extends Model
 {
     public $timestamps = FALSE;
 
@@ -12,11 +12,14 @@ class TestPost extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable('test_posts');
+        $this->setTable('videos');
+    }
+    /**
+     * 获得此文章的所有评论。
+     */
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
-    public function testComments()
-    {
-        return $this->hasMany(TestComment::class);
-    }
 }
