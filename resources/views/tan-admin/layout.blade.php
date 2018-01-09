@@ -270,7 +270,7 @@
                         </span>
                                             <i class="fa fa-tasks icon text-info-lter">
                                             </i>
-                                            <span>后台管理</span>
+                                            <span>BackEnd</span>
                                         </a>
                                         <ul class="nav dk text-sm">
                                             <li class="">
@@ -299,6 +299,31 @@
                                             </li>
                                         </ul>
                                     </li>
+                                    <li class="">
+                                        <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="fa fa-angle-left text"></i>
+                          <i class="fa fa-angle-down text-active"></i>
+                        </span>
+                                            <i class="fa fa-tasks icon text-info-lter">
+                                            </i>
+                                            <span>YoBlog</span>
+                                        </a>
+                                        <ul class="nav dk text-sm">
+                                            <li class="">
+                                                <a href="/yo/blogs" class="auto">
+                                                    <i class="fa fa-users text-xs text-primary-lter"></i>
+                                                    <span>博客列表</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/yo/types" class="auto">
+                                                    <i class="fa fa-book text-xs text-primary-lter"></i>
+                                                    <span>博客类型</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                     <li class="active">
                                         <a href="#" class="auto">
                         <span class="pull-right text-muted">
@@ -307,7 +332,7 @@
                         </span>
                                             <i class="fa fa-tasks icon text-info-lter">
                                             </i>
-                                            <span>KooBooK管理</span>
+                                            <span>KooBook</span>
                                         </a>
                                         <ul class="nav dk text-sm">
                                             <li class="active">
