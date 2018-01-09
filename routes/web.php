@@ -48,11 +48,18 @@ Route::namespace('KooBook')->prefix('kbk')->group(
     }
 );
 
-//前端页面
+//KooBook前端页面
 Route::namespace('Front')->prefix('fr')->group(
     function ($router) {
         $router->get('/kbk', 'KoobooKController@index');
         $router->get('/show/{opid}/book', 'KoobooKController@show');
+    }
+);
+
+//Yoblog前端页面
+Route::namespace('YoBlog')->prefix('yo')->group(
+    function ($router) {
+        $router->get('/blogs', 'BlogController@index');
     }
 );
 
