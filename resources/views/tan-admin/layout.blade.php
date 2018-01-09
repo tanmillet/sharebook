@@ -317,9 +317,9 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/kbk/types/marks" class="auto">
+                                                <a href="/kbk/book/tags" class="auto">
                                                     <i class="fa fa-tags text-xs text-primary-lter"></i>
-                                                    <span>标签/类型</span>
+                                                    <span>书籍标签</span>
                                                 </a>
                                             </li>
                                             <li>
@@ -424,7 +424,8 @@
                                             退出
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                              style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>

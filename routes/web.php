@@ -43,7 +43,7 @@ Route::namespace('KooBook')->prefix('kbk')->group(
     function ($router) {
         $router->get('/books', 'BookController@index');
         $router->get('/bookers', 'BookerController@index');
-        $router->get('/types/marks', 'BookTypeMarkController@index');
+        $router->get('/book/tags', 'BookTagController@index');
         $router->get('/show/book/{opid?}', 'BookController@show');
     }
 );

@@ -4,7 +4,7 @@ namespace App\Model\KBK;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BookType extends Model
+class Tag extends Model
 {
     public $timestamps = FALSE;
 
@@ -12,6 +12,6 @@ class BookType extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable('book_types');
+        $this->setTable('book_tags');
     }
 }

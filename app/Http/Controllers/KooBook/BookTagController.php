@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\KooBook;
 
-use App\Model\KBK\BookMark;
-use App\Model\KBK\BookType;
+use App\Model\KBK\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class BookTypeMarkController extends Controller
+class BookTagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +16,9 @@ class BookTypeMarkController extends Controller
     public function index()
     {
         //
-        $types = BookType::orderBy('updated_at', 'DESC')->paginate(5);
+        $tags = Tag::orderBy('updated_at', 'DESC')->paginate(5);
 
-        $marks = BookMark::orderBy('updated_at', 'DESC')->paginate(5);
-
-        return view('tan-admin.koobook.marktype', compact('types', 'marks'));
+        return view('tan-admin.koobook.tags', compact('tags'));
     }
 
     /**
