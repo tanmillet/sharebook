@@ -28,21 +28,21 @@
                                         <i class="fa fa-star-o text-muted"></i>
                                     </div>
                                     <div class="bottom padder m-b-sm">
-                                        <a href="#" class="pull-right active" data-toggle="class">
+                                        <a href="/fr/show/1/book" class="pull-right active" data-toggle="class">
                                             <i class="fa fa-heart-o text"></i>
                                             <i class="fa fa-heart text-active text-danger"></i>
                                         </a>
-                                        <a href="#" data-toggle="class">
+                                        <a href="/fr/show/1/book" data-toggle="class">
                                             <i class="fa fa-plus-circle text"></i>
                                             <i class="fa fa-check-circle text-active text-success"></i>
                                         </a>
                                     </div>
                                 </div>
-                                <a href="#"><img src="/tan-admin/images/p1.jpg" alt="" class="r r-2x img-full"></a>
+                                <a href="/fr/show/1/book"><img src="/tan-admin/images/p1.jpg" alt="" class="r r-2x img-full"></a>
                             </div>
                             <div class="padder-v">
-                                <a href="#" class="text-ellipsis">Tempered Song</a>
-                                <a href="#" class="text-ellipsis text-xs text-muted">Miaow</a>
+                                <a href="/fr/show/1/book" class="text-ellipsis">Tempered Song</a>
+                                <a href="/fr/show/1/book" class="text-ellipsis text-xs text-muted">Miaow</a>
                             </div>
                         </div>
                     </div>

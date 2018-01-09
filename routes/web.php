@@ -42,6 +42,7 @@ Route::namespace('Admin')->prefix('ad')->group(
 Route::namespace('Front')->prefix('fr')->group(
     function ($router) {
         $router->get('/kbk', 'KoobooKController@index');
+        $router->get('/show/{opid}/book', 'KoobooKController@show');
     }
 );
 
