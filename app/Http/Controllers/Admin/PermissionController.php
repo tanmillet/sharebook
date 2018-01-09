@@ -172,7 +172,9 @@ class PermissionController extends ApiContr
                 );
 
             } catch (\Exception $exception) {
-            var_dump($exception->getMessage());die();
+                var_dump($exception->getMessage());
+                die();
+
                 return $this->setStatusCode(500)->responseError($exception->getMessage());
             }
 
@@ -231,7 +233,7 @@ class PermissionController extends ApiContr
                 $menuType.'组'
             );
         } catch (\Exception $exception) {
-            var_dump($exception->getMessage());
+            return $this->setStatusCode(500)->responseError($exception->getMessage());
         }
 
     }
