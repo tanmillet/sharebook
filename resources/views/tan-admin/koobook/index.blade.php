@@ -6,8 +6,7 @@
             <div class="row wrapper">
                 <div class="col-sm-12 m-b-xs">
                     <a href="/ad/show/role" class="btn btn-sm btn-primary"><i class="fa fa-plus text"></i> 书籍</a>
-                    <a href="/ad/show/role" class="btn btn-sm btn-primary"><i class="fa fa-plus text"></i> 类型</a>
-                    <a href="/ad/show/role" class="btn btn-sm btn-primary"><i class="fa fa-plus text"></i> 标签</a>
+                    <a href="javascript:viod(0)" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#addTag"><i class="fa fa-plus text"></i> 标签</a>
                     <div class="btn-group">
                         <button class="btn btn-sm btn-primary"><i class="fa fa-download"></i> 导出</button>
                         <button class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown"><span
@@ -80,7 +79,7 @@
                             </td>
                         </tr>
                     @empty
-                       <td colspan="13"> 查无数据!</td>
+                        <td colspan="13"> 查无数据!</td>
                     @endforelse
                     </tbody>
                 </table>
@@ -88,6 +87,7 @@
             @include('tan-admin.partials.pagination' , ['paginator' => $books])
         </section>
         @include('tan-admin.koobook.filter')
+        @include('tan-admin.koobook.addtag')
     </section>
 @endsection
 
