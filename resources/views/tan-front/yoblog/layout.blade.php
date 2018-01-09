@@ -28,7 +28,6 @@
         <div class="navbar-header aside bg-primary">
             <a href="/yo/blogs" class="navbar-brand text-lt">
                 <i class="icon-eyeglasses"></i>
-                {{--<img src="/tan-admin/images/logo_white.png" alt="." class="hide">--}}
                 <span class="hidden-nav-xs m-l-sm">YoBlog</span>
             </a>
             <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
