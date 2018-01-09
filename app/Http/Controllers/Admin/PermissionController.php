@@ -230,7 +230,7 @@ class PermissionController extends ApiContr
                     'permission_id' => $permIds,
                     'role_id'       => $roleId,
                 ],
-                $menuType.'组'
+                $menuType
             );
         } catch (\Exception $exception) {
             return $this->setStatusCode(500)->responseError($exception->getMessage());

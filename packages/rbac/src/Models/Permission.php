@@ -81,7 +81,7 @@ class Permission extends Model implements PermissionContract
     {
         return $this->belongsToMany(
             Role::class,
-            'permission_role'
+            'role_permission'
         );
     }
 
