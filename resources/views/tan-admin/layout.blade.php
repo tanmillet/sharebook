@@ -262,7 +262,7 @@
                                     <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
                                         菜单
                                     </li>
-                                    <li class="active">
+                                    <li class="">
                                         <a href="#" class="auto">
                         <span class="pull-right text-muted">
                           <i class="fa fa-angle-left text"></i>
@@ -273,7 +273,7 @@
                                             <span>后台管理</span>
                                         </a>
                                         <ul class="nav dk text-sm">
-                                            <li class="active">
+                                            <li class="">
                                                 <a href="/ad/users" class="auto">
                                                     <i class="fa fa-users text-xs text-primary-lter"></i>
                                                     <span>用户列表</span>
@@ -295,6 +295,43 @@
                                                 <a href="/template/table" class="auto">
                                                     <i class="fa fa-book text-xs text-primary-lter"></i>
                                                     <span>操作日志</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="active">
+                                        <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="fa fa-angle-left text"></i>
+                          <i class="fa fa-angle-down text-active"></i>
+                        </span>
+                                            <i class="fa fa-tasks icon text-primary-lter">
+                                            </i>
+                                            <span>KooBooK管理</span>
+                                        </a>
+                                        <ul class="nav dk text-sm">
+                                            <li class="active">
+                                                <a href="/ad/users" class="auto">
+                                                    <i class="fa fa-users text-xs text-primary-lter"></i>
+                                                    <span>书籍列表</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/ad/roles" class="auto">
+                                                    <i class="fa fa-user text-xs text-primary-lter"></i>
+                                                    <span>租客列表</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/ad/perms" class="auto">
+                                                    <i class="fa fa-ban text-xs text-primary-lter"></i>
+                                                    <span>订单列表</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/template/table" class="auto">
+                                                    <i class="fa fa-book text-xs text-primary-lter"></i>
+                                                    <span>收费管理</span>
                                                 </a>
                                             </li>
                                         </ul>
