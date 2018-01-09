@@ -268,7 +268,7 @@
                           <i class="fa fa-angle-left text"></i>
                           <i class="fa fa-angle-down text-active"></i>
                         </span>
-                                            <i class="fa fa-tasks icon text-primary-lter">
+                                            <i class="fa fa-tasks icon text-info-lter">
                                             </i>
                                             <span>后台管理</span>
                                         </a>
@@ -305,32 +305,38 @@
                           <i class="fa fa-angle-left text"></i>
                           <i class="fa fa-angle-down text-active"></i>
                         </span>
-                                            <i class="fa fa-tasks icon text-primary-lter">
+                                            <i class="fa fa-tasks icon text-info-lter">
                                             </i>
                                             <span>KooBooK管理</span>
                                         </a>
                                         <ul class="nav dk text-sm">
                                             <li class="active">
-                                                <a href="/ad/users" class="auto">
-                                                    <i class="fa fa-users text-xs text-primary-lter"></i>
+                                                <a href="/kbk/books" class="auto">
+                                                    <i class="fa fa-book text-xs text-primary-lter"></i>
                                                     <span>书籍列表</span>
                                                 </a>
                                             </li>
+                                            <li class="">
+                                                <a href="/kbk/types/marks" class="auto">
+                                                    <i class="fa fa-tags text-xs text-primary-lter"></i>
+                                                    <span>标签/类型</span>
+                                                </a>
+                                            </li>
                                             <li>
-                                                <a href="/ad/roles" class="auto">
-                                                    <i class="fa fa-user text-xs text-primary-lter"></i>
+                                                <a href="/kbk/bookers" class="auto">
+                                                    <i class="fa fa-users text-xs text-primary-lter"></i>
                                                     <span>租客列表</span>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="/ad/perms" class="auto">
-                                                    <i class="fa fa-ban text-xs text-primary-lter"></i>
+                                                <a href="/kbk/orders" class="auto">
+                                                    <i class="fa fa-list-alt text-xs text-primary-lter"></i>
                                                     <span>订单列表</span>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="/template/table" class="auto">
-                                                    <i class="fa fa-book text-xs text-primary-lter"></i>
+                                                <a href="/kbk/charges" class="auto">
+                                                    <i class="fa fa-dollar text-xs text-primary-lter"></i>
                                                     <span>收费管理</span>
                                                 </a>
                                             </li>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\KooBook;
 
+use App\Model\KBK\BookMark;
+use App\Model\KBK\BookType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,6 +17,11 @@ class BookTypeMarkController extends Controller
     public function index()
     {
         //
+        $types = BookType::orderBy('updated_at', 'DESC')->paginate(5);
+
+        $marks = BookMark::orderBy('updated_at', 'DESC')->paginate(5);
+
+        return view('tan-admin.koobook.marktype', compact('types', 'marks'));
     }
 
     /**
@@ -30,7 +37,7 @@ class BookTypeMarkController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +48,7 @@ class BookTypeMarkController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -52,7 +59,7 @@ class BookTypeMarkController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -63,8 +70,8 @@ class BookTypeMarkController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -75,7 +82,7 @@ class BookTypeMarkController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

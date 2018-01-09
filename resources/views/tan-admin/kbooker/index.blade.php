@@ -5,9 +5,7 @@
         <section class="panel panel-default">
             <div class="row wrapper">
                 <div class="col-sm-12 m-b-xs">
-                    <a href="/ad/show/role" class="btn btn-sm btn-primary"><i class="fa fa-plus text"></i> 书籍</a>
-                    <a href="/ad/show/role" class="btn btn-sm btn-primary"><i class="fa fa-plus text"></i> 类型</a>
-                    <a href="/ad/show/role" class="btn btn-sm btn-primary"><i class="fa fa-plus text"></i> 标签</a>
+                    <a href="/ad/show/role" class="btn btn-sm btn-primary"><i class="fa fa-plus text"></i> 新建</a>
                     <div class="btn-group">
                         <button class="btn btn-sm btn-primary"><i class="fa fa-download"></i> 导出</button>
                         <button class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown"><span
@@ -48,32 +46,32 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @forelse($books as $book)
+                    @forelse($bookers as $booker)
                         <tr>
                             <td><label class="checkbox m-n i-checks"><input type="checkbox"
                                                                             name="post[]"><i></i></label></td>
                             <td>
-                                <a href="/ad/show/role/{{base64_encode($book->id)}}">{{$book->display_name}}</a>
+                                <a href="/ad/show/role/{{base64_encode($booker->id)}}">{{$booker->display_name}}</a>
                             </td>
-                            <td>{{$book->name}}</td>
-                            <td>{{$book->updated_at}}</td>
-                            <td>{{$book->updated_at}}</td>
-                            <td>{{$book->updated_at}}</td>
-                            <td>{{$book->updated_at}}</td>
-                            <td>{{$book->updated_at}}</td>
-                            <td>{{$book->updated_at}}</td>
-                            <td>{{$book->updated_at}}</td>
-                            <td>{{$book->updated_at}}</td>
-                            <td>{{$book->updated_at}}</td>
+                            <td>{{$booker->name}}</td>
+                            <td>{{$booker->updated_at}}</td>
+                            <td>{{$booker->updated_at}}</td>
+                            <td>{{$booker->updated_at}}</td>
+                            <td>{{$booker->updated_at}}</td>
+                            <td>{{$booker->updated_at}}</td>
+                            <td>{{$booker->updated_at}}</td>
+                            <td>{{$booker->updated_at}}</td>
+                            <td>{{$booker->updated_at}}</td>
+                            <td>{{$booker->updated_at}}</td>
                             <td>
                                 <div class="doc-buttons">
-                                    <a href="/ad/show/role/{{base64_encode($role->id)}}">
+                                    <a href="/ad/show/role/{{base64_encode($booker->id)}}">
                                         <i class="fa fa-edit text-primary-lter"> 编辑</i>
                                     </a>
-                                    <a href="#" class="oper-del" data-id="{{base64_encode($role->id)}}"
-                                       data-name="{{$role->display_name}}" data-url="/ad/destroy/role"><i
+                                    <a href="#" class="oper-del" data-id="{{base64_encode($booker->id)}}"
+                                       data-name="{{$booker->display_name}}" data-url="/ad/destroy/role"><i
                                                 class="fa fa-trash-o text-primary-lter"> 删除</i></a>
-                                    <a href="/ad/dispatch/auth/{{base64_encode($role->id)}}">
+                                    <a href="/ad/dispatch/auth/{{base64_encode($booker->id)}}">
                                         <i class="fa fa fa-link text-primary-lter"> 权限</i>
                                     </a>
                                 </div>
@@ -85,13 +83,13 @@
                     </tbody>
                 </table>
             </div>
-            @include('tan-admin.partials.pagination' , ['paginator' => $books])
+            @include('tan-admin.partials.pagination' , ['paginator' => $bookers])
         </section>
-        @include('tan-admin.koobook.filter')
+        @include('tan-admin.kbooker.filter')
     </section>
 @endsection
 
 @section('tan-js')
     <script src="/tan-admin/assets/vendor/require.js"
-            data-main="/tan-admin/assets/app/controller/op-book-ctrl"></script>
+            data-main="/tan-admin/assets/app/controller/op-booker-ctrl"></script>
 @endsection

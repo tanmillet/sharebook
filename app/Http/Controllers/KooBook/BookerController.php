@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\KooBook;
 
+use App\Model\KBK\Booker;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,6 +16,9 @@ class BookerController extends Controller
     public function index()
     {
         //
+        $bookers = Booker::orderBy('updated_at', 'DESC')->paginate(5);
+
+        return view('tan-admin.kbooker.index', compact('bookers'));
     }
 
     /**

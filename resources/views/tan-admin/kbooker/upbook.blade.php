@@ -23,13 +23,13 @@
                             <div class="col-sm-6">
                                 <label>角色信息</label>
                                 <input type="text" class="form-control parsley-validated" data-required="true"
-                                       value="{{$role->display_name}}" name="role_name">
+                                       value="{{$book->display_name}}" name="role_name">
                             </div>
                             <div class="col-sm-6">
                                 <label>角色标识</label>
                                 <input type="text" name="role_tag" class="form-control parsley-validated"
-                                       data-required="true" value="{{$role->name}}"
-                                       @if(isset($role->name)) readonly @endif>
+                                       data-required="true" value="{{$book->name}}"
+                                       @if(isset($book->name)) readonly @endif>
                             </div>
                         </div>
                     </div>

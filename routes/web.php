@@ -38,6 +38,16 @@ Route::namespace('Admin')->prefix('ad')->group(
     }
 );
 
+//koobook管理后台
+Route::namespace('KooBook')->prefix('kbk')->group(
+    function ($router) {
+        $router->get('/books', 'BookController@index');
+        $router->get('/bookers', 'BookerController@index');
+        $router->get('/types/marks', 'BookTypeMarkController@index');
+        $router->get('/show/book/{opid?}', 'BookController@show');
+    }
+);
+
 //前端页面
 Route::namespace('Front')->prefix('fr')->group(
     function ($router) {
