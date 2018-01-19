@@ -51,7 +51,7 @@ class BookController extends Controller
     public function show($id)
     {
         //
-        $role = (is_null($id)) ? new Book() : Book::where('id', base64_decode($id))->first();
+        $book = (is_null($id)) ? new Book() : Book::where('id', base64_decode($id))->first();
 
         return view('tan-admin.koobook.upbook', compact('book'));
     }
