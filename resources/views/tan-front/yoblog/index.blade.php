@@ -45,6 +45,154 @@
                             </div>
 
                         </div>
+                        <div class="post-item">
+
+                            <div class="post-media">
+
+                                <img src="/tan-admin/images/m42.jpg" class="img-full">
+
+                            </div>
+
+                            <div class="caption wrapper-lg">
+
+                                <h2 class="post-title"><a href="#">7 things you need to know about the flat design</a></h2>
+
+                                <div class="post-sum">
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat.
+
+                                        <br><br>
+
+                                        Phasellus at ultricies neque, quis malesuada augue. Donec eleifend condimentum nisl eu consectetur. Integer eleifend, nisl venenatis consequat iaculis, lectus arcu malesuada sem, dapibus porta quam lacus eu neque.</p>
+
+                                </div>
+
+                                <div class="line line-lg"></div>
+
+                                <div class="text-muted">
+
+                                    <i class="fa fa-user icon-muted"></i> by <a href="#" class="m-r-sm">Admin</a>
+
+                                    <i class="fa fa-clock-o icon-muted"></i> Feb 20, 2013
+
+                                    <a href="#" class="m-l-sm"><i class="fa fa-comment-o icon-muted"></i> 2 comments</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="post-item">
+
+                            <div class="post-media">
+
+                                <img src="/tan-admin/images/m42.jpg" class="img-full">
+
+                            </div>
+
+                            <div class="caption wrapper-lg">
+
+                                <h2 class="post-title"><a href="#">7 things you need to know about the flat design</a></h2>
+
+                                <div class="post-sum">
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat.
+
+                                        <br><br>
+
+                                        Phasellus at ultricies neque, quis malesuada augue. Donec eleifend condimentum nisl eu consectetur. Integer eleifend, nisl venenatis consequat iaculis, lectus arcu malesuada sem, dapibus porta quam lacus eu neque.</p>
+
+                                </div>
+
+                                <div class="line line-lg"></div>
+
+                                <div class="text-muted">
+
+                                    <i class="fa fa-user icon-muted"></i> by <a href="#" class="m-r-sm">Admin</a>
+
+                                    <i class="fa fa-clock-o icon-muted"></i> Feb 20, 2013
+
+                                    <a href="#" class="m-l-sm"><i class="fa fa-comment-o icon-muted"></i> 2 comments</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="post-item">
+
+                            <div class="post-media">
+
+                                <img src="/tan-admin/images/m42.jpg" class="img-full">
+
+                            </div>
+
+                            <div class="caption wrapper-lg">
+
+                                <h2 class="post-title"><a href="#">7 things you need to know about the flat design</a></h2>
+
+                                <div class="post-sum">
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat.
+
+                                        <br><br>
+
+                                        Phasellus at ultricies neque, quis malesuada augue. Donec eleifend condimentum nisl eu consectetur. Integer eleifend, nisl venenatis consequat iaculis, lectus arcu malesuada sem, dapibus porta quam lacus eu neque.</p>
+
+                                </div>
+
+                                <div class="line line-lg"></div>
+
+                                <div class="text-muted">
+
+                                    <i class="fa fa-user icon-muted"></i> by <a href="#" class="m-r-sm">Admin</a>
+
+                                    <i class="fa fa-clock-o icon-muted"></i> Feb 20, 2013
+
+                                    <a href="#" class="m-l-sm"><i class="fa fa-comment-o icon-muted"></i> 2 comments</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="post-item">
+
+                            <div class="post-media">
+
+                                <img src="/tan-admin/images/m42.jpg" class="img-full">
+
+                            </div>
+
+                            <div class="caption wrapper-lg">
+
+                                <h2 class="post-title"><a href="#">7 things you need to know about the flat design</a></h2>
+
+                                <div class="post-sum">
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat.
+
+                                        <br><br>
+
+                                        Phasellus at ultricies neque, quis malesuada augue. Donec eleifend condimentum nisl eu consectetur. Integer eleifend, nisl venenatis consequat iaculis, lectus arcu malesuada sem, dapibus porta quam lacus eu neque.</p>
+
+                                </div>
+
+                                <div class="line line-lg"></div>
+
+                                <div class="text-muted">
+
+                                    <i class="fa fa-user icon-muted"></i> by <a href="#" class="m-r-sm">Admin</a>
+
+                                    <i class="fa fa-clock-o icon-muted"></i> Feb 20, 2013
+
+                                    <a href="#" class="m-l-sm"><i class="fa fa-comment-o icon-muted"></i> 2 comments</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
                     </div>
 
 
