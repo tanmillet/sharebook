@@ -40,6 +40,11 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         //
+        $this->mapAuthloginRoutes();
+
+        $this->mapKoobookRoutes();
+
+        $this->mapYoblogRoutes();
     }
 
     /**
@@ -69,5 +74,49 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the "yoblog" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapYoblogRoutes()
+    {
+        Route::prefix('yo')
+            ->middleware('yo')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/yoblog.php'));
+    }
+
+    /**
+     * Define the "fr" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapKoobookRoutes()
+    {
+        Route::prefix('fr')
+            ->middleware('fr')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/koobook.php'));
+    }
+
+    /**
+     * Define the "yoblog" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapAuthloginRoutes()
+    {
+        Route::namespace($this->namespace)
+            ->middleware('authlogin')
+            ->group(base_path('routes/authlogin.php'));
     }
 }

@@ -37,33 +37,3 @@ Route::namespace('Admin')->prefix('ad')->group(
         $router->get('/modeltest', 'ApiTestController@testModel');
     }
 );
-
-//koobook管理后台
-Route::namespace('KooBook')->prefix('kbk')->group(
-    function ($router) {
-        $router->get('/books', 'BookController@index');
-        $router->get('/orders', 'OrderController@index');
-        $router->get('/charges', 'ChargeController@index');
-        $router->get('/bookers', 'BookerController@index');
-        $router->get('/book/tags', 'BookTagController@index');
-        $router->get('/show/book/{opid?}', 'BookController@show');
-    }
-);
-
-//KooBook前端页面
-Route::namespace('Front')->prefix('fr')->group(
-    function ($router) {
-        $router->get('/kbk', 'KoobooKController@index');
-        $router->get('/show/{opid}/book', 'KoobooKController@show');
-    }
-);
-
-//Yoblog前端页面
-Route::namespace('YoBlog')->prefix('yo')->group(
-    function ($router) {
-        $router->get('/blogs', 'BlogController@index');
-    }
-);
-
-//登录路由
-Auth::routes();
