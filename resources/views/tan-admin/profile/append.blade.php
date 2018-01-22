@@ -48,7 +48,7 @@
                         <div class="form-group">
                             <label>性别</label>
                             <select data-required="true" class="form-control parsley-validated"
-                                    name="auth_method">
+                                    name="gender">
                                 <option value="">选择性别</option>
                                 <option value="1" @if($profile->gender == '1') selected @endif>男性</option>
                                 <option value="2" @if($profile->gender == '2') selected @endif>女性</option>
@@ -57,14 +57,14 @@
                         </div>
                         <div class="form-group">
                             <label>个人简介</label>
-                            <textarea class="form-control parsley-validated" rows="6" data-minwords="6" data-required="true" placeholder="个人简介">{{$profile->intro}}</textarea>
+                            <textarea class="form-control parsley-validated" rows="6" data-minwords="6" data-required="true" placeholder="个人简介" name="intro">{{$profile->intro}}</textarea>
                         </div>
                         <div class="form-group">
                             <label>居住地址</label>
                             <div class="row">
                                     <div class="col-md-4">
                                         <select data-required="true" class="form-control parsley-validated"
-                                                name="is_menu">
+                                                name="address_code">
                                             <option value="1" @if($profile->is_menu == '1') selected @endif>是</option>
                                             <option value="2" @if($profile->is_menu == '2') selected @endif>否</option>
                                         </select>

@@ -29,7 +29,8 @@
             "LucasRBAC\\Permission\\": "packages/rbac/src/",
             "LucasRBAC\\Validator\\": "packages/validator/src/",
             "LucasUpload\\FilePusher\\": "packages/uploadfile/src/",
-            "LucasCurl\\CurlPusher\\": "packages/curl/src/"
+            "LucasCurl\\CurlPusher\\": "packages/curl/src/",
+            "LucasCity\\CityPusher\\": "packages/city/src/"
         }
     },
     "autoload-dev": {
