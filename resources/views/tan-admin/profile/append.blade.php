@@ -57,32 +57,32 @@
                         </div>
                         <div class="form-group">
                             <label>个人简介</label>
-                            <textarea class="form-control parsley-validated" rows="6" data-minwords="6" data-required="true" placeholder="个人简介" name="intro">{{$profile->intro}}</textarea>
+                            <textarea class="form-control parsley-validated" rows="6" data-minwords="6"
+                                      data-required="true" placeholder="个人简介"
+                                      name="intro">{{$profile->intro}}</textarea>
                         </div>
                         <div class="form-group">
                             <label>居住地址</label>
                             <div class="row">
-                                    <div class="col-md-4">
-                                        <select data-required="true" class="form-control parsley-validated"
-                                                name="address_code">
-                                            <option value="1" @if($profile->is_menu == '1') selected @endif>是</option>
-                                            <option value="2" @if($profile->is_menu == '2') selected @endif>否</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <select data-required="true" class="form-control parsley-validated"
-                                                name="is_menu">
-                                            <option value="1" @if($profile->is_menu == '1') selected @endif>是</option>
-                                            <option value="2" @if($profile->is_menu == '2') selected @endif>否</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <select data-required="true" class="form-control parsley-validated"
-                                                name="is_menu">
-                                            <option value="1" @if($profile->is_menu == '1') selected @endif>是</option>
-                                            <option value="2" @if($profile->is_menu == '2') selected @endif>否</option>
-                                        </select>
-                                    </div>
+                                <div class="col-md-4">
+                                    <select data-required="true" class="form-control parsley-validated province_code"
+                                            name="address_code">
+                                        @foreach($provinces as $code=>$province)
+                                            <option value="{{$code}}"
+                                                    @if($profile->is_menu == '1') selected @endif>{{$province}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select data-required="true" class="form-control parsley-validated city_code"
+                                            name="city_code">
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select data-required="true" class="form-control parsley-validated street_code"
+                                            name="street_code">
+                                    </select>
+                                </div>
                             </div>
                             <input type="text" class="form-control" data-required="true" placeholder="详细地址"
                                    value="{{$profile->detail_address}}" name="detail_address">

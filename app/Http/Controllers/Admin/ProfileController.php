@@ -7,6 +7,7 @@ use App\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use LucasCity\CityPusher\Cityer;
 
 class ProfileController extends Controller
 {
@@ -35,7 +36,10 @@ class ProfileController extends Controller
         $profile = Profile::where('id', base64_decode($id))->first();
         $profile = (is_null($profile)) ? new Profile() : $profile;
 
-        return view('tan-admin.profile.append', compact('profile'));
+        //获取城市列表
+        $provinces = Cityer::getCity();
+
+        return view('tan-admin.profile.append', compact('profile' , 'provinces'));
     }
 
     /**
