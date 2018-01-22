@@ -60,31 +60,33 @@
                             <textarea class="form-control parsley-validated" rows="6" data-minwords="6" data-required="true" placeholder="个人简介">{{$profile->intro}}</textarea>
                         </div>
                         <div class="form-group">
-                            <label>个人简介</label>
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="text" class="form-control" placeholder=".col-md-2">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder=".col-md-3">
+                            <label>居住地址</label>
+                            <div class="row">
+                                    <div class="col-md-4">
+                                        <select data-required="true" class="form-control parsley-validated"
+                                                name="is_menu">
+                                            <option value="1" @if($profile->is_menu == '1') selected @endif>是</option>
+                                            <option value="2" @if($profile->is_menu == '2') selected @endif>否</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder=".col-md-4">
+                                        <select data-required="true" class="form-control parsley-validated"
+                                                name="is_menu">
+                                            <option value="1" @if($profile->is_menu == '1') selected @endif>是</option>
+                                            <option value="2" @if($profile->is_menu == '2') selected @endif>否</option>
+                                        </select>
                                     </div>
-                                </div>
+                                    <div class="col-md-4">
+                                        <select data-required="true" class="form-control parsley-validated"
+                                                name="is_menu">
+                                            <option value="1" @if($profile->is_menu == '1') selected @endif>是</option>
+                                            <option value="2" @if($profile->is_menu == '2') selected @endif>否</option>
+                                        </select>
+                                    </div>
                             </div>
+                            <input type="text" class="form-control" data-required="true" placeholder="详细地址"
+                                   value="{{$profile->detail_address}}" name="detail_address">
                         </div>
-                        <div class="form-group">
-                            <label>居住地址</label>
-                                <select data-required="true" class="form-control parsley-validated"
-                                        name="is_menu">
-                                    <option value="1" @if($profile->is_menu == '1') selected @endif>是</option>
-                                    <option value="2" @if($profile->is_menu == '2') selected @endif>否</option>
-                                </select>
-                                <input type="text" class="form-control" data-required="true" placeholder="详细地址"
-                                       value="{{$profile->detail_address}}" name="detail_address">
-                            </div>
                     </div>
                     <footer class="panel-footer text-right bg-light lter">
                         <button type="submit" class="btn btn-sm btn-primary btn-s-xs">确定</button>
