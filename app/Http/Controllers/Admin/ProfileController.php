@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -17,8 +18,23 @@ class ProfileController extends Controller
     {
         //
         $user = Auth::user();
+        if (is_null($user->profile)) {
+            return redirect('/ad/append/profile');
+        }
 
-        return view('tan-admin.profile.index');
+        return view('tan-admin.profile.index', compact('user'));
+    }
+
+    /**
+     * @author Terry Lucas
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function append($id = null)
+    {
+        $profile = Profile::where('id', base64_decode($id))->first();
+        $profile = (is_null($profile)) ? new Profile() : $profile;
+
+        return view('tan-admin.profile.append', compact('profile'));
     }
 
     /**

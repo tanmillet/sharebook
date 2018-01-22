@@ -65,6 +65,15 @@ class User extends Authenticatable
     }
 
     /**
+     * @author Terry Lucas
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function profile()
+    {
+        return $this->hasOne('App\Profile');
+    }
+
+    /**
      * 获得与用户关联的电话记录。
      */
     /**
