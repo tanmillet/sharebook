@@ -16,9 +16,28 @@ define(['jquery', 'AjaxModel', 'sweetalert'], function ($, req, sweetalert) {
     }
 
     CURDModel.prototype = {
-        operC: function (post_data, post_url) {
+        operCityCode: function (operData, operUrl, operCode, operNextCode) {
             var request = new req.AjaxModel();
-            request.loseAjax(post_url, 'post', post_data, 'json', function (res) {
+            var htmlSelectStart = '<select class="form-control oper_code" data-next-code="' + operNextCode + '" data-code="' + operNextCode + '" name="' + operCode + '">', htmlOption = '', htmlSelectEnd = '</select>';
+            var htmlOp = "<option value=''>选择市区街道</option>";
+            $('.street_code').html('')
+            request.loseAjax(operUrl + operData, 'get', [], 'json', function (res) {
+                if (res.status == 'succeed') {
+                    $(res.info.data).each(function (index, val) {
+                        htmlOption += "<option value=" + val.node_code + ">" + val.node_name + "</option>"
+                    });
+                    if (htmlOption != '') {
+                        $('.' + operCode).html(htmlSelectStart + htmlOp + htmlOption + htmlSelectEnd)
+                    } else {
+                        $('.' + operCode).html('')
+                    }
+                }
+            });
+
+        },
+        operC: function (operData, operUrl) {
+            var request = new req.AjaxModel();
+            request.loseAjax(operUrl, 'post', operData, 'json', function (res) {
                 swal("结果信息！", res.info.message, "success")
                 return 'success';
             });

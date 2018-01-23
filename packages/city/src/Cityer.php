@@ -22,8 +22,8 @@ final class Cityer
     public static function getCity($province_id = 0)
     {
         return Cache::remember(base64_encode($province_id), Cityer::CACHE_MINUTES, function () use ($province_id) {
-            return CodeLibrarie::where('node_isuse', 1)->where('parent_node_code', $province_id)->pluck('node_name',
-                'node_code')->toArray();
+            return CodeLibrarie::where('node_isuse', 1)->where('parent_node_code', $province_id)->select('node_name',
+                'node_code')->get();
         });
     }
 }

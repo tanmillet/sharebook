@@ -22,7 +22,7 @@
     <script src="/tan-admin/js/ie/excanvas.js"></script>
     <![endif]-->
 </head>
-<body class="container">
+<body class="">
 <section class="vbox">
     <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
         <div class="navbar-header aside bg-primary">

@@ -65,24 +65,18 @@
                             <label>居住地址</label>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <select data-required="true" class="form-control parsley-validated province_code"
-                                            name="address_code">
+                                    <select  class="form-control oper_code"
+                                            name="province_code" data-code="city_code" data-next-code="street_code">
+                                        <option value="">选择省份</option>
                                         @foreach($provinces as $code=>$province)
-                                            <option value="{{$code}}"
-                                                    @if($profile->is_menu == '1') selected @endif>{{$province}}</option>
+                                            <option value="{{$code}}">{{$province}}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-md-4">
-                                    <select data-required="true" class="form-control parsley-validated city_code"
-                                            name="city_code">
-                                    </select>
+                                <div class="col-md-4 city_code">
+
                                 </div>
-                                <div class="col-md-4">
-                                    <select data-required="true" class="form-control parsley-validated street_code"
-                                            name="street_code">
-                                    </select>
-                                </div>
+                                <div class="col-md-4 street_code"></div>
                             </div>
                             <input type="text" class="form-control" data-required="true" placeholder="详细地址"
                                    value="{{$profile->detail_address}}" name="detail_address">
