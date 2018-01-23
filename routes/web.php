@@ -29,6 +29,7 @@ Route::namespace('Admin')->prefix('ad')->group(function ($router) {
     $router->get('/profile', 'ProfileController@index');
     $router->get('/userpass', 'ProfileController@upUserPass');
     $router->get('/append/profile/{opid?}', 'ProfileController@append');
+    $router->post('/store/profile/', 'ProfileController@store');
     $router->get('/apitest', 'ApiTestController@index');
     $router->get('/media', 'WidgetController@mediaManager');
     $router->get('/msg', 'WidgetController@messageOwer');

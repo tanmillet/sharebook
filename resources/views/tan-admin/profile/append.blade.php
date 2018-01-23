@@ -3,7 +3,7 @@
 @section('tan-main')
     <section class="scrollable wrapper-lg">
         <div class="row">
-            <form data-validate="parsley" action="/ad/store/auth" method="post">
+            <form data-validate="parsley" action="/ad/store/profile" method="post">
                 {{csrf_field()}}
                 <input type="hidden" name="opid" value="{{base64_encode($profile->id)}}">
                 <section class="panel panel-default">
@@ -68,8 +68,8 @@
                                     <select  class="form-control oper_code"
                                             name="province_code" data-code="city_code" data-next-code="street_code">
                                         <option value="">选择省份</option>
-                                        @foreach($provinces as $code=>$province)
-                                            <option value="{{$code}}">{{$province}}</option>
+                                        @foreach($provinces as $key=>$province)
+                                            <option value="{{$province->node_code}}">{{$province->node_name}}</option>
                                         @endforeach
                                     </select>
                                 </div>

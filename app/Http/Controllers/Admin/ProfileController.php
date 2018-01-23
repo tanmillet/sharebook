@@ -66,8 +66,9 @@ class ProfileController extends Controller
         if (!empty($inputs->getValidatorResMsg())) {
             return back()->withErrors($inputs->getValidatorResMsg());
         }
+
         //insert db init
-        $permission = [
+        $profile = [
             'user_id'        => Auth::id(),
             'phone'          => $validator->validateParams['phone'],
             'wechat'         => $validator->validateParams['wechat'],
@@ -76,14 +77,15 @@ class ProfileController extends Controller
             'job_title'      => $validator->validateParams['job_title'],
             'intro'          => $validator->validateParams['intro'],
             'gender'         => $validator->validateParams['gender'],
-            'address_code'   => $validator->validateParams['address_code'],
-            'detail_address' => $validator->validateParams['detail_address'],
+            'address_code'   => isset($validator->validateParams['street_code']) ? $validator->validateParams['street_code'] : $validator->validateParams['city_code'],
+            'detail_address' => isset($validator->validateParams['detail_address'])  ? $validator->validateParams['detail_address'] : '',
         ];
 
+        // dump($profile);die();
         try {
             (isset($validator->validateParams['opid'])) ? Profile::updateOrCreate([
                 'id' => base64_decode($validator->validateParams['opid']),
-            ], $permission) : Profile::create($permission);
+            ], $profile) : Profile::create($profile);
         } catch (\Exception $e) {
             return back()->withErrors($e->getMessage());
         }

@@ -27,7 +27,8 @@ class UpProfileValidator extends FormRequest
                 'job_title'         => 'required',
                 'intro'         => 'required',
                 'gender'         => 'required',
-                'address_code'         => 'required',
+                'province_code'         => 'required',
+                'city_code'         => 'required',
             ];
     }
 
@@ -47,7 +48,8 @@ class UpProfileValidator extends FormRequest
                 'job_title'         => '职位名称',
                 'intro'         => '个人简介',
                 'gender'         => '性别',
-                'address_code'         => '居住地址',
+                'province_code'         => '居住地址',
+                'city_code'         => '居住地址',
             ];
     }
 
