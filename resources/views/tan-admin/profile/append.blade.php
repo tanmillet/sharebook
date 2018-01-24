@@ -73,9 +73,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-md-4 city_code">
-
-                                </div>
+                                <div class="col-md-4 city_code"></div>
                                 <div class="col-md-4 street_code"></div>
                             </div>
                             <input type="text" class="form-control" data-required="true" placeholder="详细地址"

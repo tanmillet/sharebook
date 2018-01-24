@@ -39,7 +39,7 @@ class ProfileController extends Controller
         //获取城市列表
         $provinces = Cityer::getCity();
 
-        return view('tan-admin.profile.append', compact('profile' , 'provinces'));
+        return view('tan-admin.profile.append', compact('profile', 'provinces'));
     }
 
     /**
@@ -78,7 +78,7 @@ class ProfileController extends Controller
             'intro'          => $validator->validateParams['intro'],
             'gender'         => $validator->validateParams['gender'],
             'address_code'   => isset($validator->validateParams['street_code']) ? $validator->validateParams['street_code'] : $validator->validateParams['city_code'],
-            'detail_address' => isset($validator->validateParams['detail_address'])  ? $validator->validateParams['detail_address'] : '',
+            'detail_address' => isset($validator->validateParams['detail_address']) ? $validator->validateParams['detail_address'] : '',
         ];
 
         // dump($profile);die();
